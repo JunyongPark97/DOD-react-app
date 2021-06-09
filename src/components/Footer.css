@@ -1,0 +1,22 @@
+.footer{
+    font-size: 12px;
+    color: #929292;
+    text-align: start;
+    padding-left: 24px;
+}
+.company-name{
+    font-family: noto-medium;
+    margin-top: 64px;
+}
+.company-info{
+    font-family: noto-regular;
+    margin-top: 12px;
+}
+.privacy-policy{
+    font-family: noto-bold;
+    color: #518BF8;
+    margin-top: 22px;
+}
+.company-info{
+    font-family: noto-regular;
+}

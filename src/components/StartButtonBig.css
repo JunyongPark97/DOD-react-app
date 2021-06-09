@@ -1,0 +1,64 @@
+.startBtnBig-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contour-thick{
+    width: 100%;
+    background-color: #F5F5F5;
+    height: 12px;
+    border-radius: 8px;
+}
+.startBtnBig-btn-container{
+    background-color: #F5F5F5;
+    border-radius: 16px;
+    margin-top: 24px;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+}
+.startBtnBig-title{
+    font-family: noto-bold;
+    font-size: 28px;
+    margin-top: 64px;
+    margin-bottom: 0px;
+    color: #393C3B;
+}
+.startBtnBig-subtitle{
+    font-family: noto-regular;
+    font-size: 16px;
+    color: #5B5B5B;
+    margin-top: 4px;
+    margin-bottom: 0px;
+}
+.startBtnBig-btn-subtitle{
+    font-family: noto-regular;
+    font-size: 12px;
+    color: #5B5B5B;
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+.startBtnBig-btn-title{
+    font-family: noto-bold;
+    font-size: 16px;
+    margin-top: 24px;
+    margin-bottom: 0px;
+    columns: #393C3B;
+}
+.startBtnBig-btn-subtitle{
+    font-family: noto-regular;
+    font-size: 12px;
+    color: #5B5B5B;
+    margin-top: 8px;
+    margin-bottom: 14px;
+}
+.startBtnBig-btn-description{
+    font-family: noto-regular;
+    font-size: 8px;
+    color: #5B5B5B;
+    margin-top: 8px;
+    margin-bottom: 16px;
+
+}

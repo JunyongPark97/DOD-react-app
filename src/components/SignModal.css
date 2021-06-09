@@ -1,0 +1,75 @@
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background:rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+.modal-container{
+    background-color: white;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.modal-text{
+    font-family: noto-bold;
+    font-size: 20px;
+    text-align: start;
+    margin-top: 24px;
+    margin-bottom: 0px;
+}
+.modal-signup-btn{
+    display: block;
+    width: 280px;
+    padding: 8px 20px;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 8px;
+    margin-top: 30px;
+    outline: none;
+    border:none;
+    cursor:pointer;
+    background-color: var(--primary);
+    color:#fff;
+    border:1px solid var(--primary);
+    border-radius: 8px;
+    font-family: noto-regular;
+    font-size: 16px;
+}
+.modal-signin-btn{
+    display: block;
+    width: 280px;
+    padding: 8px 20px;
+    border-radius: 8px;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 20px;
+    outline: none;
+    border:none;
+    cursor:pointer;
+    background-color: transparent;
+    color: #7C44FF;
+    padding: 8px 20px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+    font-family: noto-regular;
+    font-size: 16px;
+}
+
+.modal-signup-btn:hover{
+    background-color: #fff;
+    color: #7C44FF;
+    transition: all 0.3s ease-out;
+}
+.modal-signin-btn:hover{
+    background-color: #7C44FF;
+    color: #fff;
+    transition: all 0.3s ease-out;
+}

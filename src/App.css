@@ -1,12 +1,26 @@
 .App {
+  display: flex;
+  justify-content: center;
   text-align: center;
+}
+.main-box{
+  max-width: 680px;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+.hrcss{
+  border-color: #F5F5F5;
+}
 
+@media (max-width : 680px){
+  .main-box{
+    width: 100%;
+    min-width: 580px;
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,4 +49,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@font-face {
+  font-family: 'noto-regular';
+  src: url('./font/NotoSansKR-Regular.otf');
+}
+@font-face {
+  font-family: 'noto-medium';
+  src: url('./font/NotoSansKR-Medium.otf');
+}
+@font-face {
+  font-family: 'noto-Bold';
+  src: url('./font/NotoSansKR-Bold.otf');
 }
