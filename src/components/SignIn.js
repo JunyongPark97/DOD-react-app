@@ -1,25 +1,85 @@
 import React,{useState} from 'react'
+import { Button } from './Button';
+import './SignIn.css'
 
 function SignIn(props) {
-    const {isOpen, close} = props;
+    const {isOpen, closeModal, loginFunction} = props;
     const [id, updateWrittenId] = useState('');
     const [pw, updateWrittenPW] = useState('');
+    const [showAlert, setAlertBoolean] = useState(false);
 
     function onChangeIdInput(e) {
+        setAlertBoolean(false);
         updateWrittenId(e.target.value);
-        console.log(id);
     }
     function onChangePWInput(e){
+        setAlertBoolean(false);
         updateWrittenPW(e.target.value);
-        console.log(pw);
     }
-    // function loginClickHandler() {
-    //     fetch("")
-    // }
+    function readyToLogin(id, pw){
+        var idReady = (id != '');
+        var pwReady = (pw != '');
+        return idReady && pwReady;
+    }
+    function loginClickHandler() {
+        console.log(readyToLogin(id,pw));
+        if(readyToLogin(id, pw)){
+            fetch('http://3.36.156.224:8000/accounts/v1/login/',{
+                method:"POST",
+                headers:{
+                    'accept' : 'application/json',
+                    'content-type' : 'application/json;charset=UTF-8'},
+                body:JSON.stringify({
+                    phone:id,
+                    password:pw
+                })
+            }).then(res => res.json())
+            .then(
+                res => {
+                    if(res.token){
+                        sessionStorage.setItem('DODtoken', res.token);
+                        loginFunction();
+                        closeModal();
+                    }else{
+                        setAlertBoolean(false);
+                        console.log(res);
+                    }
+                }
+            ).catch(function(error){
+                console.log(error);
+            })
+        }else{
+            setAlertBoolean(true);
+        }
+    }
     return (
-        <div>
-            
-        </div>
+        <>
+        {
+            isOpen?  (
+                <>
+                    <p className='signin-text'>디오디는<br/>휴대전화로 로그인!</p>
+                    <div className='signin-textbox'>
+                        <p className='signin-small-text'>전화번호</p>
+                        <p className={showAlert? 'signin-alert' : 'signin-alert hide'}>번호 또는 비밀번호를 확인해주세요.</p>
+                    </div>
+                    <input name='id' className = 'signin-id-input' onChange={onChangeIdInput} type='tel' placeholder='휴대전화 번호를 입력해주세요'>
+
+                    </input>
+                    <div className='signin-textbox'>
+                        <p className='signin-small-text'>비밀번호</p>
+                        <p className='signin-findpw'>비밀번호 찾기</p>
+                    </div>
+                    <input name='pw' className = 'signin-pw-input' onChange={onChangePWInput} type='password' placeholder='비밀번호를 입력해주세요'>
+
+                    </input>
+                    <div className='contour-16margin'/>
+                    <Button buttonSize='btn--xlarge' className='signin-submit-btn' onClick={loginClickHandler}>
+                        로그인하기
+                    </Button>
+                </>
+            ) : <></>
+        }
+        </>
     )
 }
 

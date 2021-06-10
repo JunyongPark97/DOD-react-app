@@ -1,0 +1,51 @@
+.modal-text{
+    font-family: noto-bold;
+    font-size: 20px;
+    text-align: start;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    width: 100%;
+}
+.modal-signup-btn{
+    display: block;
+    width: 280px;
+    padding: 8px 20px;
+    margin-bottom: 8px;
+    margin-top: 30px;
+    outline: none;
+    border:none;
+    cursor:pointer;
+    background-color: var(--primary);
+    color:#fff;
+    border:1px solid var(--primary);
+    border-radius: 8px;
+    font-family: noto-regular;
+    font-size: 16px;
+}
+.modal-signin-btn{
+    display: block;
+    width: 280px;
+    padding: 8px 20px;
+    border-radius: 8px;
+    outline: none;
+    border:none;
+    cursor:pointer;
+    background-color: transparent;
+    color: #7C44FF;
+    padding: 8px 20px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+    font-family: noto-regular;
+    font-size: 16px;
+}
+
+.modal-signup-btn:hover{
+    background-color: #fff;
+    color: #7C44FF;
+    transition: all 0.3s ease-out;
+}
+.modal-signin-btn:hover{
+    background-color: #7C44FF;
+    color: #fff;
+    transition: all 0.3s ease-out;
+}

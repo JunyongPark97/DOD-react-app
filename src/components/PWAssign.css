@@ -1,8 +1,8 @@
-.signin-submit-btn{
+.pwassign-submit-btn{
     margin-left: 24px;
     margin-right: 24px;
 }
-.signin-text{
+.pwassign-text{
     width: 100%;
     text-align: left;
     margin-top: 0px;
@@ -10,7 +10,7 @@
     font-size: 20px;
     margin-bottom: 36px;
 }
-.signin-small-text{
+.pwassign-small-text{
     width: auto;
     text-align: start;
     font-family: noto-regular;
@@ -19,7 +19,7 @@
     margin-top: 0px;
     display: inline;
 }
-.signin-alert{
+.pwassign-alert{
     display: inline;
     font-size: 12px;
     color: #FE351E;
@@ -28,19 +28,10 @@
     margin:0px;
     text-align: end;
 }
-.signin-alert.hide{
+.pwassign-alert.hide{
     display: none;
 }
-.signin-findpw{
-    display: inline;
-    font-size: 12px;
-    color: #929292;
-    font-family: noto-bold;
-    flex-grow: 1;
-    margin:0px;
-    text-align: end;
-}
-.signin-textbox{
+.pwassign-textbox{
     width: 100%;
     margin-bottom: 4px;
     margin-top: 0px;
@@ -49,7 +40,7 @@
     justify-content: start;
     align-items: center;
 }
-.signin-id-input{
+.pwassign-id-input{
     width: 100%;
     box-sizing : border-box;
     margin-bottom: 16px;
@@ -59,7 +50,7 @@
     border-radius: 8px;
     border:1px solid #D1D1D1;
 }
-.signin-pw-input{
+.pwassign-pw-input{
     width: 100%;
     box-sizing : border-box;
     margin-bottom: 16px;

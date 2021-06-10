@@ -3,7 +3,7 @@ import { Button } from './Button'
 import './StartButtonBig.css'
 
 function StartButtonBig(props) {
-    const {isLoggedIn} = props
+    const {isLoggedIn, onClick} = props
     return (
         <div className='startBtnBig-container'>
             <p className={isLoggedIn? 'startBtnBig-title hide' : 'startBtnBig-title'}>디오디</p>
@@ -11,7 +11,7 @@ function StartButtonBig(props) {
             <div className='startBtnBig-btn-container'>
                 <p className='startBtnBig-btn-title'><img src={process.env.PUBLIC_URL + 'dod-icon.png'}/>새 프로젝트 만들기</p>
                 <p className='startBtnBig-btn-subtitle'>설문 기간, 당첨자 수, 기프티콘만 설정해주세요.<br/>그 뒤로는 디오디가 알아서 할께요!</p>
-                <Button buttonSize='btn--large'>바로 시작</Button>
+                <Button buttonSize='btn--large' onClick={onClick}>바로 시작</Button>
                 <p className='startBtnBig-btn-description'>기프티콘 결제를 제외하고 모든 서비스가 무료에요!</p>
             </div>
             <div className='contour-thick'/>
