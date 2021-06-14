@@ -1,0 +1,30 @@
+.fb-container{
+    position: fixed;
+    bottom: 32px;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    align-items: center;
+}
+.fb-text{
+    background: #fff;
+    box-shadow: 0 0 10px grey;
+    padding-left: 16px;
+    padding-right: 32px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-family: noto-regular;
+    size: 16px;
+    border-radius: 8px;
+}
+.fb-icon{
+    /* transform: translateX(-24px); */
+}
+
+@media (max-width : 680px){
+    .fb-text{
+        display: none;
+    }
+  }
+

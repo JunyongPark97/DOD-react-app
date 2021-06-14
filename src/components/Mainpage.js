@@ -6,6 +6,7 @@ import DescriptionCard from './DescriptionCard';
 import Footer from './Footer'
 import StartButtonBig from './StartButtonBig';
 import SignModal from './SignModal'
+import MainpageDescription from './MainpageDescription';
 
 function Mainpage() {
     const history = useHistory();
@@ -26,14 +27,14 @@ function Mainpage() {
     function createProject(){
         history.push('/create');
     }
+    
     return (
         <div>
             <DodNavbar isLoggedIn = {loggedIn} openModal = {openModal}/>
             <div className='contour'/>
             <StartButtonBig isLoggedIn={loggedIn} onClick={loggedIn? createProject : openModal}/>
             <SignModal isModalOpen = {isModalOpen} closeModalFunction = {closeModal} loginFunction={login}/>
-            <DescriptionCard icon = {process.env.PUBLIC_URL + 'favicon.ico'} mainTitle = 'title' subTitle = 'subtitle' content='content'/>
-            <DescriptionCard icon = {process.env.PUBLIC_URL + 'favicon.ico'} mainTitle = 'title' subTitle = 'subtitle' content='content'/>
+            <MainpageDescription/>
             <Footer/>
         </div>
     )

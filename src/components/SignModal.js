@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import { Button } from './Button'
 import SignIn from './SignIn';
 import './SignModal.css'
 import CheckSignedUp from './CheckSignedUp'

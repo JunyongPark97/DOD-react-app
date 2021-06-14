@@ -18,7 +18,7 @@
 @media (max-width : 680px){
   .main-box{
     width: 100%;
-    min-width: 580px;
+    /* min-width: 580px; */
   }
 }
 @media (prefers-reduced-motion: no-preference) {

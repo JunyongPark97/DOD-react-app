@@ -21,18 +21,18 @@ function DodNavbar(props) {
     };
 
     return (
-        <nav className="navbar">
-            <div className="navbar-container">
-                <Link to="/" className="navbar-logo" >
-                    <img className="navbar-logo-icon" src={process.env.PUBLIC_URL + 'nav-logo.png'}/>
+        <nav className="dod-navbar">
+            <div className="dod-navbar-container">
+                <Link to="/" className="dod-navbar-logo" >
+                    <img className="dod-navbar-logo-icon" src={process.env.PUBLIC_URL + 'nav-logo.png'}/>
                 </Link>
-                <div className='title'>
+                <div className='dod-title'>
                 </div>
-                <div className='menu-icon' onClick={handleClick}>
-                    <div className={isLoggedIn ? 'menu-icon' : 'menu-icon hide'}>
+                <div className='dod-menu-icon' onClick={handleClick}>
+                    <div className={isLoggedIn ? 'dod-menu-icon' : 'dod-menu-icon hide'}>
                         <img className={click ? 'fas fa-times':'fas fa-bars'} src={process.env.PUBLIC_URL + 'menu-icon.png'}/>
                     </div>
-                    <div className={isLoggedIn ? "login-icon hide" : 'login-icon'}>
+                    <div className={isLoggedIn ? "dod-login-icon hide" : 'dod-login-icon'}>
                         <Button onClick={openModal}>
                             로그인    
                         </Button> 

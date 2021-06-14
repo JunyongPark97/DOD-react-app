@@ -135,7 +135,7 @@ function SignUp(props) {
                     <input name='id' className = 'signup-id-input' type='tel' placeholder='휴대전화 번호를 입력해주세요' onChange={onChangePhoneInput}>
 
                     </input>
-                    <Button buttonSize='btn--xlarge' className='signup-getConfirmKey-btn' onClick={onClickGetConfirmKey}>
+                    <Button id = 'getConfirmKey' buttonSize='btn--xlarge' className='signup-getConfirmKey-btn' onClick={onClickGetConfirmKey}>
                         인증번호 문자 받기
                     </Button>
                     <div className='contour-16margin-both'/>
@@ -146,7 +146,7 @@ function SignUp(props) {
                     <input name='pw' className = 'signup-pw-input' type='number' placeholder='인증번호를 입력해주세요' onChange={onChangeConfirmKey}>
 
                     </input>
-                    <Button buttonSize='btn--xlarge' className='signup-confirm-btn' onClick={onClickConfirm}>
+                    <Button id = 'confirm' buttonSize='btn--xlarge' className='signup-confirm-btn' onClick={onClickConfirm}>
                         인증하기
                     </Button>
                 </>

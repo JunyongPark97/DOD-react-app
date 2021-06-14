@@ -1,0 +1,72 @@
+.create-modal-text1{
+    font-family: noto-bold;
+    font-size: 20px;
+    margin-bottom: 0px;
+    color: #393C3B;
+}
+.create-modal-text2{
+    font-family: noto-regular;
+    font-size: 16px;
+    margin-top: 36px;
+    margin-bottom: 0px;
+    color: #393C3B;
+    width: fill;
+    text-align: start;
+}
+.create-modal-text3{
+    font-family: noto-regular;
+    font-size: 16px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    color: #393C3B;
+    width: fill;
+    text-align: start;
+}
+.create-modal-value{
+    color: #929292;
+}
+.create-modal-Btn{
+    margin-bottom: 16px;
+}
+.create-modal-Btn{
+    display: flex;
+    flex-direction: row;
+    width: fill;
+}
+.create-modal-button{
+    width: 128px;
+    flex-grow: 1;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    font-family: noto-bold;
+    font-size: 16px;
+}
+.create-modal-button.no{
+    margin-right: 12px;
+    background-color: white;
+    border-color: #7C44FF;
+    border-radius: 8px;
+    color: #7C44FF;
+}
+.create-modal-button.yes{
+    margin-left: 12px;
+    background-color: #7C44FF;
+    border-color: white;
+    border-radius: 8px;
+    color: white;
+}
+.create-modal-button.no:hover{
+    margin-right: 12px;
+    background-color: #7C44FF;
+    border-color: white;
+    border-radius: 8px;
+    color: white;
+}
+.create-modal-button.yes:hover{
+    margin-left: 12px;
+    background-color: white;
+    border-color: #7C44FF;
+    border-radius: 8px;
+    color: #7C44FF;
+}
