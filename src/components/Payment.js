@@ -1,14 +1,28 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import { Button } from './Button';
 import './Payment.css'
 import CreateProjectModal from './CreateProjectModal'
 
 function Payment(props) {
-    const {name, setName, pageNum, price, fetchServerToCreateProject} = props;
-    const [nameSent, setNameSent] = useState(false);
+    const {projectId, name, setName, pageNum, price} = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [alertShow, setAlertShow] = useState(false);
+    const [qr_code, setQRCode] = useState('');
+    const [toss_url, setTossUrl] = useState('');
     
+    useEffect(()=>{
+        fetch('http://3.36.156.224:8000/api/v1/deposit-info/',{
+            headers:{
+                'accept' : 'application/json',
+                'content-type' : 'application/json;charset=UTF-8'}
+        }).then(
+            res => res.json()
+        ).then(res => {
+            setQRCode(res.qr_code);
+            setTossUrl(res.url);
+        })
+    }, [])
+
     const nameInput = useRef(null);
     function openModal(){
         setIsModalOpen(true);
@@ -20,9 +34,24 @@ function Payment(props) {
         if(nameInput.current.value === ''){
             setAlertShow(true);
         }else{
-            setName(nameInput.current.value);
-            console.log(nameInput.current.value);
-            setNameSent(true);
+            fetch(`http://3.36.156.224:8000/api/v1/project/${projectId}/depositor/`,{
+                method:'PUT',
+                headers:{
+                    'accept' : 'application/json',
+                    'content-type' : 'application/json;charset=UTF-8',
+                    'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
+                },
+                body:JSON.stringify({
+                    depositor:nameInput.current.value
+                })
+            }).then(function(res){
+                if(res.ok){
+                    setName(nameInput.current.value);
+                    console.log(nameInput.current.value);
+                }else{
+                    console.log(res);
+                }
+            })
         }
     }
     function onChangeName(){
@@ -30,6 +59,12 @@ function Payment(props) {
     }
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    function onClickTossLink(){
+        const a = document.createElement('a');
+        a.setAttribute('href', toss_url);
+        a.setAttribute('target', '_blank');
+        a.click();
     }
     return (
         <>
@@ -50,26 +85,26 @@ function Payment(props) {
                             확인
                         </button>
                     </div>
-                    <div className={nameSent? 'payment-code-container' : 'payment-code-container hide' }>
+                    <div className={(name!=='')? 'payment-code-container' : 'payment-code-container hide' }>
                         <div className='payment-code-pc'>
                             <p className='payment-code-text1'>PC에서 결제하기</p>
                             <div className='payment-codebox'>
-                                d
+                                <img className='qrcode-img' src={qr_code}/>
                             </div>
                             <p className='payment-code-text2'>휴대폰으로 위 QR코드를 스캔해주세요!</p>
                         </div>
                         <div className='payment-code-mobile'>
                             <p className='payment-code-text1'>모바일에서 결제하기</p>
                             <div className='payment-codebox'>
-                                d
+                                <button className='toss-link-btn' onClick={onClickTossLink}>링크로 결제하기</button>
                             </div>
                             <p className='payment-code-text2'>위 링크에서 토스 혹은 타은행 앱으로 결제해주세요!</p>
                         </div>
                     </div>
-                    <button className = {nameSent? 'payment-submit-btn' : 'payment-submit-btn disabled'} onClick={nameSent? openModal : null}>
+                    <button className = {(name!=='')? 'payment-submit-btn' : 'payment-submit-btn disabled'} onClick={(name!=='')? openModal : null}>
                         입금 완료
                     </button>
-                    <CreateProjectModal name = {name} price={numberWithCommas(price)} isModalOpen={isModalOpen} closeModal={closeModal} fetchServerToCreateProject = {fetchServerToCreateProject}/>
+                    <CreateProjectModal projectId={projectId} name = {name} price={numberWithCommas(price)} isModalOpen={isModalOpen} closeModal={closeModal}/>
                 </div>
                 :
                 <></>

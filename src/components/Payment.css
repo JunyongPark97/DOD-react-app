@@ -104,24 +104,35 @@
 .payment-code-pc{
     width: 30%;
     flex-grow: 1;
+    margin-right: 12px;
 }
 .payment-code-mobile{
     width: 30%;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    margin-left: 12px;
 }
 .payment-code-text1{
     font-family: noto-regular;
     font-size: 16px;
     color: #5B5B5B;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    text-align: start;
 }
 .payment-code-text2{
     font-family: noto-regular;
     font-size: 12px;
     color: #5B5B5B;
+    margin-top: 12px;
+    margin-bottom: 0px;
+    text-align: start;
 }
-.payment-code-box{
-    width: 150px;
-    height: 150px;
+.payment-codebox{
+    /* width: 75%;
+    padding-bottom: 75%; */
 }
 .payment-code-container.hide{
     display: none;
@@ -130,4 +141,26 @@
     background-color: #D1D1D1;
     color: #fff;
     border-color: #D1D1D1;
+}
+.toss-link-btn{
+    margin: 0px;
+    border: 1px solid #7C44FF;
+    background-color: #fff;
+    border-radius: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 100%;
+    color: #7C44FF;
+    font-family: noto-regular;
+    font-size: 16px;
+    text-align: center;
+    transition:all ease 0.3s;
+}
+.toss-link-btn:hover{
+    background-color: #7C44FF;
+    color: #fff;
+}
+.qrcode-img{
+    width: 100%;
+    height: 100%;
 }

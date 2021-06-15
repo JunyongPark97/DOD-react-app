@@ -14,6 +14,12 @@ function CreatePage() {
     const [projectId, setProjectId] = useState(undefined);
 
     useEffect(()=>{
+        if(totalProductNum === 0){
+            setPageNum(0);
+        }
+        if(sessionStorage.getItem('DODtoken') == null){
+            window.location.assign('/');
+        }
         fetch('http://3.36.156.224:8000/api/v1/products/',{
             headers:{
                 'accept' : 'application/json',
@@ -34,9 +40,6 @@ function CreatePage() {
         var endDate = new Date();
         endDate.setDate(endDate.getDate() + 7);
         return endDate
-    }
-    function fetchServerToCreateProject() {
-        
     }
     function onClickBack(){
         if(pageNum === 1){
@@ -73,6 +76,8 @@ function CreatePage() {
             }).then(function(res){
                 if(res.ok){
                     return res.json()
+                }else if(res.status === 401){
+                    window.location.assign('/');
                 }else{
                     console.log(res);
                 }
@@ -101,11 +106,9 @@ function CreatePage() {
                     console.log(res);
                 }
             }).then(res => {
-                if(res.ok){
-                    setProjectId(res.id);
-                    getTotalPrice();
-                    setPageNum(1);
-                }
+                setProjectId(res.id);
+                getTotalPrice();
+                setPageNum(1);
             }).catch(error=>console.log(error))
         }
     }
@@ -122,7 +125,7 @@ function CreatePage() {
         <div>
             <Navbar pageNum={pageNum} onClickBack={onClickBack}/>
             <CreateProject productList = {productList} setProductList={setProductList} totalProductNum={totalProductNum} setTotalProductNum={setTotalProductNum} startDate={startDate} endDate={endDate} setStartDate = {setStartDate} setEndDate={setEndDate} pageNum={pageNum} onClickPay={onClickPay}/>
-            <Payment name={name} setName={setName} pageNum={pageNum} price={price} fetchServerToCreateProject = {fetchServerToCreateProject}/>
+            <Payment projectId={projectId} name={name} setName={setName} pageNum={pageNum} price={price} />
         </div>
     )
 }

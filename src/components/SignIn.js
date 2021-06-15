@@ -41,7 +41,7 @@ function SignIn(props) {
                         loginFunction();
                         closeModal();
                     }else{
-                        setAlertBoolean(false);
+                        setAlertBoolean(true);
                         console.log(res);
                     }
                 }
