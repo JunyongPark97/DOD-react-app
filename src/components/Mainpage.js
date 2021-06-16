@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom'
 import DodNavbar from './DodNavbar';
 import DescriptionCard from './DescriptionCard';
@@ -10,10 +10,18 @@ import MainpageDescription from './MainpageDescription';
 
 function Mainpage() {
     const history = useHistory();
-    const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem('DODtoken'));
+    const [loggedIn, setLoggedIn] = useState(false);
     const [isModalOpen, setModalOpen] = useState(false);
+    const [justLogin, setJustLogin] = useState(true);
     
+    useEffect(()=>{
+        if(sessionStorage.getItem('DODtoken') !== null){
+            history.push('/dashboard');
+        }
+    }, [])
+
     function openModal(){
+        setJustLogin(true);
         setModalOpen(true);
     }
     function closeModal(){
@@ -22,19 +30,22 @@ function Mainpage() {
         sessionStorage.removeItem('confirmKey');
     }
     function login(){
-        setLoggedIn(true);
+        history.push('/dashboard');
     }
     function createProject(){
         history.push('/create');
     }
-    
+    function openModalAndCreate(){
+        setJustLogin(false);
+        setModalOpen(true);
+    }
     return (
         <div>
             <DodNavbar isLoggedIn = {loggedIn} openModal = {openModal}/>
             <div className='contour'/>
-            <StartButtonBig isLoggedIn={loggedIn} onClick={loggedIn? createProject : openModal}/>
-            <SignModal isModalOpen = {isModalOpen} closeModalFunction = {closeModal} loginFunction={login}/>
-            <MainpageDescription/>
+            <StartButtonBig openModal={openModalAndCreate}/>
+            <SignModal justLogin = {justLogin} isModalOpen = {isModalOpen} closeModalFunction = {closeModal} loginFunction={login} createProject = {createProject}/>
+            <MainpageDescription/> 
             <Footer/>
         </div>
     )

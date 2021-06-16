@@ -1,0 +1,70 @@
+.dashboard-card-btn-getlink.abled{
+    width: fill;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 8px;
+    border: 1px solid #7C44FF;
+    background-color: #7C44FF;
+    color: #fff;
+    font-family: noto-bold;
+    font-size: 16px;
+    transition: all ease 0.3s;
+}
+.dashboard-card-btn-getlink.abled:hover{
+    border: 1px solid #7C44FF;
+    background-color: #fff;
+    color: #7C44FF;
+}
+.dashboard-card-btn-getlink.disabled{
+    width: fill;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 8px;
+    border: 1px solid #D1D1D1;
+    background-color: #D1D1D1;
+    color: #fff;
+    font-family: noto-bold;
+    font-size: 16px;
+}
+.dashboard-card-btn-delete{
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 1px solid #7C44FF;
+    background-color: #fff;
+    color: #7C44FF;
+    font-family: noto-bold;
+    font-size: 16px;
+    transition: all ease 0.3s;
+}
+.dashboard-card-btn-delete:hover{
+    background-color: #7C44FF;
+    color: #fff;
+    transition: all ease 0.3s;
+}
+.dashboard-card-btn-pay{
+    width: 50%;
+    flex-grow: 1;
+    margin-right: 24px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 8px;
+    border: 1px solid #7C44FF;
+    background-color: #7C44FF;
+    color: #fff;
+    font-family: noto-bold;
+    font-size: 16px;
+    transition: all ease 0.3s;
+}
+.dashboard-card-btn-pay:hover{
+    border: 1px solid #7C44FF;
+    background-color: #fff;
+    color: #7C44FF;
+}
+.dashboard-card-btn-paytext{
+    font-size: 12px;
+}
+.dashboard-card-btn-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 32px;
+}

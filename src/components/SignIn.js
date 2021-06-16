@@ -38,6 +38,7 @@ function SignIn(props) {
                 res => {
                     if(res.token){
                         sessionStorage.setItem('DODtoken', res.token);
+                        sessionStorage.setItem('userName', res.name);
                         loginFunction();
                         closeModal();
                     }else{

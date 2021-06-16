@@ -64,9 +64,9 @@ function CreatePage() {
             fetch('http://3.36.156.224:8000/api/v1/project/',{
                 method:'POST',
                 headers:{
-                'accept' : 'application/json',
-                'content-type' : 'application/json;charset=UTF-8',
-                'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
+                    'accept' : 'application/json',
+                    'content-type' : 'application/json;charset=UTF-8',
+                    'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
                 },
                 body:JSON.stringify({
                     start_at:startDate,

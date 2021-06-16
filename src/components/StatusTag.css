@@ -1,0 +1,23 @@
+.dashboard-card-status{
+    padding: 4px 8px;
+    font-family: noto-regular;
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 0px;
+}
+.dashboard-card-status.onprocess{
+    background-color: #C9CDFF;
+    color: #2000FF;
+}
+.dashboard-card-status.checking{
+    background-color: #FFC9C9;
+    color: #FF0000;
+}
+.dashboard-card-status.hold{
+    background-color: #FFFDC9;
+    color: #FFAA00;
+}
+.dashboard-card-status.complete{
+    background-color: #D1D1D1;
+    color: #fff;
+}

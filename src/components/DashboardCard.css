@@ -1,0 +1,131 @@
+.dashboard-card-container{
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 8px;
+    padding: 24px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.dashboard-card-container.disabled{
+    background-color: #F5F5F5;
+    border: 1px solid #D1D1D1;
+    border-radius: 8px;
+    padding: 24px;
+}
+.dashboard-card-title-text{
+    font-family: noto-bold;
+    font-size: 18px;
+    color: #393C3B;
+    text-align: start;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    flex-grow: 1;
+}
+.dashboard-card-title{
+    display: flex;
+    flex-direction: row;
+}
+.dashboard-card-content-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 32px;
+    margin-bottom: 0px;
+}
+.dashboard-card-content-innercontainer{
+    display: flex;
+    flex-direction: column;
+    width:40%;
+    flex-grow: 1;
+}
+
+.dashboard-card-content-innercontainer.border{
+    border-right: 1px solid #D1D1D1;
+}
+.dashboard-card-content-text{
+    font-family: noto-regular;
+    font-size: 16px;
+    color: #7C44FF;
+    text-align: start;
+    flex-grow: 1;
+    margin-top: 0px;
+}
+.dashboard-card-content-duedate{
+    display: flex;
+    flex-direction: row;
+    padding-right: 14px;
+}
+.dashboard-card-content-candidates{
+    display: flex;
+    flex-direction: row;
+    padding-right: 14px;
+}
+.dashboard-card-content-gift{
+    display: flex;
+    flex-direction: row;
+    padding-left: 14px;
+}
+.dashboard-card-content{
+    font-family: noto-bold;
+    font-size: 16px;
+    color: #393C3B;
+    margin:0px;
+}
+.dashboard-card-content.disabled{
+    font-family: noto-bold;
+    font-size: 16px;
+    color: #929292;
+}
+.dashboard-card-content-itemlist{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.dashboard-card-content-products{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: flex-end;
+}
+.dashboard-card-content-giftimg{
+    width: 32px;
+    height: 32px;
+    border: 1px solid #D1D1D1;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.dashboard-card-content-giftnum{
+    font-family: noto-bold;
+    font-size: 16px;
+    color: #393C3B;
+    margin: 0px;
+    margin-left: 8px;
+    margin-bottom: 8px;
+}
+.dashboard-card-content-giftnum.disabled{
+    color: #929292;
+}
+
+@media (max-width : 680px){
+    .dashboard-card-content-container{
+        /* display: flex; */
+        flex-direction: column;
+        margin-top: 32px;
+        margin-bottom: 0px;
+    }
+    .dashboard-card-content-innercontainer{
+        width: 100%;
+    }
+    .dashboard-card-content-innercontainer.border{
+        border-right: none;
+    }
+    .dashboard-card-content-duedate{
+        padding-right: 0px;
+    }
+    .dashboard-card-content-candidates{
+        padding-right: 0px;
+    }
+    .dashboard-card-content-gift{
+        padding-left: 0px;
+    }
+  }

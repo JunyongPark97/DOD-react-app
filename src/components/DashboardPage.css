@@ -1,0 +1,63 @@
+.dashboard-text{
+    font-family: noto-regular;
+    font-size: 24px;
+    text-align: start;
+    width: fill;
+    color: #393C3B;
+    margin-top: 64px;
+    margin-bottom: 0px;
+}
+.dashboard-highlight-text{
+    color: #7C44FF;
+}
+.dashboard-small-text{
+    font-family: noto-regular;
+    font-size: 16px;
+    text-align: start;
+    width: fill;
+    color: #393C3B;
+    margin-top: 0px;
+    margin-bottom: 32px;
+}
+.contour-12height{
+    height: 12px;
+    width: fill;
+    border-radius: 8px;
+    background-color: #F5F5F5;
+}
+.dashboard-create-btn{
+    border: 1px solid #D1D1D1;
+    border-radius: 8px;
+    padding: 24px;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.dashboard-create-btn-title{
+    font-family: noto-bold;
+    font-size: 18px;
+    color: #393C3B;
+    text-align: start;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.dashboard-icon{
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.dashboard-create-btn-subtitle{
+    font-family: noto-regular;
+    font-size: 16px;
+    color: #929292;
+    text-align: start;
+    margin-left: 28px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.dashboard-create-img{
+    width: 60px;
+    height: 60px;
+    align-self: center;
+    margin-top: 32px;
+}
