@@ -53,6 +53,9 @@ function SignIn(props) {
             setAlertBoolean(true);
         }
     }
+    function onClickFindPW(){
+        window.location.assign('http://pf.kakao.com/_nfxcTs');
+    }
     return (
         <>
         {
@@ -68,7 +71,7 @@ function SignIn(props) {
                     </input>
                     <div className='signin-textbox'>
                         <p className='signin-small-text'>비밀번호</p>
-                        <p className='signin-findpw'>비밀번호 찾기</p>
+                        <p className='signin-findpw' onClick={onClickFindPW}>비밀번호 찾기</p>
                     </div>
                     <input name='pw' className = 'signin-pw-input' onChange={onChangePWInput} type='password' placeholder='비밀번호를 입력해주세요'>
 

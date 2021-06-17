@@ -5,7 +5,16 @@ import './Navbar.css'
 function Navbar(props) {
     const {pageNum, onClickBack} = props;
     function getPageTitle(pageNumber){
-        return ((pageNumber === 0)?'프로젝트 만들기' : '결제 안내')
+        switch(pageNumber){
+            case 0: 
+                return '프로젝트 만들기'
+            case 1:
+                return '결제 안내'
+            case 2:
+                return '링크 안내'
+            case 3:
+                return '더 보기'
+        }
     }
     return (
         <nav className="navbar">

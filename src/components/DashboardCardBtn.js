@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-d
 import './DashboardCardBtn.css'
 
 export default function DashboardCardBtn(props) {
-    const {status, projectId, deleteProject} = props;
+    const {status, projectId, depositor, totalPrice, deleteProject} = props;
     const history = useHistory();
     let component = null;
     function onCliclGetLink(){
@@ -12,6 +12,12 @@ export default function DashboardCardBtn(props) {
     }
     function onClickDelete(){
         deleteProject()
+    }
+    function onClickCheckPayment(){
+        sessionStorage.setItem('checkPaymentProjectId', projectId);
+        sessionStorage.setItem('checkPaymentName', depositor);
+        sessionStorage.setItem('checkPaymentPrice', totalPrice);
+        history.push('/checkpayment');
     }
     switch(status){
         case 100:
@@ -24,7 +30,7 @@ export default function DashboardCardBtn(props) {
         case 200:
             component = component = (
                 <div className='dashboard-card-btn-container'>
-                    <button className='dashboard-card-btn-pay'><span className='dashboard-card-btn-paytext'>입금을 안했다면</span>결제하기</button>
+                    <button className='dashboard-card-btn-pay' onClick={onClickCheckPayment}><span className='dashboard-card-btn-paytext'>입금을 안했다면</span>결제하기</button>
                     <button className='dashboard-card-btn-delete' onClick={onClickDelete}>삭제</button>
                 </div>
                 )

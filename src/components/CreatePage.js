@@ -6,7 +6,7 @@ import Payment from './Payment'
 function CreatePage() {
     const [pageNum, setPageNum] = useState(0);
     const [price, setPrice] = useState(0);
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(initStartDate());
     const [endDate, setEndDate] = useState(initEndDate());
     const [productList, setProductList] = useState([]);
     const [totalProductNum, setTotalProductNum] = useState(0);
@@ -39,7 +39,13 @@ function CreatePage() {
     function initEndDate(){
         var endDate = new Date();
         endDate.setDate(endDate.getDate() + 7);
-        return endDate
+        endDate.setHours(0, 0, 0, 0);
+        return endDate;
+    }
+    function initStartDate(){
+        var startDate = new Date();
+        startDate.setHours(0, 0, 0, 0);
+        return startDate;
     }
     function onClickBack(){
         if(pageNum === 1){

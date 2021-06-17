@@ -5,6 +5,8 @@ import FloatingButton from './components/FloatingButton'
 import CreatePage from './components/CreatePage';
 import ProjectLinkPage from './components/ProjectLinkPage'
 import DashboardPage from './components/DashboardPage';
+import CheckPaymentPage from './components/CheckPaymentPage';
+import Mypage from './components/Mypage';
 
 function App() {
   
@@ -17,6 +19,8 @@ function App() {
             <Route path='/create' exact component={CreatePage}/>
             <Route path='/projectlink' exact component={ProjectLinkPage}/>
             <Route path='/dashboard' exact component={DashboardPage}/>
+            <Route path='/checkpayment' exact component={CheckPaymentPage}/>
+            <Route path='/mypage' exact component={Mypage}/>
           </Switch>
         </Router>
         <FloatingButton/>

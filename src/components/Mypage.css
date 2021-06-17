@@ -1,0 +1,9 @@
+.mypage-logout-container{
+    margin: 20px 24px;
+}
+.mypage-logout-text{
+    font-family: noto-regular;
+    font-size: 16px;
+    color: #FF0000;
+    text-align: start;
+}

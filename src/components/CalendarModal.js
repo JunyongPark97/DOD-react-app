@@ -10,6 +10,7 @@ function CalendarModal(props) {
     }
     function onChangeDate(value){
         onChange(value);
+        console.log(value);
         closeModal();
     }
     return (

@@ -29,9 +29,9 @@ function DodNavbar(props) {
                 <div className='dod-title'>
                 </div>
                 <div className='dod-menu-icon' onClick={handleClick}>
-                    <div className={isLoggedIn ? 'dod-menu-icon' : 'dod-menu-icon hide'}>
+                    <Link to='mypage' className={isLoggedIn ? 'dod-menu-icon' : 'dod-menu-icon hide'}>
                         <img className={click ? 'fas fa-times':'fas fa-bars'} src={process.env.PUBLIC_URL + 'profile-user.png'}/>
-                    </div>
+                    </Link>
                     <div className={isLoggedIn ? "dod-login-icon hide" : 'dod-login-icon'}>
                         <Button onClick={openModal}>
                             로그인    

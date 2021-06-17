@@ -21,6 +21,9 @@ function Payment(props) {
             setQRCode(res.qr_code);
             setTossUrl(res.url);
         })
+        if(name !== ''){
+            nameInput.current.value = name;
+        }
     }, [])
 
     const nameInput = useRef(null);
@@ -78,8 +81,8 @@ function Payment(props) {
                         <p className={alertShow?'payment-name-alert':'payment-name-alert hide'}>입금자명을 입력해주세요!</p>
                     </div>
                     <div className='payment-name-container'>
-                        <input ref={nameInput} name='name' className = 'payment-name' placeholder='입금자명을 입력해주세요' onChange={onChangeName}>
-
+                        <input ref={nameInput} name='name' className = 'payment-name' placeholder='입금자명을 입력해주세요' onChange={onChangeName} >
+                            
                         </input>
                         <button className = 'payment-name-submit-btn' onClick={onClickNameSubmit}>
                             확인

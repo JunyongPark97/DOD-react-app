@@ -15,6 +15,7 @@ export default function CreateProjectModal(props) {
             }
         }).then(res => {
             if(res.ok){
+                sessionStorage.setItem('getLinkProjectId', projectId);
                 window.location.assign('/projectlink');
             }else{
                 console.log(res);

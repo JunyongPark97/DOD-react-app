@@ -61,3 +61,6 @@
     align-self: center;
     margin-top: 32px;
 }
+.dashboard-container{
+    padding-bottom: 64px;
+}

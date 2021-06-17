@@ -18,7 +18,7 @@
 .dod-navbar-logo {
     color: #fff;
     justify-self: flex-start;
-    margin-left: 20px;
+    margin-left: 0px;
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
@@ -35,11 +35,17 @@
   .dod-menu-icon{
       flex: none;
       margin-left: auto;
-      margin-right: 20px;
+      margin-right: 0px;
   }
   .dod-menu-icon.hide{
       display: none;
   }
   .dod-login-icon.hide{
       display: none;
+  }
+
+  @media (max-width:640px) {
+    .dod-navbar-container{
+        width: 100%;
+    }
   }
