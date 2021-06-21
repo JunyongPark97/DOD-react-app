@@ -31,7 +31,10 @@ function SignModal(props) {
         closeModalFunction();
         setSignInOpen(false);
         setSignUpOpen(false);
+        setPWAssignOpen(false);
         setCheckSignedUpOpen(true);
+        sessionStorage.removeItem('phone');
+        sessionStorage.removeItem('confirmKey');
     }
     function openPWAssign(){
         setCheckSignedUpOpen(false);
