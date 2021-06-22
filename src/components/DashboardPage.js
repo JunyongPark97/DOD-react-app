@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-d
 import './DashboardPage.css'
 import DashboardCard from './DashboardCard';
 import MainpageDescription from './MainpageDescription';
+import Footer from './Footer'
 
 import baseUrl from '../network/network';
 
@@ -79,10 +80,11 @@ export default function DashboardPage() {
             }
             {
                 showInfo?<>
-                    <div className='contour-16margin'/>
+                    <div className='contour-16margin-both'/>
                     <MainpageDescription/>
                 </>:<></>
             }
+            <Footer/>
         </div>
     )
 }

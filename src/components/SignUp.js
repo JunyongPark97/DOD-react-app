@@ -2,6 +2,7 @@ import { when } from 'jquery';
 import React,{useState, useRef} from 'react'
 import { Button } from './Button'
 import './SignUp.css'
+import baseUrl from '../network/network';
 
 function SignUp(props) {
     const {isOpen, openPWAssign} = props;
@@ -30,6 +31,7 @@ function SignUp(props) {
     }
 
     function onClickGetConfirmKey() {
+        setConfirmFailed(false);
         if((phone != '')&&phone.length == 11){
             fetch(`${baseUrl}/api/v1/sms/send/`,{
                 method:"POST",

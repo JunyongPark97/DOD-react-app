@@ -60,10 +60,3 @@
     border-radius: 8px;
     border:1px solid #D1D1D1;
 }
-.contour-16margin{
-    width: 100%;
-    background-color: #D1D1D1;
-    height: 1px;
-    margin-top: 0px;
-    margin-bottom: 16px;
-}

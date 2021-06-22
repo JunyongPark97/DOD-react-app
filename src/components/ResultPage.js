@@ -8,6 +8,7 @@ export default function ResultPage(props) {
     const history=useHistory();
     const queryString = require('query-string');
     const params = queryString.parse(props.location.search)
+    console.log(params);
     const [projectKey, setProjectId] = useState(params.p);
     const [validatorKey, setValidatorKey] = useState(params.v);
     const [smsSuccess, setsmsSuccess] = useState(false);
@@ -26,7 +27,7 @@ export default function ResultPage(props) {
     const [confirmKey, setConfirmKey] = useState('');
 
     useEffect(()=>{
-        fetch(`${baseUrl}/api/v1/check/is_valid`,{
+        fetch(`${baseUrl}/api/v1/check/is_valid/`,{
             method:'POST',
             headers:{
                 'accept' : 'application/json',
@@ -37,13 +38,15 @@ export default function ResultPage(props) {
                 validator:validatorKey
             })
         }).then(res => {
-            if(res.ok){
+            console.log(res);
+            if(res.status === 200){
                 return res.json();
             }else{
                 history.push('/invalid');
                 throw new Error('Something went wrong');
             }
         }).then(res => {
+            console.log(res);
             if(res.dod_status === 400){
                 history.push('/invalid');
             }else if(res.dod_status === 999){
@@ -64,6 +67,7 @@ export default function ResultPage(props) {
     }
 
     function onClickGetConfirmKey() {
+        setConfirmFailed(false);
         if((phone != '')&&phone.length == 11){
             fetch(`${baseUrl}/api/v1/sms/respondent_send/`,{
                 method:"POST",
@@ -132,17 +136,19 @@ export default function ResultPage(props) {
                         validator:validatorKey
                     })
                 }).then(function(res){
-                    if(res.ok){
-                        const tempdata = res.json()
-                        setWin(tempdata.is_win);
-                        setShowResultModal(true);
-                    }else{
-                        const tempdata = res.json()
-                        if(tempdata.non_field_errors[0] != ''){
-                            confirmFailAlert(tempdata.non_field_errors[0])
+                    return res.json();
+                }).then(res => {
+                    console.log(res);
+                    console.log(res.is_win);
+                    if(res.is_win === undefined){
+                        if(res.non_field_errors[0] != ''){
+                            confirmFailAlert(res.non_field_errors[0])
                         }else{
                             confirmFailAlert('잘못된 인증번호입니다.')
                         }
+                    }else{
+                        setWin(res.is_win);
+                        setShowResultModal(true);
                     }
                 }).catch(function(res){
                     
