@@ -9,6 +9,7 @@ import DashboardPage from './components/DashboardPage';
 import CheckPaymentPage from './components/CheckPaymentPage';
 import Mypage from './components/Mypage';
 import ResultPage from './components/ResultPage';
+import InvalidPage from './components/InvalidPage';
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
             <Route path='/dashboard' exact component={DashboardPage}/>
             <Route path='/checkpayment' exact component={CheckPaymentPage}/>
             <Route path='/mypage' exact component={Mypage}/>
-            <Route path='/link/:projectKey' component={ResultPage}/>
+            <Route path='/link' component={ResultPage}/>
+            <Route path='/invalid' exact component={InvalidPage}/>
           </Switch>
         </Router>
         <FloatingButton/>
