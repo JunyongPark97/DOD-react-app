@@ -1,11 +1,13 @@
 import React,{useState, useEffect} from 'react'
 import DescriptionCard from './DescriptionCard';
 
+import baseUrl from '../network/network';
+
 function MainpageDescription() {
     const [descriptionList, setDescriptionList] =useState([]);
     
     useEffect(()=>{
-        fetch('http://3.36.156.224:8000/api/v1/dod-explanation/',{
+        fetch(`${baseUrl}/api/v1/dod-explanation/`,{
             headers:{
                 'accept' : 'application/json',
                 'content-type' : 'application/json;charset=UTF-8'}

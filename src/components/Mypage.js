@@ -4,6 +4,8 @@ import Navbar from './Navbar'
 import MypageBtn from './MypageBtn';
 import './Mypage.css'
 
+import baseUrl from '../network/network';
+
 export default function Mypage() {
     const history = useHistory();
     const [items, setItems] = useState([
@@ -32,7 +34,7 @@ export default function Mypage() {
         history.goBack();
     }
     function logout(){
-        fetch('http://3.36.156.224:8000/accounts/v1/logout/',{
+        fetch(`${baseUrl}/accounts/v1/logout/`,{
             method:'POST',
             headers:{
                 'accept' : 'application/json',

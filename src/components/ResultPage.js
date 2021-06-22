@@ -2,6 +2,7 @@ import React,{useState, useRef, useEffect} from 'react'
 import { useHistory } from 'react-router-dom';
 import './ResultPage.css'
 import ResultModal from './ResultModal'
+import baseUrl from '../network/network';
 
 export default function ResultPage(props) {
     const history=useHistory();
@@ -25,7 +26,7 @@ export default function ResultPage(props) {
     const [confirmKey, setConfirmKey] = useState('');
 
     useEffect(()=>{
-        fetch('http://3.36.156.224:8000/api/v1/check/is_valid',{
+        fetch(`${baseUrl}/api/v1/check/is_valid`,{
             method:'POST',
             headers:{
                 'accept' : 'application/json',
@@ -64,7 +65,7 @@ export default function ResultPage(props) {
 
     function onClickGetConfirmKey() {
         if((phone != '')&&phone.length == 11){
-            fetch('http://3.36.156.224:8000/api/v1/sms/respondent_send/',{
+            fetch(`${baseUrl}/api/v1/sms/respondent_send/`,{
                 method:"POST",
                 headers:{
                     'accept' : 'application/json',
@@ -119,7 +120,7 @@ export default function ResultPage(props) {
                 console.log(sentPhone);
                 console.log(confirmKey);
                 console.log(projectKey);
-                fetch('http://3.36.156.224:8000/api/v1/sms/respondent_confirm/',{
+                fetch(`${baseUrl}/api/v1/sms/respondent_confirm/`,{
                     method:"POST",
                     headers:{
                         'accept' : 'application/json',

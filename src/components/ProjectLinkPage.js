@@ -3,6 +3,7 @@ import React,{useEffect, useState, useRef} from 'react'
 import { useHistory } from 'react-router-dom';
 import Navbar from './Navbar'
 import './ProjectLinkPage.css'
+import baseUrl from '../network/network';
 
 function ProjectLinkPage() {
     const projectId = sessionStorage.getItem('getLinkProjectId');
@@ -16,7 +17,7 @@ function ProjectLinkPage() {
         if(sessionStorage.getItem('DODtoken') === null){
             history.push('/');
         }
-        fetch(`http://3.36.156.224:8000/api/v1/project/${projectId}/link_notice/`,{
+        fetch(`${baseUrl}/api/v1/project/${projectId}/link_notice/`,{
             method:'GET',
             headers:{
                 'accept' : 'application/json',

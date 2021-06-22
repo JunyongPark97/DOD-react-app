@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import {Button} from './Button'
 import './PWAssign.css'
+import baseUrl from '../network/network';
 
 function PWAssign(props) {
     const {isOpen, closeModal, loginFunction} = props;
@@ -26,7 +27,7 @@ function PWAssign(props) {
 
     function signUp(){
         if(pw1 === pw2){
-            fetch('http://3.36.156.224:8000/accounts/v1/signup/',{
+            fetch(`${baseUrl}/accounts/v1/signup/`,{
                 method:"POST",
                 headers:{
                     'accept' : 'application/json',

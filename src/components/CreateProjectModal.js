@@ -1,12 +1,13 @@
 import React from 'react'
 import moduleName from './CreateProjectModal.css'
+import baseUrl from '../network/network';
 export default function CreateProjectModal(props) {
     const {name, price, isModalOpen, closeModal,projectId} = props;
     function keepModalOpen(event){
         event.stopPropagation();
     }
     function onClickYes(){
-        fetch(`http://3.36.156.224:8000/api/v1/deposit-success/${projectId}`,{
+        fetch(`${baseUrl}/api/v1/deposit-success/${projectId}`,{
             method:'GET',
             headers:{
                 'accept' : 'application/json',

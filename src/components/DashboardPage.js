@@ -5,6 +5,8 @@ import './DashboardPage.css'
 import DashboardCard from './DashboardCard';
 import MainpageDescription from './MainpageDescription';
 
+import baseUrl from '../network/network';
+
 export default function DashboardPage() {
     const history = useHistory();
     const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -15,7 +17,7 @@ export default function DashboardPage() {
         if(sessionStorage.getItem('DODtoken') === null){
             history.push('/');
         }
-        fetch('http://3.36.156.224:8000/api/v1/dashboard/',{
+        fetch(`${baseUrl}/api/v1/dashboard/`,{
             method:'GET',
             headers:{
                 'accept' : 'application/json',

@@ -2,12 +2,13 @@ import React from 'react'
 import './DashboardCard.css'
 import StatusTag from './StatusTag';
 import DashboardCardBtn from './DashboardCardBtn'
+import baseUrl from '../network/network';
 
 export default function DashboardCard(props) {
     const {item, index, deleteProject} = props;
     const products = item.products;
     function deleteItem(){
-        fetch(`http://3.36.156.224:8000/api/v1/project/${item.id}/`,{
+        fetch(`${baseUrl}/api/v1/project/${item.id}/`,{
             method:'DELETE',
             headers:{
                 'accept' : 'application/json',

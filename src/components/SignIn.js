@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { Button } from './Button';
 import './SignIn.css'
+import baseUrl from '../network/network';
 
 function SignIn(props) {
     const {isOpen, closeModal, loginFunction} = props;
@@ -24,7 +25,7 @@ function SignIn(props) {
     function loginClickHandler() {
         console.log(readyToLogin(id,pw));
         if(readyToLogin(id, pw)){
-            fetch('http://3.36.156.224:8000/accounts/v1/login/',{
+            fetch(`${baseUrl}/accounts/v1/login/`,{
                 method:"POST",
                 headers:{
                     'accept' : 'application/json',
