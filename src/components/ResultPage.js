@@ -43,7 +43,6 @@ export default function ResultPage(props) {
                 return res.json();
             }else{
                 history.push('/invalid');
-                throw new Error('Something went wrong');
             }
         }).then(res => {
             console.log(res);

@@ -10,15 +10,6 @@
 .dashboard-highlight-text{
     color: #7C44FF;
 }
-.dashboard-small-text{
-    font-family: noto-regular;
-    font-size: 16px;
-    text-align: start;
-    width: fill;
-    color: #393C3B;
-    margin-top: 0px;
-    margin-bottom: 32px;
-}
 .contour-12height{
     height: 12px;
     width: fill;
@@ -31,7 +22,8 @@
     padding: 24px;
     margin-top: 32px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin-bottom: 16px;
     
 }
 .dashboard-create-btn-title{
@@ -45,6 +37,11 @@
 .dashboard-icon{
     margin-right: 8px;
     vertical-align: middle;
+    width: 20px;
+    height: 20px;
+}
+.dashboard-create-btn-box{
+    flex-grow: 1;
 }
 .dashboard-create-btn-subtitle{
     font-family: noto-regular;
@@ -56,10 +53,9 @@
     margin-bottom: 0px;
 }
 .dashboard-create-img{
-    width: 60px;
-    height: 60px;
+    width: 32px;
+    height: 32px;
     align-self: center;
-    margin-top: 32px;
 }
 .dashboard-container{
     padding-bottom: 64px;

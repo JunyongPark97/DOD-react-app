@@ -19,7 +19,8 @@ export default function CreateProjectModal(props) {
                 sessionStorage.setItem('getLinkProjectId', projectId);
                 window.location.assign('/projectlink');
             }else{
-                console.log(res);
+                window.alert('다시 로그인해주세요.')
+                window.location.assign('/');
             }
         })
     }

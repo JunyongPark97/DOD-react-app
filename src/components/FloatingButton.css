@@ -19,12 +19,24 @@
     border-radius: 8px;
 }
 .fb-icon{
-    /* transform: translateX(-24px); */
+    transform: translateX(-24px);
 }
 
 @media (max-width : 680px){
     .fb-text{
         display: none;
+    }
+    .fb-icon{
+        transform: translateX(0px);
+    }
+    .fb-container{
+        position: fixed;
+        bottom: 12px;
+        right: 8px;
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        align-items: center;
     }
   }
 

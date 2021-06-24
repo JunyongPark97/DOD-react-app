@@ -86,7 +86,7 @@ function CreateProject(props) {
                         <div id='select-date-btn' className={dueDateOpen?'create-project-descriptionBox':'create-project-descriptionBox hide'}>
                             <p className='create-project-dueDate-description'>
                                 설문 시작일과 종료일을 설정해주세요.<br/>
-                                시작일 00:00부터 종료일 24:00까지 프로젝트가 활성화돼요.
+                                시작일 00:00부터 종료일 24:00까지 <br/>프로젝트가 활성화돼요.
                             </p>
                             <div className='create-project-box2'>
                                 <p id='select-start-date-btn' className='create-project-dueDate-inline' onClick={openStartModal}><img className='create-project-icon' src={process.env.PUBLIC_URL + 'icon-calendar.png'}/>{startDate.getMonth()+1}-{startDate.getDate()}</p>
@@ -107,8 +107,7 @@ function CreateProject(props) {
                         </div>
                         <div className={giftOpen?'create-project-descriptionBox':'create-project-descriptionBox hide'}>
                             <p className='create-project-gift-description'>
-                                당첨자에게 지급할 기프티콘을 선택해주세요.<br/>
-                                기프티콘은 종류와 상관없이 랜덤하게 지급돼요.
+                                당첨자에게 지급할 <br/>기프티콘을 선택해주세요.
                             </p>
                             {
                                 productList.map((item, index) => <ProductCard key={index} item={item} index = {index} onChange={onChangeProductNum}/>)

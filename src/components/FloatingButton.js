@@ -1,11 +1,12 @@
 import React from 'react'
 import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom'
 import './FloatingButton.css'
+import {kakaoLink} from '../network/network'
 
 function FloatingButton() {
     const history = useHistory();
     function onClickFb(){
-        window.location.assign('http://pf.kakao.com/_nfxcTs')
+        window.location.assign(kakaoLink)
     }
     return (
         <div className='fb-container' onClick={onClickFb}>

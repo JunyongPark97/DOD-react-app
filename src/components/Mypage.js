@@ -1,35 +1,50 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useHistory } from 'react-router-dom'
 import Navbar from './Navbar'
 import MypageBtn from './MypageBtn';
 import './Mypage.css'
 
-import baseUrl from '../network/network';
+import baseUrl,{kakaoLink} from '../network/network';
 
 export default function Mypage() {
     const history = useHistory();
     const [items, setItems] = useState([
         {
-            imgsrc:`${process.env.PUBLIC_URL + 'mypage-icon-1.png'}`,
+            icon_src:`${process.env.PUBLIC_URL + 'mypage-icon-1.png'}`,
             link:'',
-            text:'자주 묻는 질문'
+            title:'자주 묻는 질문'
         },
         {
-            imgsrc:`${process.env.PUBLIC_URL + 'mypage-icon-2.png'}`,
-            link:'http://pf.kakao.com/_nfxcTs',
-            text:'문의 상담하기'
+            imgicon_srcsrc:`${process.env.PUBLIC_URL + 'mypage-icon-2.png'}`,
+            link:kakaoLink,
+            title:'문의 상담하기'
         },
         {
-            imgsrc:`${process.env.PUBLIC_URL + 'mypage-icon-3.png'}`,
+            icon_src:`${process.env.PUBLIC_URL + 'mypage-icon-3.png'}`,
             link:'',
-            text:'건의하기'
+            title:'건의하기'
         },
         {
-            imgsrc:`${process.env.PUBLIC_URL + 'mypage-icon-4.png'}`,
+            icon_src:`${process.env.PUBLIC_URL + 'mypage-icon-4.png'}`,
             link:'',
-            text:'공지사항'
+            title:'공지사항'
         },
     ])
+    useEffect(()=>{
+        fetch('http://3.36.156.224:8000/api/v1/third-party-menus/',{
+            method:'GET',
+            headers:{
+                'accept' : 'application/json',
+                'content-type' : 'application/json;charset=UTF-8',
+                'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
+            }
+        }).then((res)=>{
+            return res.json();
+        }).then((res)=>{
+            setItems(res);
+        })
+    },[])
+    
     function onClickBack(){
         history.goBack();
     }
@@ -55,8 +70,8 @@ export default function Mypage() {
         <div>
             <Navbar pageNum={3} onClickBack={onClickBack}/>
             {
-                items.map(item => 
-                    <MypageBtn imgsrc={item.imgsrc} link={item.link} text = {item.text}/>
+                items.map((item,index) => 
+                    <MypageBtn key = {index} imgsrc={item.icon_src} link={item.link} text = {item.title}/>
                 )
             }
             <div className='mypage-logout-container' onClick={logout}>

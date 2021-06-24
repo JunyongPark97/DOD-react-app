@@ -55,7 +55,7 @@ ${res.url}`)
     }
     function onClickBack(){
         sessionStorage.removeItem('getLinkProjectId');
-        history.goBack();
+        history.push('/dashboard');
     }
     return (
         <div>

@@ -1,8 +1,14 @@
 .product-card-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 8px;
+}
+.product-card-innercontainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
 }
 .product-card-img{
     width: 80px;
@@ -19,6 +25,9 @@
     flex-grow: 1;
     padding-left: 12px;
 }
+.product-card-name-box-mobile{
+    display: none;
+}
 .product-card-price-box{
     text-align: end;
 }
@@ -27,6 +36,10 @@
     font-size: 16px;
     color: #393C3B;
     margin: 0px;
+    margin-right: 8px;
+}
+.product-card-brandname.mobile{
+    margin-bottom: 4px;
 }
 .product-card-name{
     font-family: noto-regular;
@@ -71,4 +84,20 @@
     font-family: noto-regular;
     font-size: 16px;
     color: #929292;
+}
+
+@media (max-width:480px) {
+    .product-card-name-box-mobile{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+    .product-card-name-box{
+        display: none;
+    }
+    .product-card-price-box{
+        text-align: end;
+        flex-grow: 1;
+    }
 }

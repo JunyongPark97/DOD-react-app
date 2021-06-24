@@ -89,3 +89,28 @@
     margin-top: 16px;
     margin-bottom: 16px;
 }
+.signup-checkbox{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+.signup-checkbox-text{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 8px;
+    font-size: 14px;
+    font-family: noto-regular;
+    text-align: start;
+    color: #393C3B;
+    flex-grow: 1;
+}
+.signup-checkbox-text-item{
+    font-family: noto-bold;
+    color: #518BF8;
+}
+.signup-checkbox-text-strong{
+    color: #7C44FF;
+}

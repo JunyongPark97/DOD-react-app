@@ -2,13 +2,14 @@ import { when } from 'jquery';
 import React,{useState, useRef} from 'react'
 import { Button } from './Button'
 import './SignUp.css'
-import baseUrl from '../network/network';
+import baseUrl,{privacyPolicy, useOfTerm} from '../network/network';
 
 function SignUp(props) {
     const {isOpen, openPWAssign} = props;
     const [smsSuccess, setsmsSuccess] = useState(false);
     const [smsFail, setsmsFail] = useState(false);
     const [confirmFailed, setConfirmFailed] = useState(false);
+    const [policyAgreed, setPolicyAgreed] = useState(true);
 
     const confirmKeyAlertMessage = useRef(null);
     const smsAlertMessage = useRef(null);
@@ -32,7 +33,7 @@ function SignUp(props) {
 
     function onClickGetConfirmKey() {
         setConfirmFailed(false);
-        if((phone != '')&&phone.length == 11){
+        if((phone != '')&&phone.length == 11&&policyAgreed){
             fetch(`${baseUrl}/api/v1/sms/send/`,{
                 method:"POST",
                 headers:{
@@ -69,8 +70,13 @@ function SignUp(props) {
                 
             })
         }else{
-            smsFailAlert('전화번호를 확인해주세요.');
-            setsmsSent(false);
+            if(!policyAgreed){
+                smsFailAlert('개인정보 처리방침에 동의해주세요.');
+                setsmsSent(false);
+            }else{
+                smsFailAlert('전화번호를 확인해주세요.');
+                setsmsSent(false);
+            }
         }
     }
 
@@ -122,7 +128,21 @@ function SignUp(props) {
         confirmKeyAlertMessage.current.innerText = text;
         setConfirmFailed(true);
     }
-
+    function onClickAgree(){
+        setPolicyAgreed(!policyAgreed);
+    }
+    function onClickPrivacy(){
+        const a = document.createElement('a');
+        a.setAttribute('href', privacyPolicy);
+        a.setAttribute('target', '_blank');
+        a.click();
+    }
+    function onClickUseOfTerm(){
+        const a = document.createElement('a');
+        a.setAttribute('href', useOfTerm);
+        a.setAttribute('target', '_blank');
+        a.click();
+    }
     return (
         <>
         {
@@ -137,6 +157,10 @@ function SignUp(props) {
                     <input name='id' className = 'signup-id-input' type='tel' placeholder='휴대전화 번호를 입력해주세요' onChange={onChangePhoneInput}>
 
                     </input>
+                    <div className='signup-checkbox'>
+                        <img onClick={onClickAgree} src={policyAgreed? (process.env.PUBLIC_URL + 'box-checked.png') : (process.env.PUBLIC_URL + 'box-empty.png')}/>
+                        <p className='signup-checkbox-text'><span onClick={onClickPrivacy} className='signup-checkbox-text-item'>개인정보처리방침</span> 및 <span onClick={onClickUseOfTerm} className='signup-checkbox-text-item'>디오디 이용약관</span>에<br/>동의합니다<span className='signup-checkbox-text-strong'>(필수)</span></p>
+                    </div>
                     <Button id = 'getConfirmKey' buttonSize='btn--xlarge' className='signup-getConfirmKey-btn' onClick={onClickGetConfirmKey}>
                         인증번호 문자 받기
                     </Button>

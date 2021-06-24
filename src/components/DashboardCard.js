@@ -27,7 +27,7 @@ export default function DashboardCard(props) {
     return (
         <div className={(item.project_status > 100) ? 'dashboard-card-container disabled' :'dashboard-card-container'}>
             <div className='dashboard-card-title'>
-                <p className='dashboard-card-title-text'><img className='dashboard-icon' src={process.env.PUBLIC_URL + 'dod-icon.png'}/>{item.name}</p>
+                <p className='dashboard-card-title-text'><img className='dashboard-icon' src={process.env.PUBLIC_URL + 'project-icon.png'}/>{item.name}</p>
                 <StatusTag status={item.project_status}/>
             </div>
             <div className='dashboard-card-content-container'>

@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Button } from './Button';
 import './SignIn.css'
-import baseUrl from '../network/network';
+import baseUrl, {kakaoLink} from '../network/network';
 
 function SignIn(props) {
     const {isOpen, closeModal, loginFunction} = props;
@@ -55,7 +55,10 @@ function SignIn(props) {
         }
     }
     function onClickFindPW(){
-        window.location.assign('http://pf.kakao.com/_nfxcTs');
+        const a = document.createElement('a');
+        a.setAttribute('href', kakaoLink);
+        a.setAttribute('target', '_blank');
+        a.click();
     }
     return (
         <>

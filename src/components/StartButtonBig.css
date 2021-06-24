@@ -20,7 +20,7 @@
     width: 340px;
 }
 .startBtnBig-title{
-    font-family: noto-bold;
+    font-family: noto-regular;
     font-size: 28px;
     margin-top: 64px;
     margin-bottom: 0px;
@@ -33,32 +33,27 @@
     margin-top: 4px;
     margin-bottom: 0px;
 }
-.startBtnBig-btn-subtitle{
-    font-family: noto-regular;
-    font-size: 12px;
-    color: #5B5B5B;
-    margin-top: 8px;
-    margin-bottom: 0px;
-}
-.startBtnBig-btn-title{
-    font-family: noto-bold;
-    font-size: 16px;
+.startBtnBig-img{
+    width: 72px;
+    height: 88px;
     margin-top: 24px;
-    margin-bottom: 0px;
-    columns: #393C3B;
+    margin-bottom: 24px;
 }
-.startBtnBig-btn-subtitle{
+.startBtnBig-btn{
+    width: 320px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     font-family: noto-regular;
-    font-size: 12px;
-    color: #5B5B5B;
-    margin-top: 8px;
-    margin-bottom: 14px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 1px solid #7C44FF;
+    background-color: #7C44FF;
+    color: #fff;
+    transition: all ease 0.3s;
+    margin-bottom: 48px;
 }
-.startBtnBig-btn-description{
-    font-family: noto-regular;
-    font-size: 8px;
-    color: #5B5B5B;
-    margin-top: 8px;
-    margin-bottom: 16px;
-
+.startBtnBig-btn:hover{
+    background-color: #fff;
+    color: #7C44FF;
+    
 }

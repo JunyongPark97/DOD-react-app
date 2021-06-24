@@ -6,7 +6,7 @@
 }
 .project-link-title{
     width: 100%;
-    font-family: noto-medium;
+    font-family: noto-regular;
     font-size: 24px;
     text-align: start;
     color: #393C3B;
@@ -15,6 +15,7 @@
 }
 .project-link-title-strong{
     color: #7C44FF;
+    font-family: noto-medium;
 }
 .project-link-subtitle{
     width: 100%;
@@ -26,7 +27,7 @@
     margin-bottom: 0px;
 }
 .project-link-content{
-    width: 344px;
+    /* width: 100%; */
     padding: 24px;
     border: 1px solid #929292;
     border-radius: 8px;
@@ -85,4 +86,9 @@
 .project-link-gohome:hover{
     background-color: #fff;
     color: #7C44FF;
+}
+@media (max-width:480px) {
+    .project-link-content{
+        font-size: 14px;
+    }
 }
