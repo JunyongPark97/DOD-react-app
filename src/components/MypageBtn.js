@@ -4,7 +4,10 @@ import './MypageBtn.css'
 export default function MypageBtn(props) {
     const {imgsrc, text, link} = props;
     function onClickBtn(){
-        window.location.assign(link);
+        const a = document.createElement('a');
+        a.setAttribute('href', link);
+        a.setAttribute('target', '_blank');
+        a.click();
     }
     return (
         <div className='mypage-btn-container' onClick={onClickBtn}>

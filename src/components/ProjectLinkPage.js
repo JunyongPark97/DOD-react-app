@@ -16,28 +16,28 @@ function ProjectLinkPage() {
     useEffect(()=>{
         if(sessionStorage.getItem('DODtoken') === null){
             history.push('/');
-        }
-        fetch(`${baseUrl}/api/v1/project/${projectId}/link_notice/`,{
-            method:'GET',
-            headers:{
-                'accept' : 'application/json',
-                'content-type' : 'application/json;charset=UTF-8',
-                'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
-            }
-        }).then(res => {
-            if(res.ok){
-                return res.json()
-            }else{
+        }else{
+            fetch(`${baseUrl}/api/v1/project/${projectId}/link_notice/`,{
+                method:'GET',
+                headers:{
+                    'accept' : 'application/json',
+                    'content-type' : 'application/json;charset=UTF-8',
+                    'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
+                }
+            }).then(res => {
+                if(res.ok){
+                    return res.json()
+                }else{
+                    console.log(res);
+                }
+            }).then(res => {
                 console.log(res);
-            }
-        }).then(res => {
-            console.log(res);
-            setLinkItem(res);
-            setContent(
-            `기프티콘 추첨 결과는 디오디에서!
+                setLinkItem(res);
+                setContent(`기프티콘 추첨 결과는 디오디에서!
 아래 링크에서 당첨 여부를 즉시 확인해보세요!
 ${res.url}`)
-        })
+            })
+        }
     }, [])
     function onClickGoHome(){
         sessionStorage.removeItem('getLinkProjectId');
@@ -47,11 +47,13 @@ ${res.url}`)
         var tempElem = document.createElement('textarea');
         tempElem.value = content;
         document.body.appendChild(tempElem);
-
         tempElem.select();
+        tempElem.addEventListener('keydown', function(e){
+            e.preventDefault();
+        })
         document.execCommand("copy");
         document.body.removeChild(tempElem);
-        alert("복사되었습니다.");
+        window.alert("복사되었습니다.");
     }
     function onClickBack(){
         sessionStorage.removeItem('getLinkProjectId');
@@ -68,7 +70,8 @@ ${res.url}`)
                 </p>
                 <button className='project-link-copy-btn' onClick={copyText}>복사하기</button>
                 <p className='project-link-small'>위 문구를 아래와 같이 첨부해주세요</p>
-                <img className='project-link-img' src={linkItem.image_url}/>
+                <img className='project-link-img-pc' src={linkItem.pc_url}/>
+                <img className='project-link-img-mobile' src={linkItem.mobile_url}/>
                 <button className='project-link-gohome' onClick={onClickGoHome}>확인</button>
             </div>
         </div>

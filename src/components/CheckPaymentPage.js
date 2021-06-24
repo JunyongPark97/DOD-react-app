@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useHistory } from 'react-router-dom';
 import Navbar from './Navbar'
 import Payment from './Payment';
@@ -6,7 +6,7 @@ import Payment from './Payment';
 export default function CheckPaymentPage() {
     const history = useHistory();
     const projectId = sessionStorage.getItem('checkPaymentProjectId');
-    const name = sessionStorage.getItem('checkPaymentName');
+    const [name, setName] = useState(sessionStorage.getItem('checkPaymentName'));
     const price = sessionStorage.getItem('checkPaymentPrice');
     function onClickBack(){
         sessionStorage.removeItem('checkPaymentProjectId');
@@ -14,13 +14,14 @@ export default function CheckPaymentPage() {
         sessionStorage.removeItem('checkPaymentPrice');
         history.goBack();
     }
-    function setName(name){
+    function onClickSetName(name){
+        setName(name);
         sessionStorage.setItem('checkPaymentName', name);
     }
     return (
         <div>
             <Navbar pageNum={1} onClickBack={onClickBack}/>
-            <Payment projectId={projectId} name={name} setName={setName} pageNum={1} price={price}/>
+            <Payment projectId={projectId} name={name} setName={onClickSetName} pageNum={1} price={price}/>
         </div>
     )
 }

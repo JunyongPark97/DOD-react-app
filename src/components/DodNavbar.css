@@ -42,6 +42,10 @@
       margin-left: auto;
       margin-right: 0px;
   }
+  .fas{
+      width: 32px;
+      height: 32px;
+  }
   .dod-menu-icon.hide{
       display: none;
   }

@@ -40,6 +40,7 @@ function PWAssign(props) {
             }).then(res => res.json())
             .then(res => {
                 sessionStorage.setItem('DODtoken', res.token);
+                sessionStorage.setItem('userName', res.name);
                 loginFunction();
                 closeModal();
             })

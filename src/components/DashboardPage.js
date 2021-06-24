@@ -32,10 +32,16 @@ export default function DashboardPage() {
                     console.log(res);
                 }
             }).then(res => {
-                setItemList(res);
-                if(res.length === 0){
-                    setShowInfo(true);
+                if(res !==undefined){
+                    setItemList(res);
+                    if(res.length === 0){
+                        setShowInfo(true);
+                    }
+                }else{
+                    sessionStorage.removeItem('DODtoken');
+                    history.push('/');
                 }
+                
                 console.log(res);
             })
         }
@@ -59,6 +65,15 @@ export default function DashboardPage() {
             setShowInfo(false);
         }
     }
+    function getActiveProjectsNum(list){
+        var num = 0;
+        list.map(item => {
+            if(item.project_status === 100){
+                num += 1;
+            }
+        })
+        return num;
+    }
     return (
         <div className='dashboard-container'>
             <DodNavbar isLoggedIn={isLoggedIn} openModal={openMypage}/>
@@ -66,7 +81,7 @@ export default function DashboardPage() {
             <p className='dashboard-text'>
                 {sessionStorage.getItem('userName')}님은<br/>
                 <span className='dashboard-highlight-text'>
-                    {itemList.length}개 
+                    {getActiveProjectsNum(itemList)}개 
                 </span>
                 설문을 디오디로<br/>
                 기프티콘 <span className='dashboard-highlight-text'>즉시</span> 지급 중이에요.
