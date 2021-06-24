@@ -45,28 +45,23 @@
 .create-modal-button.no{
     margin-right: 12px;
     background-color: white;
-    border-color: #7C44FF;
     border-radius: 8px;
+    border: 1px solid #7C44FF;
     color: #7C44FF;
 }
 .create-modal-button.yes{
     margin-left: 12px;
     background-color: #7C44FF;
-    border-color: white;
+    border: 1px solid #fff;
     border-radius: 8px;
     color: white;
 }
 .create-modal-button.no:hover{
-    margin-right: 12px;
-    background-color: #7C44FF;
-    border-color: white;
-    border-radius: 8px;
-    color: white;
+    background-color: #CFCFCF;
 }
 .create-modal-button.yes:hover{
-    margin-left: 12px;
-    background-color: white;
+    background-color: #6639CF;
     border-color: #7C44FF;
     border-radius: 8px;
-    color: #7C44FF;
+    color: #CFCFCF;
 }

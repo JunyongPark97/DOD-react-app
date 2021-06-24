@@ -116,8 +116,8 @@
     margin-bottom: 64px;
 }
 .create-project-pay-btn:hover{
-    background-color: #fff;
-    color: #7C44FF;
+    background-color: #6639CF;
+    color: #CFCFCF;
     transition: all ease 0.3s;
 }
 .create-project-pay-btn.disabled{

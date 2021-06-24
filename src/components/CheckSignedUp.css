@@ -40,12 +40,11 @@
 }
 
 .modal-signup-btn:hover{
-    background-color: #fff;
-    color: #7C44FF;
+    background-color: #6639CF;
+    color: #CFCFCF;
     transition: all 0.3s ease-out;
 }
 .modal-signin-btn:hover{
-    background-color: #7C44FF;
-    color: #fff;
+    background-color: #CFCFCF;
     transition: all 0.3s ease-out;
 }

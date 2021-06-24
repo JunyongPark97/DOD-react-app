@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Button } from './Button';
 import './SignIn.css'
-import baseUrl, {kakaoLink} from '../network/network';
+import baseUrl from '../network/network';
 
 function SignIn(props) {
     const {isOpen, closeModal, loginFunction} = props;
@@ -56,7 +56,7 @@ function SignIn(props) {
     }
     function onClickFindPW(){
         const a = document.createElement('a');
-        a.setAttribute('href', kakaoLink);
+        a.setAttribute('href', 'https://www.notion.so/944fb33d73f04d638b43620184e4b0db');
         a.setAttribute('target', '_blank');
         a.click();
     }

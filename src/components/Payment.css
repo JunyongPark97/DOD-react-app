@@ -12,8 +12,8 @@
     margin-left: 16px;
 }
 .payment-name-submit-btn:hover{
-    background-color: #fff;
-    color:#7C44FF;
+    background-color: #6639CF;
+    color:#CFCFCF;
 }
 
 .payment-submit-btn{
@@ -29,8 +29,8 @@
 }
 
 .payment-submit-btn:hover{
-    background-color: #fff;
-    color:#7C44FF;
+    background-color: #6639CF;
+    color:#CFCFCF;
 }
 .payment-title{
     font-family: noto-medium;
@@ -128,10 +128,7 @@
     margin-bottom: 0px;
     text-align: start;
 }
-.payment-codebox{
-    /* width: 75%;
-    padding-bottom: 75%; */
-}
+
 .payment-code-container.hide{
     display: none;
 }
@@ -155,8 +152,7 @@
     transition:all ease 0.3s;
 }
 .toss-link-btn:hover{
-    background-color: #7C44FF;
-    color: #fff;
+    background-color: #CFCFCF;
 }
 .qrcode-img{
     width: 100%;

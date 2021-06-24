@@ -12,8 +12,8 @@
 }
 .dashboard-card-btn-getlink.abled:hover{
     border: 1px solid #7C44FF;
-    background-color: #fff;
-    color: #7C44FF;
+    background-color: #6639CF;
+    color: #CFCFCF;
 }
 .dashboard-card-btn-getlink.disabled{
     width: fill;
@@ -37,8 +37,7 @@
     transition: all ease 0.3s;
 }
 .dashboard-card-btn-delete:hover{
-    background-color: #7C44FF;
-    color: #fff;
+    background-color: #CFCFCF;
     transition: all ease 0.3s;
 }
 .dashboard-card-btn-pay{
@@ -56,9 +55,8 @@
     transition: all ease 0.3s;
 }
 .dashboard-card-btn-pay:hover{
-    border: 1px solid #7C44FF;
-    background-color: #fff;
-    color: #7C44FF;
+    background-color: #6639CF;
+    color: #CFCFCF;
 }
 .dashboard-card-btn-paytext{
     font-size: 12px;

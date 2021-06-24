@@ -53,8 +53,7 @@
     transition: all ease 0.3s;
 }
 .project-link-copy-btn:hover{
-    background-color: #7C44FF;
-    color: #fff;
+    background-color: #CFCFCF;
 }
 .project-link-small{
     width: 100%;
@@ -84,8 +83,8 @@
     transition: all ease 0.3s;
 }
 .project-link-gohome:hover{
-    background-color: #fff;
-    color: #7C44FF;
+    background-color: #6639CF;
+    color: #CFCFCF;
 }
 @media (max-width:480px) {
     .project-link-content{

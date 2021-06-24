@@ -32,8 +32,8 @@
     transition: all ease 0.3s;
 }
 .result-btn:hover{
-    background-color:#fff;
-    color: #7C44FF;
+    background-color:#6639CF;
+    color: #CFCFCF;
 }
 .result-page-title{
     font-family: noto-regular;
