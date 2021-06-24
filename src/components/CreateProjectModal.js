@@ -7,7 +7,7 @@ export default function CreateProjectModal(props) {
         event.stopPropagation();
     }
     function onClickYes(){
-        fetch(`${baseUrl}/api/v1/deposit-success/${projectId}`,{
+        fetch(`${baseUrl}/api/v1/deposit-success/${projectId}/`,{
             method:'GET',
             headers:{
                 'accept' : 'application/json',

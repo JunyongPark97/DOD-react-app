@@ -15,7 +15,7 @@ export default function InvalidPage() {
                 <p className='result-page-subtitle'>
                     설문 응답 즉시 디오디가 알려드려요!
                 </p>
-                <img className='result-page-dod-img' src={process.env.PUBLIC_URL + '/../dod.png'}/>
+                <img className='result-page-dod-img invalid-page' src={process.env.PUBLIC_URL + '/../dod-invalid.png'}/>
                 <p className='result-page-text-alarm'>
                     현재 이용할 수 없는 추첨입니다.<br/>
                     설문자에게 문의해 주세요!

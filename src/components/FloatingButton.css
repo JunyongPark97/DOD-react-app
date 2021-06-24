@@ -20,6 +20,8 @@
 }
 .fb-icon{
     transform: translateX(-24px);
+    width: 64px;
+    height: 56px;
 }
 
 @media (max-width : 680px){

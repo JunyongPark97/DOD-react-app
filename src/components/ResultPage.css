@@ -15,6 +15,8 @@
     padding: 20px;
 }
 .result-page-logo{
+    width:51px;
+    height: 24px;
     margin: 0px;
 }
 .result-btn{
@@ -48,6 +50,14 @@
     margin-bottom: 0px;
 }
 .result-page-dod-img{
+    height: 88px;
+    width: 72px;
+    margin-top: 24px;
+    margin-bottom: 0px;
+}
+.result-page-dod-img.invalid-page{
+    height: 88px;
+    width: 104px;
     margin-top: 24px;
     margin-bottom: 0px;
 }

@@ -25,6 +25,11 @@
     display: flex;
     align-items: center;
   }
+  .dod-navbar-logo-icon{
+      
+    width:51px;
+    height: 24px;
+  }
   .dod-title{
       flex: none;
       font-family: noto-bold;

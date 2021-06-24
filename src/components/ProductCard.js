@@ -22,7 +22,7 @@ export default function ProductCard(props) {
                     <p className='product-card-name'>{item.name}</p>
                 </div>
             <div className='product-card-innercontainer'>
-                <img className='product-card-img' src ={item.imgsrc}/>
+                <img className='product-card-img' src ={item.thumbnail_image}/>
                 <div className='product-card-name-box'>
                     <p className='product-card-brandname'>{item.brand}</p>
                     <p className='product-card-name'>{item.name}</p>
