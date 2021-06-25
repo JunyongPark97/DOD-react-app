@@ -31,18 +31,22 @@ export default function Mypage() {
         },
     ])
     useEffect(()=>{
-        fetch('http://3.36.156.224:8000/api/v1/third-party-menus/',{
-            method:'GET',
-            headers:{
-                'accept' : 'application/json',
-                'content-type' : 'application/json;charset=UTF-8',
-                'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
-            }
-        }).then((res)=>{
-            return res.json();
-        }).then((res)=>{
-            setItems(res);
-        })
+        if(sessionStorage.getItem('DODtoken') === null){
+            history.push('/');
+        }else{
+            fetch('http://3.36.156.224:8000/api/v1/third-party-menus/',{
+                method:'GET',
+                headers:{
+                    'accept' : 'application/json',
+                    'content-type' : 'application/json;charset=UTF-8',
+                    'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
+                }
+            }).then((res)=>{
+                return res.json();
+            }).then((res)=>{
+                setItems(res);
+            })
+        }
     },[])
     
     function onClickBack(){
