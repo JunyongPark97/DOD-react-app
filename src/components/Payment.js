@@ -77,7 +77,7 @@ function Payment(props) {
                 (pageNum === 1)?
                 <div className='payment-container'>
                     <p className='payment-title'><span className='payment-price'>{numberWithCommas(price)}원</span>을 결제해주세요!</p>
-                    <p className='payment-subtitle'>PC에서도 휴대폰으로 간편하게 결제할 수 있어요</p>
+                    <p className='payment-subtitle'>현재 무통장 입금만을 지원합니다</p>
                     <div className='payment-text-box'>
                         <p className='payment-text1'>입금자명</p>
                         <p className={alertShow?'payment-name-alert':'payment-name-alert hide'}>입금자명을 입력해주세요!</p>

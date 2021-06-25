@@ -38,14 +38,15 @@
     background-color: #F5F5F5;
     border-radius: 8px;
     line-height: 16px;
-    padding-left: 48px;
-    padding-right: 48px;
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     font-family: noto-regular;
     font-size: 16px;
     line-height: 24px;
     text-align: start;
+    color: #5b5b5b;
 }
 
 .contour{

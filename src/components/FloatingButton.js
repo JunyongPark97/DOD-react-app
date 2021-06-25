@@ -6,7 +6,10 @@ import {kakaoLink} from '../network/network'
 function FloatingButton() {
     const history = useHistory();
     function onClickFb(){
-        window.location.assign(kakaoLink)
+        const a = document.createElement('a');
+        a.setAttribute('href', kakaoLink);
+        a.setAttribute('target', '_blank');
+        a.click();
     }
     return (
         <div className='fb-container' onClick={onClickFb}>

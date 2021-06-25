@@ -93,8 +93,8 @@ function CreateProject(props) {
                                  ~ 
                                 <p id='select-end-date-btn' className='create-project-dueDate-inline' onClick={openEndModal}><img className='create-project-icon' src={process.env.PUBLIC_URL + 'icon-calendar.png'} />{endDate.getMonth()+1}-{endDate.getDate()}</p>
                             </div>
-                            <CalenderModal closeModal={closeStartModal} isModalOpen={startDayModalOpen} value={startDate} onChange={setStartDate}/>
-                            <CalenderModal closeModal={closeEndModal} isModalOpen={endDayModalOpen} value={endDate} onChange={setEndDate}/>
+                            <CalenderModal isStart={true} closeModal={closeStartModal} isModalOpen={startDayModalOpen} value={startDate} onChange={setStartDate}/>
+                            <CalenderModal isStart={false} closeModal={closeEndModal} isModalOpen={endDayModalOpen} value={endDate} onChange={setEndDate}/>
                             </div>
                         <img className='create-project-arrow' src={dueDateOpen? process.env.PUBLIC_URL + 'arrow-up.png' : process.env.PUBLIC_URL + 'arrow-down.png'}/>
                     </div>

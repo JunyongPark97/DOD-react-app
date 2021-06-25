@@ -18,4 +18,12 @@
     justify-content: center;
     align-items: center;
     padding:24px;
+    position: relative;
+}
+.modal-close-btn{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 24px;
+    right: 24px;
 }

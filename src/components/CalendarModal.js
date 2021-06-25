@@ -4,7 +4,7 @@ import 'react-calendar/dist/Calendar.css'
 import './CalendarModal.css'
 
 function CalendarModal(props) {
-    const {closeModal, isModalOpen, value, onChange} = props;
+    const {isStart, closeModal, isModalOpen, value, onChange} = props;
     function keepModalOpen(e){
         e.stopPropagation();
     }
@@ -13,13 +13,20 @@ function CalendarModal(props) {
         console.log(value);
         closeModal();
     }
+    function getTitleText(bool){
+        if(bool){
+            return '시작일'
+        }else{
+            return '종료일'
+        }
+    }
     return (
         <>
             {
                 isModalOpen? 
                 <div className={'modal'} onClick={closeModal}>
                     <div className='modal-container' onClick={keepModalOpen}>
-                        <p className='calendarModal-text'>시작일을 설정해주세요!</p>
+                        <p className='calendarModal-text'>{getTitleText(isStart)}을 설정해주세요!</p>
                         <Calendar
                             onChange={onChangeDate}
                             value={value}

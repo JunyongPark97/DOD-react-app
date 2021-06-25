@@ -7,7 +7,7 @@ function Navbar(props) {
     function getPageTitle(pageNumber){
         switch(pageNumber){
             case 0: 
-                return '프로젝트 만들기'
+                return '추첨 링크 만들기'
             case 1:
                 return '결제 안내'
             case 2:

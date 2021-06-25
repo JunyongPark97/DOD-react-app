@@ -47,8 +47,9 @@ function SignModal(props) {
         <>
             {
             isModalOpen? (
-                <div className='modal' onClick={closeModal}>
+                <div className='modal' >
                     <div className='modal-container' onClick={keepModalOpen}>
+                        <img src={process.env.PUBLIC_URL + 'close-icon.png'} className='modal-close-btn' onClick={closeModal}/>
                         <CheckSignedUp isCheckSignedOpen={checkSignedUpOpen} handleClickSignIn={handleClickSignIn} handleClickSignUp={handleClickSignUp}/>
                         <SignIn isOpen={signInOpen} closeModal={closeModalFunction} loginFunction={justLogin?loginFunction:createProject}/>
                         <SignUp isOpen={signUpOpen} openPWAssign={openPWAssign}/>
