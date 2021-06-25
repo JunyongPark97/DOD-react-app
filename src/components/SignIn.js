@@ -40,6 +40,9 @@ function SignIn(props) {
                     if(res.token){
                         sessionStorage.setItem('DODtoken', res.token);
                         sessionStorage.setItem('userName', res.name);
+                        window.dataLayer.push({
+                            'userid': `${res.id}`
+                        });
                         loginFunction();
                         closeModal();
                     }else{
