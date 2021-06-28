@@ -34,7 +34,7 @@ export default function Mypage() {
         if(sessionStorage.getItem('DODtoken') === null){
             history.push('/');
         }else{
-            fetch('http://3.36.156.224:8000/api/v1/third-party-menus/',{
+            fetch(`${baseUrl}/api/v1/third-party-menus/`,{
                 method:'GET',
                 headers:{
                     'accept' : 'application/json',

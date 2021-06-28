@@ -1,10 +1,12 @@
 import React,{useState, useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import CreateProject from './CreateProject';
 import Navbar from './Navbar'
 import Payment from './Payment'
 import baseUrl from '../network/network';
 
 function CreatePage() {
+    const history = useHistory();
     const [pageNum, setPageNum] = useState(0);
     const [price, setPrice] = useState(0);
     const [startDate, setStartDate] = useState(initStartDate());
@@ -15,26 +17,29 @@ function CreatePage() {
     const [projectId, setProjectId] = useState(undefined);
 
     useEffect(()=>{
-        if(totalProductNum === 0){
-            setPageNum(0);
-        }
         if(sessionStorage.getItem('DODtoken') == null){
             window.location.assign('/');
+        }else{
+            if(window.sessionStorage.getItem('checkPaymentProjectId') !== null){
+                history.push('/checkpayment');
+            }else{
+                setPageNum(0);
+                fetch(`${baseUrl}/api/v1/products/`,{
+                    headers:{
+                        'accept' : 'application/json',
+                        'content-type' : 'application/json;charset=UTF-8'}
+                }).then(
+                    res => res.json()
+                ).then(res => {
+                    var newArray =[];
+                    res.map(function(item){
+                        item.num = 0;
+                        newArray.push(item);
+                    })
+                    setProductList(newArray);
+                })
+            }
         }
-        fetch(`${baseUrl}/api/v1/products/`,{
-            headers:{
-                'accept' : 'application/json',
-                'content-type' : 'application/json;charset=UTF-8'}
-        }).then(
-            res => res.json()
-        ).then(res => {
-            var newArray =[];
-            res.map(function(item){
-                item.num = 0;
-                newArray.push(item);
-            })
-            setProductList(newArray);
-        })
     }, [])
 
     function initEndDate(){
@@ -90,6 +95,7 @@ function CreatePage() {
                 }
             }).then(res => {
                 setProjectId(res.id);
+                window.sessionStorage.setItem('checkPaymentProjectId', res.id);
                 getTotalPrice();
                 setPageNum(1);
             }).catch(error=>console.log(error))

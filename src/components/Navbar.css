@@ -24,8 +24,8 @@
     display: flex;
     align-items: center;
     z-index: 99;
-    width: 51px;
-    height: 24px;
+    width: 12px;
+    height: 20px;
   }
   .title{
       flex: none;
@@ -35,7 +35,7 @@
       display: flex;
       width: 100%;
       justify-content: center;
-      transform: translateX(-24px);
+      transform: translateX(-12px);
   }
   @media (max-width:680px) {
     .navbar-container{
