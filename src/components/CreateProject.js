@@ -76,7 +76,7 @@ function CreateProject(props) {
                     <p className='createproject-text'>
                         2가지만 설정하면<br/>프로젝트가 생성됩니다.
                     </p>
-                    <div className={dueDateOpen?'create-project-selectBox open':'create-project-selectBox'} onClick={onClickDueDate}>
+                    <div id='select-date-btn' className={dueDateOpen?'create-project-selectBox open':'create-project-selectBox'} onClick={onClickDueDate}>
                         <div className='create-project-card'>
                             <p className='create-project-card-text'>1. 설문 기간 설정</p>
                             <p className={!dueDateOpen?'create-project-dueDate':'create-project-dueDate hide'}><img className='create-project-icon' src={process.env.PUBLIC_URL + 'icon-calendar.png'}/>
