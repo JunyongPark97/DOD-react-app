@@ -41,6 +41,7 @@ function SignIn(props) {
                         sessionStorage.setItem('DODtoken', res.token);
                         sessionStorage.setItem('userName', res.name);
                         window.dataLayer.push({
+                            'event' : 'userid',
                             'userid': `${res.id}`
                         });
                         loginFunction();
