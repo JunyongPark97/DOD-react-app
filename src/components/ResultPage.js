@@ -51,7 +51,7 @@ export default function ResultPage(props) {
             if(res.dod_status === 400){
                 history.push('/invalid');
             }else if(res.dod_status === 999){
-                history.push('/invalid');
+                history.push('/forbidden');
             }
         })
     }, [])
