@@ -10,6 +10,7 @@ import CheckPaymentPage from './components/CheckPaymentPage';
 import Mypage from './components/Mypage';
 import ResultPage from './components/ResultPage';
 import InvalidPage from './components/InvalidPage';
+import ForbiddenPage from './components/ForbiddenPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path='/mypage' exact component={Mypage}/>
             <Route path='/link' component={ResultPage}/>
             <Route path='/invalid' exact component={InvalidPage}/>
+            <Route path='/forbidden' exact component={ForbiddenPage}/>
           </Switch>
         </Router>
         <FloatingButton/>

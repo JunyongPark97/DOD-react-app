@@ -15,9 +15,13 @@
     border:2px solid #7C44FF;
 }
 .create-project-arrow{
+    display: block;
     position: absolute;
     right: 24px;
     bottom: 32px;
+}
+.create-project-arrow.hide{
+    display: none;
 }
 .create-project-dueDate-inline{
     text-align: start;

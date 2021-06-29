@@ -96,7 +96,7 @@ function CreateProject(props) {
                             <CalenderModal isStart={true} closeModal={closeStartModal} isModalOpen={startDayModalOpen} value={startDate} onChange={setStartDate}/>
                             <CalenderModal isStart={false} closeModal={closeEndModal} isModalOpen={endDayModalOpen} value={endDate} onChange={setEndDate}/>
                             </div>
-                        <img className='create-project-arrow' src={dueDateOpen? process.env.PUBLIC_URL + 'arrow-up.png' : process.env.PUBLIC_URL + 'arrow-down.png'}/>
+                        <img className={dueDateOpen? 'create-project-arrow hide':'create-project-arrow'} src={process.env.PUBLIC_URL + 'arrow-down.png'}/>
                     </div>
                     <div id='select-gift-btn' className={giftOpen?'create-project-selectBox open':'create-project-selectBox'} onClick={onClickGift}>
                         <div className='create-project-card'>
@@ -113,7 +113,7 @@ function CreateProject(props) {
                                 productList.map((item, index) => <ProductCard key={index} item={item} index = {index} onChange={onChangeProductNum}/>)
                             }
                         </div>
-                        <img className='create-project-arrow' src={giftOpen? process.env.PUBLIC_URL + 'arrow-up.png' : process.env.PUBLIC_URL + 'arrow-down.png'}/>
+                        <img className={giftOpen? 'create-project-arrow hide':'create-project-arrow'} src={process.env.PUBLIC_URL + 'arrow-down.png'}/>
                     </div>
                     <div className='contour-16margin'/>
                     <div className={readyToPay?'create-project-totalprice-box':'create-project-totalprice-box hide'}>

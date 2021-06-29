@@ -3,6 +3,8 @@
     font-size: 20px;
     margin-bottom: 0px;
     color: #393C3B;
+    width: fill;
+    text-align: start;
 }
 .create-modal-text2{
     font-family: noto-regular;
@@ -64,4 +66,32 @@
     border-color: #7C44FF;
     border-radius: 8px;
     color: #CFCFCF;
+}
+.create-modal-status-text{
+    display: flex;
+    flex-direction: row;
+    width: fill;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 16px;
+}
+.create-modal-button-checklink{
+    width:280px;
+    background-color: #7C44FF;
+    border-radius: 8px;
+    border: 1px solid #7C44FF;
+    color: #fff;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family: noto-regular;
+    font-size: 16px;
+    transition: all ease 0.3s;
+}
+.create-modal-button-checklink:hover{
+    background-color: #6639CF;
+    color: #CFCFCF;
+}
+.text-strong{
+    color: #7C44FF;
 }
