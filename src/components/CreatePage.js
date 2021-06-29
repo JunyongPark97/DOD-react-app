@@ -17,29 +17,26 @@ function CreatePage() {
     const [projectId, setProjectId] = useState(undefined);
 
     useEffect(()=>{
+        if(projectId === undefined){
+            setPageNum(0);
+        }
         if(sessionStorage.getItem('DODtoken') == null){
             window.location.assign('/');
-        }else{
-            if(window.sessionStorage.getItem('checkPaymentProjectId') !== null){
-                history.push('/checkpayment');
-            }else{
-                setPageNum(0);
-                fetch(`${baseUrl}/api/v1/products/`,{
-                    headers:{
-                        'accept' : 'application/json',
-                        'content-type' : 'application/json;charset=UTF-8'}
-                }).then(
-                    res => res.json()
-                ).then(res => {
-                    var newArray =[];
-                    res.map(function(item){
-                        item.num = 0;
-                        newArray.push(item);
-                    })
-                    setProductList(newArray);
-                })
-            }
         }
+        fetch(`${baseUrl}/api/v1/products/`,{
+            headers:{
+                'accept' : 'application/json',
+                'content-type' : 'application/json;charset=UTF-8'}
+        }).then(
+            res => res.json()
+        ).then(res => {
+            var newArray =[];
+            res.map(function(item){
+                item.num = 0;
+                newArray.push(item);
+            })
+            setProductList(newArray);
+        })
     }, [])
 
     function initEndDate(){
@@ -95,7 +92,6 @@ function CreatePage() {
                 }
             }).then(res => {
                 setProjectId(res.id);
-                window.sessionStorage.setItem('checkPaymentProjectId', res.id);
                 getTotalPrice();
                 setPageNum(1);
             }).catch(error=>console.log(error))
