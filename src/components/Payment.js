@@ -52,7 +52,6 @@ function Payment(props) {
             }).then(function(res){
                 if(res.ok){
                     setName(nameInput.current.value);
-                    console.log(nameInput.current.value);
                 }else{
                     console.log(res);
                 }

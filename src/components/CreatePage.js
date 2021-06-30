@@ -59,7 +59,6 @@ function CreatePage() {
     }
     function onClickPay(){
         var itemList = []
-        console.log(sessionStorage.getItem('DODtoken'));
         productList.map(function(item, index){
             if(item.num > 0){
                 itemList.push({
@@ -68,7 +67,6 @@ function CreatePage() {
                 })
             }
         })
-        console.log(itemList);
         if(projectId === undefined){
             fetch(`${baseUrl}/api/v1/project/`,{
                 method:'POST',
@@ -111,6 +109,8 @@ function CreatePage() {
             }).then(function(res){
                 if(res.ok){
                     return res.json()
+                }else if(res.status === 401){
+                    window.location.assign('/');
                 }else{
                     console.log(res);
                 }

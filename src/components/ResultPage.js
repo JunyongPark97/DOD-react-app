@@ -8,7 +8,6 @@ export default function ResultPage(props) {
     const history=useHistory();
     const queryString = require('query-string');
     const params = queryString.parse(props.location.search)
-    console.log(params);
     const [projectKey, setProjectId] = useState(params.p);
     const [validatorKey, setValidatorKey] = useState(params.v);
     const [smsSuccess, setsmsSuccess] = useState(false);
@@ -40,14 +39,12 @@ export default function ResultPage(props) {
                 validator:validatorKey
             })
         }).then(res => {
-            console.log(res);
             if(res.status === 200){
                 return res.json();
             }else{
                 history.push('/invalid');
             }
         }).then(res => {
-            console.log(res);
             if(res.dod_status === 400){
                 history.push('/invalid');
             }else if(res.dod_status === 999){
@@ -94,7 +91,6 @@ export default function ResultPage(props) {
             )
             .then(
                 (res) => {
-                    console.log(res);
                     if(res.non_field_errors[0] != ''){
                         smsFailAlert(res.non_field_errors[0]);
                     }else{
@@ -122,9 +118,6 @@ export default function ResultPage(props) {
             if(confirmKey == ''){
                 confirmFailAlert('인증번호를 입력해주세요.')
             }else{
-                console.log(sentPhone);
-                console.log(confirmKey);
-                console.log(projectKey);
                 fetch(`${baseUrl}/api/v1/sms/respondent_confirm/`,{
                     method:"POST",
                     headers:{
@@ -139,8 +132,6 @@ export default function ResultPage(props) {
                 }).then(function(res){
                     return res.json();
                 }).then(res => {
-                    console.log(res);
-                    console.log(res.is_win);
                     if(res.is_win === undefined){
                         if(res.non_field_errors[0] != ''){
                             confirmFailAlert(res.non_field_errors[0])

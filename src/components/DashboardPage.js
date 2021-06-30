@@ -28,6 +28,8 @@ export default function DashboardPage() {
             }).then(res => {
                 if(res.ok){
                     return res.json()
+                }else if(res.status === 401){
+                    window.location.assign('/');
                 }else{
                     console.log(res);
                 }
@@ -41,8 +43,6 @@ export default function DashboardPage() {
                     sessionStorage.removeItem('DODtoken');
                     history.push('/');
                 }
-                
-                console.log(res);
             })
         }
     }, [])

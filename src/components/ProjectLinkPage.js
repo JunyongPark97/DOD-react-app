@@ -31,7 +31,6 @@ function ProjectLinkPage() {
                     console.log(res);
                 }
             }).then(res => {
-                console.log(res);
                 setLinkItem(res);
                 setContent(`기프티콘 추첨 결과는 디오디에서!
 아래 링크에서 당첨 여부를 즉시 확인해보세요!

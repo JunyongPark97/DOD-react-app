@@ -14,7 +14,6 @@ function MainpageDescription() {
         }).then(
             res => res.json()
         ).then(res => {
-            console.log(res);
             setDescriptionList(res);
         })
     }, [])

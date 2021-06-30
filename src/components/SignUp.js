@@ -58,7 +58,6 @@ function SignUp(props) {
             )
             .then(
                 (res) => {
-                    console.log(res);
                     if(res.non_field_errors[0] != ''){
                         smsFailAlert(res.non_field_errors[0]);
                     }else{

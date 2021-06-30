@@ -17,8 +17,9 @@ export default function DashboardCard(props) {
             }
         }).then(res => {
             if(res.ok){
-                console.log(res);
                 deleteProject(index);
+            }else if(res.status === 401){
+                window.location.assign('/');
             }else{
                 console.log(res);
             }
