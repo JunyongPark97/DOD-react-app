@@ -74,7 +74,7 @@ function CreateProject(props) {
             {(pageNum === 0)?
                 <div className='createproject-container'>
                     <p className='createproject-text'>
-                        2가지만 설정하면<br/>프로젝트가 생성됩니다.
+                        2가지만 설정하면<br/>추첨 링크가 생성됩니다.
                     </p>
                     <div id='select-date-btn' className={dueDateOpen?'create-project-selectBox open':'create-project-selectBox'} onClick={onClickDueDate}>
                         <div className='create-project-card'>
@@ -86,7 +86,7 @@ function CreateProject(props) {
                         <div id='select-date-btn' className={dueDateOpen?'create-project-descriptionBox':'create-project-descriptionBox hide'}>
                             <p className='create-project-dueDate-description'>
                                 설문 시작일과 종료일을 설정해주세요.<br/>
-                                시작일 00:00부터 종료일 24:00까지 <br/>프로젝트가 활성화돼요.
+                                시작일 00:00부터 종료일 24:00까지 <br/>추첨이 활성화돼요.
                             </p>
                             <div className='create-project-box2'>
                                 <p id='select-start-date-btn' className='create-project-dueDate-inline' onClick={openStartModal}><img className='create-project-icon' src={process.env.PUBLIC_URL + 'icon-calendar.png'}/>{startDate.getMonth()+1}-{startDate.getDate()}</p>
