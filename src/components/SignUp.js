@@ -50,9 +50,9 @@ function SignUp(props) {
     }
 
     function onClickGetConfirmKey() {
-        changeButtonText(true);
         setConfirmFailed(false);
         if((phone != '')&&phone.length == 11&&policyAgreed){
+            changeButtonText(true);
             fetch(`${baseUrl}/api/v1/sms/send/`,{
                 method:"POST",
                 headers:{

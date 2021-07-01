@@ -82,9 +82,9 @@ export default function ResultPage(props) {
     }
 
     function onClickGetConfirmKey() {
-        changeButtonText(true);
         setConfirmFailed(false);
         if((phone != '')&&phone.length == 11){
+            changeButtonText(true);
             fetch(`${baseUrl}/api/v1/sms/respondent_send/`,{
                 method:"POST",
                 headers:{
