@@ -20,6 +20,7 @@ export default function ResultPage(props) {
 
     const confirmKeyAlertMessage = useRef(null);
     const smsAlertMessage = useRef(null);
+    const getConfirmKeyButton = useRef(null);
 
     const [smsSent, setsmsSent] = useState(false);
 
@@ -63,8 +64,25 @@ export default function ResultPage(props) {
         setConfirmFailed(false);
         setConfirmKey(e.target.value);
     }
+    function changeButtonText(disable){
+        const btn = getConfirmKeyButton.current;
+        if(disable){
+            btn.disabled = true;
+            btn.firstChild.data = '전송중';
+            btn.style.backgroundColor = '#CFCFCF';
+            btn.style.borderColor = '#CFCFCF'
+            btn.classList.add('noHover');
+        }else{
+            btn.disabled = false;
+            btn.firstChild.data = '인증번호 문자 받기';
+            btn.style.backgroundColor = '#7C44FF';
+            btn.style.borderColor = '#7C44FF'
+            btn.classList.remove('noHover');
+        }
+    }
 
     function onClickGetConfirmKey() {
+        changeButtonText(true);
         setConfirmFailed(false);
         if((phone != '')&&phone.length == 11){
             fetch(`${baseUrl}/api/v1/sms/respondent_send/`,{
@@ -76,6 +94,7 @@ export default function ResultPage(props) {
                     phone:phone
                 })
             }).then(function(res) {
+                changeButtonText(false);
                 if(res.ok){
                     setsmsSuccess(true);//안내메시지
                     setsmsFail(false);//안내메시지
@@ -185,7 +204,7 @@ export default function ResultPage(props) {
                 </div>
                 <input name='id' className = 'signup-id-input' type='tel' placeholder='휴대전화 번호를 입력해주세요' onChange={onChangePhoneInput}>
                 </input>
-                <button id = 'result-getConfirmKey' className='result-btn' onClick={onClickGetConfirmKey}>
+                <button ref={getConfirmKeyButton} id = 'result-getConfirmKey' className='result-btn' onClick={onClickGetConfirmKey}>
                     인증번호 문자 받기
                 </button>
                 <div className='contour-16margin-both'/>

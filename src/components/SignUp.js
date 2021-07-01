@@ -13,6 +13,7 @@ function SignUp(props) {
 
     const confirmKeyAlertMessage = useRef(null);
     const smsAlertMessage = useRef(null);
+    const getConfirmKeyButton = useRef(null);
 
     const [smsSent, setsmsSent] = useState(false);
     const [confirmed, setConfirmed] = useState(false);
@@ -31,7 +32,25 @@ function SignUp(props) {
         setConfirmKey(e.target.value);
     }
 
+    function changeButtonText(disable){
+        const btn = getConfirmKeyButton.current;
+        if(disable){
+            btn.disabled = true;
+            btn.firstChild.data = '전송중';
+            btn.style.backgroundColor = '#CFCFCF';
+            btn.style.borderColor = '#CFCFCF'
+            btn.classList.add('noHover');
+        }else{
+            btn.disabled = false;
+            btn.firstChild.data = '인증번호 문자 받기';
+            btn.style.backgroundColor = '#7C44FF';
+            btn.style.borderColor = '#7C44FF'
+            btn.classList.remove('noHover');
+        }
+    }
+
     function onClickGetConfirmKey() {
+        changeButtonText(true);
         setConfirmFailed(false);
         if((phone != '')&&phone.length == 11&&policyAgreed){
             fetch(`${baseUrl}/api/v1/sms/send/`,{
@@ -43,6 +62,7 @@ function SignUp(props) {
                     phone:phone
                 })
             }).then(function(res) {
+                changeButtonText(false);
                 if(res.ok){
                     setsmsSuccess(true);//안내메시지
                     setsmsFail(false);//안내메시지
@@ -160,20 +180,20 @@ function SignUp(props) {
                         <img onClick={onClickAgree} src={policyAgreed? (process.env.PUBLIC_URL + 'box-checked.png') : (process.env.PUBLIC_URL + 'box-empty.png')}/>
                         <p className='signup-checkbox-text'><span onClick={onClickPrivacy} className='signup-checkbox-text-item'>개인정보처리방침</span> 및 <span onClick={onClickUseOfTerm} className='signup-checkbox-text-item'>디오디 이용약관</span>에<br/>동의합니다<span className='signup-checkbox-text-strong'>(필수)</span></p>
                     </div>
-                    <Button id = 'getConfirmKey' buttonSize='btn--xlarge' className='signup-getConfirmKey-btn' onClick={onClickGetConfirmKey}>
+                    <button ref={getConfirmKeyButton} id = 'getConfirmKey' className='result-btn' onClick={onClickGetConfirmKey}>
                         인증번호 문자 받기
-                    </Button>
+                    </button>
                     <div className='contour-16margin-both'/>
                     <div className='signup-textbox'>
                         <p className='signup-small-text'>인증번호</p>
                         <p ref={confirmKeyAlertMessage} className={confirmFailed? 'signup-confirm-fail' : 'signup-confirm-fail hide'}>인증번호가 다릅니다.</p>
                     </div>
-                    <input name='pw' className = 'signup-pw-input' type='number' placeholder='인증번호를 입력해주세요' onChange={onChangeConfirmKey}>
+                    <input name='pw' className = 'signup-pw-input' placeholder='인증번호를 입력해주세요' onChange={onChangeConfirmKey}>
 
                     </input>
-                    <Button id = 'confirm' buttonSize='btn--xlarge' className='signup-confirm-btn' onClick={onClickConfirm}>
+                    <button id = 'confirm' className='result-btn' onClick={onClickConfirm}>
                         인증하기
-                    </Button>
+                    </button>
                 </>
             ) : <></>
         }

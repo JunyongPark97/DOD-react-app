@@ -114,3 +114,6 @@
 .signup-checkbox-text-strong{
     color: #7C44FF;
 }
+.noHover{
+    pointer-events: none;
+}
