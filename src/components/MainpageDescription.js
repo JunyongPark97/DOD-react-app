@@ -11,9 +11,8 @@ function MainpageDescription() {
             headers:{
                 'accept' : 'application/json',
                 'content-type' : 'application/json;charset=UTF-8'}
-        }).then(
-            res => res.json()
-        ).then(res => {
+        }).then(res => res.json())
+        .then(res => {
             setDescriptionList(res);
         })
     }, [])
