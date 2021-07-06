@@ -28,7 +28,7 @@ export default function ResultModal(props) {
                                     {
                                         win?(<p className='result-modal-subtitle'>인증하신 번호로 문자가 발송되었습니다!</p>):(<p className='result-modal-subtitle'>설문에 응해주셔서 감사합니다!</p>)
                                     }
-                                    <img className={win?('result-modal-img-win'):('result-modal-img')} src={win?(process.env.PUBLIC_URL + 'dod-cong.png'):(process.env.PUBLIC_URL + 'dod-sorry.png')}></img>
+                                    <img className={win?('result-modal-img-win'):('result-modal-img')} src={win?(process.env.PUBLIC_URL + 'dod-cong.png'):(process.env.PUBLIC_URL + 'dod-sorry.gif')}></img>
                                     
                                     <div>
                                         <p className='result-more-btn'>혹시! 디오디가 궁금하신가요?</p>
@@ -51,7 +51,7 @@ export default function ResultModal(props) {
                                     {/* <p className='result-modal-title'>
                                         추첨 중
                                     </p> */}
-                                    <img className='result-modal-img-animation' src={process.env.PUBLIC_URL + 'dod-speech10.gif'}/>
+                                    <img className='result-modal-img-animation' src={process.env.PUBLIC_URL + 'dod-speech-with-mention60.gif'}/>
                                 </>
                             )
                         }
