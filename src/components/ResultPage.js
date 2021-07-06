@@ -163,7 +163,7 @@ export default function ResultPage(props) {
                         setShowResultModal(true);
                         setTimeout(()=>{
                             setShowResult(true);
-                        }, 3000 )
+                        }, 4800 )
                     }
                 }).catch(function(res){
                     

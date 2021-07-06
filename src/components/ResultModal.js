@@ -48,10 +48,10 @@ export default function ResultModal(props) {
                                 </>
                             ):(
                                 <>
-                                    <p className='result-modal-title'>
-                                        추첨이 시작되었습니다!
-                                    </p>
-                                    <img className='result-modal-img' src={process.env.PUBLIC_URL + 'dod-animation1.gif'}/>
+                                    {/* <p className='result-modal-title'>
+                                        추첨 중
+                                    </p> */}
+                                    <img className='result-modal-img-animation' src={process.env.PUBLIC_URL + 'dod-speech10.gif'}/>
                                 </>
                             )
                         }
