@@ -82,14 +82,14 @@ export default function DashboardPage() {
                 {sessionStorage.getItem('userName')}님은<br/>
                 <span className='dashboard-highlight-text'>
                     {getActiveProjectsNum(itemList)}개 
-                </span>
+                </span>&nbsp;
                 설문을 디오디로<br/>
                 기프티콘 <span className='dashboard-highlight-text'>추첨 중</span>이에요!
             </p>
             <div className='dashboard-create-btn' onClick={onClickCreateBtn}>
                 <div className='dashboard-create-btn-box'>
                     <p className='dashboard-create-btn-title'><img className='dashboard-icon' src={process.env.PUBLIC_URL + 'project-icon.png'}/>추첨 링크 만들기</p>
-                    <p className='dashboard-create-btn-subtitle'>새로운 추첨을 만들어보세요.</p>
+                    <p className='dashboard-create-btn-subtitle'>즉시 지급으로 응답률을 높여보세요</p>
                 </div>
                 <img className='dashboard-create-img' src={process.env.PUBLIC_URL + 'add-icon.png'}/>
             </div>

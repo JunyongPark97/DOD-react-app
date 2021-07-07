@@ -1,6 +1,6 @@
 // const baseUrl = 'https://docs.gift'
 const baseUrl = 'https://d-o-d.io'
-// const baseUrl = 'http://3.36.156.224:8001'
+// const baseUrl = 'http://3.36.156.224:8000'
 // const baseUrl = 'https://dod-link.com'
 export const kakaoLink = 'http://pf.kakao.com/_nfxcTs/chat'
 export const privacyPolicy = 'https://www.notion.so/dod-8dcf79f6f2e243f1a7b506b538a5ed92'

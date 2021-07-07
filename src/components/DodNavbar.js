@@ -33,9 +33,9 @@ function DodNavbar(props) {
                         <img className={click ? 'fas fa-times':'fas fa-bars'} src={process.env.PUBLIC_URL + 'profile-user.png'}/>
                     </Link>
                     <div className={isLoggedIn ? "dod-login-icon hide" : 'dod-login-icon'}>
-                        <Button onClick={openModal}>
-                            로그인    
-                        </Button> 
+                        <p className='login-btn' onClick={openModal}>
+                            로그인/회원가입
+                        </p> 
                     </div>
                 </div>
             </div>
