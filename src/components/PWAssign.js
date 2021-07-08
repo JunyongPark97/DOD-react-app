@@ -70,7 +70,7 @@ function PWAssign(props) {
 
                     </input>
                     <div className='contour-16margin'/>
-                    <Button buttonSize='btn--xlarge' className='pwassign-submit-btn' onClick={signUp}>
+                    <Button buttonSize='btn--xlarge' id='signup' className='pwassign-submit-btn' onClick={signUp}>
                         회원가입 완료하기
                     </Button>
                 </>

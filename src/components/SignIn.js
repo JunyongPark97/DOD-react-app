@@ -84,7 +84,7 @@ function SignIn(props) {
 
                     </input>
                     <div className='contour-16margin'/>
-                    <Button buttonSize='btn--xlarge' className='signin-submit-btn' onClick={loginClickHandler}>
+                    <Button buttonSize='btn--xlarge' id='test123' className='signin-submit-btn' onClick={loginClickHandler}>
                         로그인하기
                     </Button>
                 </>
