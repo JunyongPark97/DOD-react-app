@@ -159,6 +159,7 @@ function CreatePage() {
                 //주의 - 카드 수기결제일 경우 이 부분이 실행되지 않습니다.
                 console.log(data);
                 fetch(`${baseUrl}/api/v1/payment/confirm/`,{
+                    method:'POST',
                     headers:{
                         'accept' : 'application/json',
                         'content-type' : 'application/json;charset=UTF-8',
