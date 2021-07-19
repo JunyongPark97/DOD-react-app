@@ -20,6 +20,7 @@ function Footer() {
             <p className='company-name'>주식회사 몽데이크</p>
             <p className='company-info'>대표 : 박준용, 이상우 | 사업자 등록번호 : 789-81-01945<br/>
             주소 : 서울특별시 마포구 월드컵북로6길 93, 202호(연남동)<br/>
+	    문의전화:02)334-1133<br/>
             비즈니스 문의 : support@mondeique.com<br/>
             통신 판매번호 : 2020-서울-1054
             </p>

@@ -100,14 +100,14 @@ function CreateProject(props) {
                     </div>
                     <div id='select-gift-btn' className={giftOpen?'create-project-selectBox open':'create-project-selectBox'} onClick={onClickGift}>
                         <div className='create-project-card'>
-                            <p className='create-project-card-text'>2. 기프티콘 선택</p>
+                            <p className='create-project-card-text'>2. 경품선택</p>
                             <p className={!giftOpen?'create-project-dueDate':'create-project-dueDate hide'}>
                                 {totalProductNum}개
                             </p>
                         </div>
                         <div className={giftOpen?'create-project-descriptionBox':'create-project-descriptionBox hide'}>
                             <p className='create-project-gift-description'>
-                                당첨자에게 지급할 <br/>기프티콘을 선택해주세요.
+                                당첨자에게 지급할 <br/>경품을 선택해주세요.
                             </p>
                             {
                                 productList.map((item, index) => <ProductCard key={index} item={item} index = {index} onChange={onChangeProductNum}/>)
@@ -117,7 +117,7 @@ function CreateProject(props) {
                     </div>
                     <div className='contour-16margin'/>
                     <div className={readyToPay?'create-project-totalprice-box':'create-project-totalprice-box hide'}>
-                        <p className='create-project-totalprice-text'>기존 기프티콘보다<br/><span className='create-project-totaldiscount-price'>{numberWithCommas(priceInfo.origin_price - priceInfo.price)}원</span> 절약할 수 있어요</p>
+                        <p className='create-project-totalprice-text'>기존 상품보다<br/><span className='create-project-totaldiscount-price'>{numberWithCommas(priceInfo.origin_price - priceInfo.price)}원</span> 절약할 수 있어요</p>
                         <div className='create-project-totalprice-innerbox'>
                             <p className='create-project-totaloriginprice'><del>{numberWithCommas(priceInfo.origin_price)}원</del> <span className='create-project-totaldiscountrate'>{getDiscountRate(priceInfo.origin_price, priceInfo.price)}%</span></p>
                             <p className='create-project-totalprice'>총 결제금액: {numberWithCommas(priceInfo.price)}원</p>

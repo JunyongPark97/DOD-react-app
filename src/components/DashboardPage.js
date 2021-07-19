@@ -84,7 +84,7 @@ export default function DashboardPage() {
                     {getActiveProjectsNum(itemList)}개 
                 </span>
                 설문을 디오디로<br/>
-                기프티콘 <span className='dashboard-highlight-text'>추첨 중</span>이에요!
+                <span className='dashboard-highlight-text'>추첨 중</span>이에요!
             </p>
             <div className='dashboard-create-btn' onClick={onClickCreateBtn}>
                 <div className='dashboard-create-btn-box'>

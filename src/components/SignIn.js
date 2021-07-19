@@ -39,11 +39,8 @@ function SignIn(props) {
                     if(res.token){
                         sessionStorage.setItem('DODtoken', res.token);
                         sessionStorage.setItem('userName', res.name);
-                        window.dataLayer.push({
-                            'event' : 'loggedIn',
-                            'userid': `${res.id}`
-                        });
-                        loginFunction();
+			console.log('Tlqkfdhodkseo');
+                        window.location.assign('/dashboard');
                         closeModal();
                     }else{
                         setAlertBoolean(true);

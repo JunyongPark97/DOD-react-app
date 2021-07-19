@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {useHistory, withRouter} from "react-router-dom"
 import DodNavbar from './DodNavbar';
 import DescriptionCard from './DescriptionCard';
 import Footer from './Footer'
@@ -30,7 +31,7 @@ function Mainpage() {
         sessionStorage.removeItem('confirmKey');
     }
     function login(){
-        history.push('/dashboard');
+        window.location.assign('/dashboard');
     }
     function createProject(){
         history.push('/create');
@@ -51,4 +52,4 @@ function Mainpage() {
     )
 }
 
-export default Mainpage
+export default withRouter(Mainpage)
