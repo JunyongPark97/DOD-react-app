@@ -21,22 +21,25 @@
 }
 .startBtnBig-title{
     font-family: noto-regular;
-    font-size: 28px;
+    font-size: 48px;
     margin-top: 64px;
     margin-bottom: 0px;
     color: #393C3B;
 }
 .startBtnBig-subtitle{
     font-family: noto-regular;
-    font-size: 16px;
+    font-size: 20px;
     color: #5B5B5B;
-    margin-top: 4px;
+    margin-top: 32px;
     margin-bottom: 0px;
 }
+.startBtnBig-strong{
+    color: #7C44FF;
+}
 .startBtnBig-img{
-    width: 72px;
-    height: 88px;
-    margin-top: 24px;
+    width: 167px;
+    height: 120px;
+    margin-top: 56px;
     margin-bottom: 24px;
 }
 .startBtnBig-btn{
@@ -51,6 +54,24 @@
     color: #fff;
     transition: all ease 0.3s;
     margin-bottom: 48px;
+}
+.startBtnBig-gif-web{
+    width: 100%;
+    margin-bottom: 48px;
+    display: block;
+}
+.startBtnBig-gif-mobile{
+    display: none;
+}
+@media (max-width : 480px) {
+    .startBtnBig-gif-web{
+        display: none;
+    }
+    .startBtnBig-gif-mobile{
+        width: 100%;
+        margin-bottom: 48px;
+        display: block;
+    }
 }
 .startBtnBig-btn:hover{
     background-color: #6639CF;
