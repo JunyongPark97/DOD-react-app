@@ -1,7 +1,7 @@
 import { isTemplateElement } from '@babel/types';
 import React,{useEffect, useState, useRef} from 'react'
 import { useHistory } from 'react-router-dom';
-import Navbar from './Navbar'
+import Navbar from './common/Navbar'
 import './ProjectLinkPage.css'
 import baseUrl from '../network/network';
 

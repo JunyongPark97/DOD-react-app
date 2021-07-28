@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { useHistory } from 'react-router-dom';
-import Navbar from './Navbar'
+import Navbar from './common/Navbar'
 import Payment from './Payment';
 
 export default function CheckPaymentPage() {

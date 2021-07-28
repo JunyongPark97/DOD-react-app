@@ -52,8 +52,8 @@
 .contour{
     display: block;
     background-color: #F5F5F5;
-    height: 1px;
-  }
+    height: 2px;
+}
 .contour.hide{
     display: none;
 }

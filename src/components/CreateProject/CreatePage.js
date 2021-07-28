@@ -1,26 +1,24 @@
 import React,{useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import CreateProject from './CreateProject';
-import Navbar from './Navbar'
+import Navbar from '../common/Navbar'
 import BootPay from 'bootpay-js'
-import baseUrl from '../network/network';
+import baseUrl from '../../network/network';
+import LogoBar from '../common/LogoBar';
 import './CreatePage.css'
 
 function CreatePage() {
     const history = useHistory();
-    const [pageNum, setPageNum] = useState(0);
     const [price, setPrice] = useState(0);
     const [startDate, setStartDate] = useState(initStartDate());
     const [endDate, setEndDate] = useState(initEndDate());
     const [productList, setProductList] = useState([]);
+    const [customUploadList, setCustomUploadList] = useState([]);
     const [totalProductNum, setTotalProductNum] = useState(0);
     const [projectId, setProjectId] = useState(undefined);
     const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
-        if(projectId === undefined){
-            setPageNum(0);
-        }
         if(sessionStorage.getItem('DODtoken') == null){
             window.location.assign('/');
         }
@@ -52,10 +50,56 @@ function CreatePage() {
         return startDate;
     }
     function onClickBack(){
-        if(pageNum === 1){
-            setPageNum(0)
-        }else{
-            window.location.assign('/');
+        window.location.assign('/');
+    }
+    function dataURLtoFile(dataurl, fileName){
+ 
+        var arr = dataurl.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), 
+            n = bstr.length, 
+            u8arr = new Uint8Array(n);
+            
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        
+        return new File([u8arr], fileName, {type:mime});
+    }
+    function onClickFinish(){
+        if(customUploadList.length >0){
+            setLoading(true);
+            var datalist = [];
+            customUploadList.map((item)=>{
+                datalist.push(dataURLtoFile(item));
+            })
+            fetch(`${baseUrl}/api/v1/project/`,{
+                method:'POST',
+                headers:{
+                    'accept' : 'application/json',
+                    'content-type' : 'application/json;charset=UTF-8',
+                    'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
+                },
+                body:JSON.stringify({
+                    start_at:startDate,
+                    dead_at:endDate,
+                    items:datalist
+                })
+            }).then(function(res){
+                if(res.ok){
+                    return res.json()
+                }else if(res.status === 401){
+                    window.location.assign('/');
+                }else{
+                    console.log(res);
+                }
+            }).then(res =>{
+                console.log(res.id);
+                sessionStorage.setItem('getLinkProjectId', res.id);
+                window.location.assign('/projectlink');
+                setLoading(false);
+            })
+
         }
     }
     function onClickPay(){
@@ -144,11 +188,9 @@ function CreatePage() {
             BootPay.request(data.results
             ).error(function (data) {
                 //결제 진행시 에러가 발생하면 수행됩니다.
-                history.push('/');
                 setLoading(false);
                 console.log(data);
             }).cancel(function (data) {
-                history.push('/');
                 setLoading(false);
                 console.log(data);
             }).ready(function (data) {
@@ -221,8 +263,9 @@ function CreatePage() {
     return (
         <div>
             <div className={loading ? 'modal' : 'modal hide'}></div>
-            <Navbar pageNum={pageNum} onClickBack={onClickBack}/>
-            <CreateProject productList = {productList} setProductList={setProductList} totalProductNum={totalProductNum} setTotalProductNum={setTotalProductNum} startDate={startDate} endDate={endDate} setStartDate = {setStartDate} setEndDate={setEndDate} pageNum={pageNum} onClickPay={onClickPay}/>
+            <LogoBar/>
+            <Navbar pageNum={0} onClickBack={onClickBack}/>
+            <CreateProject customUploadList={customUploadList} setCustomUploadList={setCustomUploadList} productList = {productList} setProductList={setProductList} setTotalProductNum={setTotalProductNum} startDate={startDate} endDate={endDate} setStartDate = {setStartDate} setEndDate={setEndDate} onClickPay={onClickPay} onClickFinish={onClickFinish}/>
         </div>
     )
 }

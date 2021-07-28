@@ -5,6 +5,9 @@
 }
 .main-box{
   max-width: 680px;
+  
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .App-logo {

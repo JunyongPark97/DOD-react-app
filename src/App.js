@@ -3,7 +3,7 @@ import {useEffect} from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Mainpage from './components/Mainpage';
 import FloatingButton from './components/FloatingButton'
-import CreatePage from './components/CreatePage';
+import CreatePage from './components/CreateProject/CreatePage';
 import ProjectLinkPage from './components/ProjectLinkPage'
 import DashboardPage from './components/DashboardPage';
 import CheckPaymentPage from './components/CheckPaymentPage';
