@@ -241,7 +241,7 @@
     color: #7C44FF;
     margin: 0px;
 }
-@media (max-width:480px) {
+@media (max-width:540px) {
     .create-project-totalprice-box{
         background-color: #F9F9FB;
         border-radius: 20px;
@@ -257,5 +257,27 @@
     }
     .create-project-totalprice-innerbox{
         width: 100%;
+    }
+    .create-project-descriptionBox{
+        width: fill;
+        background-color: #F5F0FF;
+        border-radius: 20px;
+        padding: 32px;
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+    }
+    .create-project-box2{
+        justify-content: center;
+        margin-top: 32px;
+    }
+    .create-project-custom-product-card{
+        display: inline block;
+        padding: 0.5em;
+        display: block;
+        width: 50%;
+        
+        box-sizing: border-box;
+        position:relative;
     }
 }

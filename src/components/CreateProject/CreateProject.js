@@ -180,7 +180,7 @@ function CreateProject(props) {
                         <p className='create-project-card-subtext'>원하는 기간이 있으신가요?</p>
                     </div>
                 </div>
-                <div id='select-date-btn' className={'create-project-descriptionBox'}>
+                <div id='select-date-btn' className='create-project-descriptionBox'>
                     <p className='create-project-description'>
                         <span className='create-project-description-small'>기본 2주로 설정되어 있어요</span><br/>
                         시작일 00:00부터 종료일 24:00까지 <br/>추첨이 활성화돼요
@@ -272,7 +272,7 @@ function CreateProject(props) {
                                 productList.map((item, index) => <ProductCard key={index} item={item} index = {index} onChange={onChangeProductNum}/>)
                             }
                         </div>
-                        <div className='contour-16margin'/>
+                        <div className='contour-16margin-both'/>
                         <div className={readyToPay?'create-project-totalprice-box':'create-project-totalprice-box hide'}>
                             <p className='create-project-totalprice-text'>기존 기프티콘보다<br/><span className='create-project-totaldiscount-price'>{numberWithCommas(priceInfo.origin_price - priceInfo.price)}원</span> 저렴해요!</p>
                             <div className='create-project-totalprice-innerbox'>
