@@ -2,7 +2,7 @@ import React,{useState, useRef, useEffect} from 'react'
 import { useHistory } from 'react-router-dom';
 import './ResultPage.css'
 import ResultModal from './ResultModal'
-import baseUrl from '../network/network';
+import baseUrl from '../../network/network';
 
 export default function ResultPage(props) {
     const history=useHistory();

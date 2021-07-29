@@ -17,6 +17,7 @@ function CreatePage() {
     const [totalProductNum, setTotalProductNum] = useState(0);
     const [projectId, setProjectId] = useState(undefined);
     const [loading, setLoading] = useState(false);
+    const [fileList, setFileList] = useState([]);
 
     useEffect(()=>{
         if(sessionStorage.getItem('DODtoken') == null){
@@ -69,10 +70,14 @@ function CreatePage() {
     function onClickFinish(){
         if(customUploadList.length >0){
             setLoading(true);
-            var datalist = [];
-            customUploadList.map((item)=>{
-                datalist.push(dataURLtoFile(item));
-            })
+            var data = new FormData();
+            for(var i = 0; i < customUploadList.length; i++ ){
+                data.append("custom_upload", fileList[i]);
+            }
+            data.append("start_at", startDate)
+            data.append("dead_at", endDate);
+            console.log(data.values);
+
             fetch(`${baseUrl}/api/v1/project/`,{
                 method:'POST',
                 headers:{
@@ -80,11 +85,8 @@ function CreatePage() {
                     'content-type' : 'application/json;charset=UTF-8',
                     'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
                 },
-                body:JSON.stringify({
-                    start_at:startDate,
-                    dead_at:endDate,
-                    items:datalist
-                })
+                body:data
+                
             }).then(function(res){
                 if(res.ok){
                     return res.json()
@@ -265,7 +267,7 @@ function CreatePage() {
             <div className={loading ? 'modal' : 'modal hide'}></div>
             <LogoBar/>
             <Navbar pageNum={0} onClickBack={onClickBack}/>
-            <CreateProject customUploadList={customUploadList} setCustomUploadList={setCustomUploadList} productList = {productList} setProductList={setProductList} setTotalProductNum={setTotalProductNum} startDate={startDate} endDate={endDate} setStartDate = {setStartDate} setEndDate={setEndDate} onClickPay={onClickPay} onClickFinish={onClickFinish}/>
+            <CreateProject fileList={fileList} setFileList={setFileList} customUploadList={customUploadList} setCustomUploadList={setCustomUploadList} productList = {productList} setProductList={setProductList} setTotalProductNum={setTotalProductNum} startDate={startDate} endDate={endDate} setStartDate = {setStartDate} setEndDate={setEndDate} onClickPay={onClickPay} onClickFinish={onClickFinish}/>
         </div>
     )
 }

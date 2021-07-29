@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { useHistory } from 'react-router-dom'
-import Navbar from './common/Navbar'
+import Navbar from '../common/Navbar'
 import MypageBtn from './MypageBtn';
 import './Mypage.css'
 
-import baseUrl,{kakaoLink} from '../network/network';
+import baseUrl,{kakaoLink} from '../../network/network';
 
 export default function Mypage() {
     const history = useHistory();

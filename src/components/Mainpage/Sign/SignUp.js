@@ -1,8 +1,6 @@
-import { when } from 'jquery';
 import React,{useState, useRef} from 'react'
-import { Button } from './Button'
 import './SignUp.css'
-import baseUrl,{privacyPolicy, useOfTerm} from '../network/network';
+import baseUrl,{privacyPolicy, useOfTerm} from '../../../network/network';
 
 function SignUp(props) {
     const {isOpen, openPWAssign} = props;

@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
-import {Button} from './Button'
+import {Button} from '../../common/Button'
 import './PWAssign.css'
-import baseUrl from '../network/network';
+import baseUrl from '../../../network/network';
 
 function PWAssign(props) {
     const {isOpen, closeModal, loginFunction} = props;

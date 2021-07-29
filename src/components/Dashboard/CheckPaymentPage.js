@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import { useHistory } from 'react-router-dom';
-import Navbar from './common/Navbar'
-import Payment from './Payment';
+import Navbar from '../common/Navbar'
 
 export default function CheckPaymentPage() {
     const history = useHistory();
@@ -21,7 +20,6 @@ export default function CheckPaymentPage() {
     return (
         <div>
             <Navbar pageNum={1} onClickBack={onClickBack}/>
-            <Payment projectId={projectId} name={name} setName={onClickSetName} pageNum={1} price={price}/>
         </div>
     )
 }

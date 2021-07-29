@@ -1,6 +1,6 @@
 import React from 'react'
 import './Footer.css'
-import {privacyPolicy, useOfTerm} from '../network/network'
+import {privacyPolicy, useOfTerm} from '../../network/network'
 
 function Footer() {
     function onClickPrivacy(){

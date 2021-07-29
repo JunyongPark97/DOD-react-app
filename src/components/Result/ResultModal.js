@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import './ResultModal.css'
-import {dodMoreLink} from '../network/network'
+import {dodMoreLink} from '../../network/network'
 
 export default function ResultModal(props) {
     const {isModalOpen, showResult,win,item_name} = props;

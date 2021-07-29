@@ -2,7 +2,7 @@ import React from 'react'
 import './DashboardCard.css'
 import StatusTag from './StatusTag';
 import DashboardCardBtn from './DashboardCardBtn'
-import baseUrl from '../network/network';
+import baseUrl from '../../network/network';
 
 export default function DashboardCard(props) {
     const {item, index, deleteProject} = props;

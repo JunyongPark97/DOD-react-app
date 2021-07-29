@@ -1,12 +1,12 @@
 import React,{useState, useEffect} from 'react'
-import DodNavbar from './DodNavbar';
+import DodNavbar from '../common/DodNavbar';
 import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom'
 import './DashboardPage.css'
 import DashboardCard from './DashboardCard';
-import MainpageDescription from './MainpageDescription';
-import Footer from './Footer'
+import MainpageDescription from '../Mainpage/MainpageDescription';
+import Footer from '../common/Footer'
 
-import baseUrl from '../network/network';
+import baseUrl from '../../network/network';
 
 export default function DashboardPage() {
     const history = useHistory();

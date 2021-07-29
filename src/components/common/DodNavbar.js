@@ -1,8 +1,6 @@
 import React,{useState} from 'react' //, {useState}
 import {Link} from 'react-router-dom'
-import { Button } from './Button';
 import './DodNavbar.css'
-import SignInButton from './SignModal'
 
 function DodNavbar(props) {
     const {isLoggedIn, openModal} = props

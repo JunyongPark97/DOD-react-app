@@ -2,11 +2,10 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {useHistory, withRouter} from "react-router-dom"
-import DodNavbar from './DodNavbar';
-import DescriptionCard from './DescriptionCard';
-import Footer from './Footer'
+import DodNavbar from '../common/DodNavbar';
+import Footer from '../common/Footer'
 import StartButtonBig from './StartButtonBig';
-import SignModal from './SignModal'
+import SignModal from './Sign/SignModal'
 import MainpageDescription from './MainpageDescription';
 
 function Mainpage() {

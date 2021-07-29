@@ -4,7 +4,7 @@ import CalenderModal from './CalendarModal'
 import ProductCard from './ProductCard';
 
 function CreateProject(props) {
-    const {onClickPay, onClickFinish, customUploadList, setCustomUploadList, productList, setProductList, setTotalProductNum, startDate, endDate, setStartDate, setEndDate} = props;
+    const {onClickPay, onClickFinish, customUploadList, setCustomUploadList, fileList, setFileList, productList, setProductList, setTotalProductNum, startDate, endDate, setStartDate, setEndDate} = props;
     
     const [startDayModalOpen , setStartDayModalOpen] = useState(false);
     const [endDayModalOpen , setEndDayModalOpen] = useState(false);
@@ -39,6 +39,7 @@ function CreateProject(props) {
     }
     function onChangeFileList(){
         var imageList = customUploadList;
+        var newFileList = fileList;
         var list = [];
         Array.from(inputFile.current.files).forEach(file => { 
             if(file && file.type.substring(0,5) === 'image'){
@@ -58,7 +59,7 @@ function CreateProject(props) {
             setReadyToFinish(false);
         }
         list.map((item, index)=>{
-            
+            newFileList.push(item);
             let reader = new FileReader();
             reader.onload = (e) => {
                 var image = new Image();
@@ -107,12 +108,15 @@ function CreateProject(props) {
             };
             reader.readAsDataURL(item);
         })
+        setFileList([...newFileList]);
         inputFile.current.value = "";
     }
     function removeCustomItem(e){
         var index = e.target.getAttribute('index');
         var newList = customUploadList;
         newList.splice(index,1);
+        var newFileList = fileList;
+        newFileList.splice(index, 1);
 
         if((newList.length)%3 === 1){
             setEmptyFiles(['']);
@@ -127,6 +131,7 @@ function CreateProject(props) {
             setReadyToFinish(false);
         }
         setCustomUploadList([...newList]);
+        setFileList([...newFileList]);
     }
     
     function countTotalProductNum(newArray){

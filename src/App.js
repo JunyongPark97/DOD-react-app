@@ -1,16 +1,16 @@
 import './App.css';
 import {useEffect} from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import Mainpage from './components/Mainpage';
-import FloatingButton from './components/FloatingButton'
+import Mainpage from './components/Mainpage/Mainpage';
+import FloatingButton from './components/common/FloatingButton'
 import CreatePage from './components/CreateProject/CreatePage';
-import ProjectLinkPage from './components/ProjectLinkPage'
-import DashboardPage from './components/DashboardPage';
-import CheckPaymentPage from './components/CheckPaymentPage';
-import Mypage from './components/Mypage';
-import ResultPage from './components/ResultPage';
-import InvalidPage from './components/InvalidPage';
-import ForbiddenPage from './components/ForbiddenPage';
+import ProjectLinkPage from './components/CreateProject/ProjectLinkPage'
+import DashboardPage from './components/Dashboard/DashboardPage';
+import CheckPaymentPage from './components/Dashboard/CheckPaymentPage';
+import Mypage from './components/Mypage/Mypage';
+import ResultPage from './components/Result/ResultPage';
+import InvalidPage from './components/Result/InvalidPage';
+import ForbiddenPage from './components/Result/ForbiddenPage';
 
 function App() {
   return (

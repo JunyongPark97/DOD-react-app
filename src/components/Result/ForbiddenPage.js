@@ -1,7 +1,7 @@
 import React from 'react'
-import { dodMoreLink } from '../network/network';
+import { dodMoreLink } from '../../network/network';
 
-export default function InvalidPage() {
+export default function ForbiddenPage() {
     function onClickMore(){
         window.location.assign(dodMoreLink);
     }
@@ -12,8 +12,8 @@ export default function InvalidPage() {
             </div>
             <div className='contour'/>
             <div className='result-page-content'>
-                <p className='result-page-title'>현재 이용할 수 없는 추첨입니다.<br/>
-                    설문자에게 문의해 주세요!</p>
+                <p className='result-page-title'>유효하지 않은 접근입니다.<br/>
+                    설문에 참여해 주세요!</p>
                 <img className='result-page-dod-img invalid-page' src={process.env.PUBLIC_URL + '/../dod-invalid.png'}/>
                 
                 

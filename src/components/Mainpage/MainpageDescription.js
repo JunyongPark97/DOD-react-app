@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import DescriptionCard from './DescriptionCard';
 
-import baseUrl from '../network/network';
+import baseUrl from '../../network/network';
 
 function MainpageDescription() {
     const [descriptionList, setDescriptionList] =useState([]);

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button } from './Button'
 import './StartButtonBig.css'
 
 function StartButtonBig(props) {
