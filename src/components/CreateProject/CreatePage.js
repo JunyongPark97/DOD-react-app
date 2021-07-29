@@ -82,7 +82,7 @@ function CreatePage() {
                 method:'POST',
                 headers:{
                     'accept' : 'application/json',
-                    'content-type' : 'application/json;charset=UTF-8',
+                    // 'content-type' : 'application/json;charset=UTF-8',
                     'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
                 },
                 body:data
