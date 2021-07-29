@@ -1,5 +1,6 @@
 import React,{useState} from 'react' //, {useState}
 import {Link} from 'react-router-dom'
+import Navigation from './Navigation'
 import './DodNavbar.css'
 
 function DodNavbar(props) {
@@ -19,7 +20,7 @@ function DodNavbar(props) {
     };
 
     return (
-        <nav className="dod-navbar">
+        <div >
             <div className="dod-navbar-container">
                 <Link to="/" className="dod-navbar-logo" >
                     <img className="dod-navbar-logo-icon" src={process.env.PUBLIC_URL + 'nav-logo.png'}/>
@@ -37,7 +38,7 @@ function DodNavbar(props) {
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
     )
 }
 

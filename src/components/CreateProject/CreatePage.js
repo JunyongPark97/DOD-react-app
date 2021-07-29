@@ -6,6 +6,7 @@ import BootPay from 'bootpay-js'
 import baseUrl from '../../network/network';
 import LogoBar from '../common/LogoBar';
 import './CreatePage.css'
+import { data } from 'jquery';
 
 function CreatePage() {
     const history = useHistory();
@@ -67,6 +68,9 @@ function CreatePage() {
         
         return new File([u8arr], fileName, {type:mime});
     }
+    function getTimeString(date){
+        return `${date.getYear()}/${date.getMonth()+1}/${date.getDate()}`
+    }
     function onClickFinish(){
         if(customUploadList.length >0){
             setLoading(true);
@@ -74,9 +78,8 @@ function CreatePage() {
             for(var i = 0; i < customUploadList.length; i++ ){
                 data.append("custom_upload", fileList[i]);
             }
-            data.append("start_at", startDate)
-            data.append("dead_at", endDate);
-            console.log(data.values);
+            data.append("start_at", getTimeString(startDate))
+            data.append("dead_at", getTimeString(endDate));
 
             fetch(`${baseUrl}/api/v1/project/`,{
                 method:'POST',
@@ -124,8 +127,8 @@ function CreatePage() {
                     'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
                 },
                 body:JSON.stringify({
-                    start_at:startDate,
-                    dead_at:endDate,
+                    start_at:getTimeString(startDate),
+                    dead_at:getTimeString(endDate),
                     items:itemList
                 })
             }).then(function(res){

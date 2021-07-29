@@ -40,7 +40,7 @@ function SignIn(props) {
                         sessionStorage.setItem('DODtoken', res.token);
                         sessionStorage.setItem('userName', res.name);
 			console.log('Tlqkfdhodkseo');
-                        window.location.assign('/dashboard');
+                        window.location.assign('/');
                         closeModal();
                     }else{
                         setAlertBoolean(true);

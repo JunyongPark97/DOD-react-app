@@ -5,6 +5,7 @@ import './DashboardPage.css'
 import DashboardCard from './DashboardCard';
 import MainpageDescription from '../Mainpage/MainpageDescription';
 import Footer from '../common/Footer'
+import Navigation from '../common/Navigation';
 
 import baseUrl from '../../network/network';
 
@@ -77,7 +78,7 @@ export default function DashboardPage() {
     return (
         <div className='dashboard-container'>
             <DodNavbar isLoggedIn={isLoggedIn} openModal={openMypage}/>
-            <div className='contour'/>
+            <Navigation location={1} isLoggedIn={isLoggedIn} openModal={openMypage}/>
             <p className='dashboard-text'>
                 {sessionStorage.getItem('userName')}님은<br/>
                 <span className='dashboard-highlight-text'>

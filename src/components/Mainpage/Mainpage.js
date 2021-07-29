@@ -7,19 +7,18 @@ import Footer from '../common/Footer'
 import StartButtonBig from './StartButtonBig';
 import SignModal from './Sign/SignModal'
 import MainpageDescription from './MainpageDescription';
+import Navigation from '../common/Navigation';
 
 function Mainpage() {
     const history = useHistory();
     const [loggedIn, setLoggedIn] = useState(false);
     const [isModalOpen, setModalOpen] = useState(false);
     const [justLogin, setJustLogin] = useState(true);
-    
     useEffect(()=>{
-        if(sessionStorage.getItem('DODtoken') !== null){
-            history.push('/dashboard');
+        if(window.sessionStorage.getItem('DODtoken') !== null){
+            setLoggedIn(true);
         }
-    }, [])
-
+    },[])
     function openModal(){
         setJustLogin(true);
         setModalOpen(true);
@@ -30,7 +29,7 @@ function Mainpage() {
         sessionStorage.removeItem('confirmKey');
     }
     function login(){
-        window.location.assign('/dashboard');
+        window.location.assign('/');
     }
     function createProject(){
         history.push('/create');
@@ -42,7 +41,7 @@ function Mainpage() {
     return (
         <div>
             <DodNavbar isLoggedIn = {loggedIn} openModal = {openModal}/>
-            <div className='contour'/>
+            <Navigation location={0} isLoggedIn={loggedIn} openModal={openModal}/>
             <StartButtonBig openModal={openModalAndCreate}/>
             <SignModal justLogin = {justLogin} isModalOpen = {isModalOpen} closeModalFunction = {closeModal} loginFunction={login} createProject = {createProject}/>
             <MainpageDescription/> 

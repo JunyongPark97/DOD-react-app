@@ -208,7 +208,7 @@ function CreateProject(props) {
                         onClick={useOwnGift?(null):(function(){
                             setUseOwnGift(true);
                         })}
-                    >내 거 쓰기</p>
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내 거 쓰기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     <p id='create-project-buygift-btn' 
                         className={useOwnGift?'create-project-selectOwn-text':'create-project-selectOwn-text-selected'}
                         onClick={useOwnGift?(function(){

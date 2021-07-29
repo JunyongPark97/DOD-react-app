@@ -1,17 +1,14 @@
 .dod-navbar{
-    background: linear-gradient(90deg, #fff 0%, #fff 100%);
-    height: 72px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+    
 }
 .dod-navbar-container{
-    width: 680px;
+    height: 40px;
     display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 1.2rem;
+    z-index: 999;
+    width: 680px;
     /* justify-content: start; */
 }
 
@@ -41,9 +38,8 @@
       font-family: noto-medium;
       color: #393C3B;
       padding-left: 16px;
-      padding-top: 8px;
-      padding-bottom: 8px;
       padding-right: 0px;
+      margin: 0px;
   }
   .dod-menu-icon{
       flex: none;
@@ -51,8 +47,8 @@
       margin-right: 0px;
   }
   .fas{
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
   }
   .dod-menu-icon.hide{
       display: none;
