@@ -37,7 +37,7 @@
       justify-content: center;
       transform: translateX(-12px);
   }
-  @media (max-width:680px) {
+  @media (max-width:640px) {
     .navbar-container{
         width: 100%;
         display: flex;

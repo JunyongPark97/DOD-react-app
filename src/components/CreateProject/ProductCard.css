@@ -88,7 +88,7 @@
     color: #929292;
 }
 
-@media (max-width:540px) {
+@media (max-width:640px) {
     .product-card-innercontainer{
         display: flex;
         flex-direction: column;

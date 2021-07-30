@@ -241,7 +241,7 @@
     color: #7C44FF;
     margin: 0px;
 }
-@media (max-width:540px) {
+@media (max-width:640px) {
     .create-project-totalprice-box{
         background-color: #F9F9FB;
         border-radius: 20px;

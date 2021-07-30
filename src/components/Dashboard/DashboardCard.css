@@ -106,7 +106,7 @@
     color: #929292;
 }
 
-@media (max-width : 680px){
+@media (max-width : 640px){
     .dashboard-card-content-container{
         /* display: flex; */
         flex-direction: column;

@@ -90,7 +90,7 @@
     background-color: #6639CF;
     color: #CFCFCF;
 }
-@media (max-width:480px) {
+@media (max-width:640px) {
     .project-link-content{
         font-size: 14px;
     }

@@ -1,0 +1,32 @@
+.page-navi-container{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 12px;
+}
+.page-navi-number-container{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+.page-navi-number{
+    font-family: noto-regular;
+    font-size: 12px;
+    color : #9696A3;
+    padding: 8px 10px;
+    border-radius: 16px;
+}
+.page-navi-number:hover{
+    background-color: #EBEBF0;
+    transition: all ease 0.3s;
+}
+.page-navi-number.abled{
+    color: #7E47FF;
+}
+.page-navi-arrow{
+    width: 9px;
+    height: 15px;
+    padding: 8px 10px;
+}
