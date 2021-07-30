@@ -69,7 +69,7 @@ function CreatePage() {
         return new File([u8arr], fileName, {type:mime});
     }
     function getTimeString(date){
-        return `${date.getYear()}/${date.getMonth()+1}/${date.getDate()}`
+        return `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`
     }
     function onClickFinish(){
         if(customUploadList.length >0){
@@ -153,8 +153,8 @@ function CreatePage() {
                 'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
                 },
                 body:JSON.stringify({
-                    start_at:startDate,
-                    dead_at:endDate,
+                    start_at:getTimeString(startDate),
+                    dead_at:getTimeString(endDate),
                     items:itemList
                 })
             }).then(function(res){
