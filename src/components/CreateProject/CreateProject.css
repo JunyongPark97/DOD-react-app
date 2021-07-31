@@ -10,18 +10,29 @@
 }
 .create-project-dueDate-inline{
     text-align: start;
-    box-shadow: 0 0 3px grey;
-    background-color: #FFFFFF;
     font-family: noto-medium;
     font-size: 16px;
-    border-radius: 16px;
     width: fit-content;
     height: fit-content;
+    padding: 0px;
+    margin: 0px;
+    color: #9696A3;
+}
+.create-project-dudate-box{
+    display: flex;
+    flex-direction: row;
+    text-align: start;
+    box-shadow: 0 0 3px grey;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    /* width: fit-content;
+    height: fit-content; */
     padding: 16px 16px;
     margin: 0px;
     color: #9696A3;
     margin-right: 0px;
 }
+
 .create-project-box2{
     display: flex;
     flex-direction: row;
@@ -57,7 +68,10 @@
     margin-left: 24px;
 }
 .create-project-icon{
+    width: 20px;
+    height: 22px;
     margin:0px;
+    margin-right: 12px;
 }
 .create-project-descriptionBox{
     width: fill;
@@ -90,9 +104,6 @@
     margin-top: 64px;
     margin-bottom: 64px;
     color: #9696A3;
-}
-.create-project-icon{
-    margin-right: 8px;
 }
 .create-project-descriptionBox-grey{
     width: fill;

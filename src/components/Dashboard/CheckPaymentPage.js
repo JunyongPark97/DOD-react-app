@@ -7,6 +7,11 @@ export default function CheckPaymentPage() {
     const projectId = sessionStorage.getItem('checkPaymentProjectId');
     const [name, setName] = useState(sessionStorage.getItem('checkPaymentName'));
     const price = sessionStorage.getItem('checkPaymentPrice');
+    return () => {
+        sessionStorage.removeItem('checkPaymentProjectId');
+        sessionStorage.removeItem('checkPaymentName');
+        sessionStorage.removeItem('checkPaymentPrice');
+    }
     function onClickBack(){
         sessionStorage.removeItem('checkPaymentProjectId');
         sessionStorage.removeItem('checkPaymentName');

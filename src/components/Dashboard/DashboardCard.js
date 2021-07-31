@@ -1,12 +1,37 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import './DashboardCard.css'
 import StatusTag from './StatusTag';
-import DashboardCardBtn from './DashboardCardBtn'
 import baseUrl from '../../network/network';
+import Progress from 'react-progressbar'
 
 export default function DashboardCard(props) {
     const {item, index, deleteProject} = props;
+    const [showDelete, setShowDelete] = useState(false);
     const products = item.products;
+    function getProgressbarBackColor(){
+        switch(item.project_status){
+            case 999:
+                return '#9696A3';
+            case 300:
+                return '#FFEFCF';
+            case 100:
+                return '#E2D6FF';
+        }
+    }
+    function getProgressbarColor(){
+        switch(item.project_status){
+            case 999:
+                return '#9696A3';
+            case 300:
+                return '#FFEFCF';
+            case 100:
+                return '#7E47FF';
+        }
+    } 
+    useEffect(() => {
+        document.getElementsByClassName(`progressbar-container-${item.id}`)[0].style.background = getProgressbarBackColor()
+        
+    }, [])
     function deleteItem(){
         fetch(`${baseUrl}/api/v1/project/${item.id}/`,{
             method:'DELETE',
@@ -25,40 +50,54 @@ export default function DashboardCard(props) {
             }
         })
     }
+    function onClickMore(){
+        console.log('dd');
+        setShowDelete(true);
+    }
     return (
-        <div className={(item.project_status > 100) ? 'dashboard-card-container disabled' :'dashboard-card-container'}>
-            <div className='dashboard-card-title'>
-                <p className='dashboard-card-title-text'><img className='dashboard-icon' src={process.env.PUBLIC_URL + 'project-icon.png'}/>{item.name}</p>
-                <StatusTag status={item.project_status}/>
-            </div>
-            <div className='dashboard-card-content-container'>
-                <div className='dashboard-card-content-innercontainer border'>
-                    <div className='dashboard-card-content-duedate'>
-                        <p className='dashboard-card-content-text'>설문기간</p>
-                        <p className={(item.project_status > 100)?'dashboard-card-content disabled':'dashboard-card-content'}>{item.start_at}~{item.dead_at}</p>
-                    </div>
-                    <div className='dashboard-card-content-candidates'>
-                        <p className='dashboard-card-content-text'>응모자 수</p>
-                        <p className={(item.project_status > 100)?'dashboard-card-content disabled':'dashboard-card-content'}>{item.total_respondent}명</p>
-                    </div>
+        <div className='dashboard-card-container'>
+            <p className={showDelete?'dashboard-card-delete-btn':'dashboard-card-delete-btn none'}>삭제</p>
+            <div className='dashboard-card-title-box'>
+                <div className='dashboard-card-title-innerbox'>
+                    <p className='dashboard-card-title'>
+                        {item.name}
+                    </p>
+                    <StatusTag stats={item.project_status}/>
                 </div>
-                <div className='dashboard-card-content-innercontainer'>
-                    <div className='dashboard-card-content-gift'>
-                        <p className='dashboard-card-content-text'>기프티콘</p>
-                        <div className='dashboard-card-content-itemlist'>
-                            {
-                                products.map((productItem) => 
-                                <div key={productItem.id} className='dashboard-card-content-products'>
-                                    <img className='dashboard-card-content-giftimg' src={productItem.item_thumbnail}/>
-                                    <p className={(item.project_status > 100)?'dashboard-card-content-giftnum disabled':'dashboard-card-content-giftnum'}>{productItem.remain_winner_count}/{productItem.winner_count}</p>
-                                </div>
-                                )
-                            }
+                <img className='dashboard-card-more-btn' onClick={onClickMore} src={process.env.PUBLIC_URL + '/more-icon.png'} alt=''/>            
+            </div>
+            <p className='dashboard-card-percentage'>{item.progress}% 지급</p>
+            <Progress className={`progressbar-container progressbar-container-${item.id}`}color={getProgressbarColor()} height='8px' completed={item.progress}/>
+            <div className='dashboard-card-btn-box'>
+            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/icon-calendar.png'} alt=''/>
+                <p className='dashboard-card-text-16'>{item.start_at} ~ {item.dead_at}</p>
+            </div>
+            <div className='dashboard-card-btn-box'>
+                <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/person-icon-grey.png'} alt=''/>
+                <p className='dashboard-card-text-28'>{item.total_respondent}명</p>
+            </div>
+            {
+                (item.project_status === 999)? (<></>):(
+                    <>
+                        <div className='dashboard-card-btn-box'>
+                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/icon-link.png'} alt=''/>
+                            <div className='dashboard-card-more-text-box'>
+                                <p className='dashboard-card-text-16'>추첨 링크</p>
+                                <p className='dashboard-card-text-12'>연결을 아직 못했다면?</p>
+                            </div>
+                            <p id='dashboard-card-checklink-btn' className={(item.project_status === 100)? 'dashboard-card-btn enabled':'dashboard-card-btn'}>연결하기</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <DashboardCardBtn status={item.project_status} depositor={item.depositor} totalPrice={item.total_price} projectId={item.id} deleteProject={deleteItem}/>
+                        <div className='dashboard-card-btn-box'>
+                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/gift-icon.png'} alt=''/>
+                            <div  className='dashboard-card-more-text-box'>
+                                <p className='dashboard-card-text-16'>기프티콘</p>
+                                <p className='dashboard-card-text-12'>뭐가 얼마나 남은거지?</p>
+                            </div>
+                            <p id='dashboard-card-checkgift-btn' className={(item.project_status === 100)? 'dashboard-card-btn enabled':'dashboard-card-btn'}>확인하기</p>
+                        </div>
+                    </>
+                )
+            }
         </div>
     )
 }

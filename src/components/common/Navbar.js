@@ -14,6 +14,10 @@ function Navbar(props) {
                 return '링크 안내'
             case 3:
                 return '더 보기'
+            case 4:
+                return '설문 게시판'
+            case 5:
+                return '내가 올린 설문'
         }
     }
     return (

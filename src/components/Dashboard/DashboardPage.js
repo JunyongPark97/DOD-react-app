@@ -37,6 +37,7 @@ export default function DashboardPage() {
             }).then(res => {
                 if(res !==undefined){
                     setItemList(res);
+                    console.log(res);
                     if(res.length === 0){
                         setShowInfo(true);
                     }

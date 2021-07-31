@@ -186,9 +186,15 @@ function CreateProject(props) {
                         시작일 00:00부터 종료일 24:00까지 <br/>추첨이 활성화돼요
                     </p>
                     <div className='create-project-box2'>
-                        <p id='select-start-date-btn' className='create-project-dueDate-inline' onClick={openStartModal}><img className='create-project-icon' src={process.env.PUBLIC_URL + 'icon-calendar.png'}/>{startDate.getMonth()+1}-{startDate.getDate()}</p>
+                        <div className='create-project-dudate-box'  onClick={openStartModal}>
+                            <img className='create-project-icon' src={process.env.PUBLIC_URL + 'icon-calendar.png'}/>
+                            <p id='select-start-date-btn' className='create-project-dueDate-inline'>{startDate.getMonth()+1}-{startDate.getDate()}</p>
+                        </div>
                         &nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;&nbsp;
-                        <p id='select-end-date-btn' className='create-project-dueDate-inline' onClick={openEndModal}><img className='create-project-icon' src={process.env.PUBLIC_URL + 'icon-calendar.png'} />{endDate.getMonth()+1}-{endDate.getDate()}</p>
+                        <div className='create-project-dudate-box'  onClick={openEndModal}>
+                            <img className='create-project-icon' src={process.env.PUBLIC_URL + 'icon-calendar.png'}/>
+                            <p id='select-end-date-btn' className='create-project-dueDate-inline'>{endDate.getMonth()+1}-{endDate.getDate()}</p>
+                        </div>
                     </div>
                     <CalenderModal isStart={true} closeModal={closeStartModal} isModalOpen={startDayModalOpen} value={startDate} onChange={setStartDate}/>
                     <CalenderModal isStart={false} closeModal={closeEndModal} isModalOpen={endDayModalOpen} value={endDate} onChange={setEndDate}/>

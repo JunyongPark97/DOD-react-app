@@ -46,7 +46,7 @@ function Board() {
         })
     }, [])
     function onClickNavigator(page){
-        fetch(`${baseUrl}/api/v1/board/page=${page}/`,{
+        fetch(`${baseUrl}/api/v1/board/?page=${page}`,{
             method:'GET',
             headers:{
                 'accept' : 'application/json',
