@@ -13,7 +13,6 @@ export default function DashboardPage() {
     const history = useHistory();
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [itemList, setItemList] = useState([]);
-    const [showInfo, setShowInfo] = useState(false);
 
     useEffect(()=>{
         if(sessionStorage.getItem('DODtoken') === null){
@@ -38,9 +37,6 @@ export default function DashboardPage() {
                 if(res !==undefined){
                     setItemList(res);
                     console.log(res);
-                    if(res.length === 0){
-                        setShowInfo(true);
-                    }
                 }else{
                     sessionStorage.removeItem('DODtoken');
                     history.push('/');
@@ -48,6 +44,12 @@ export default function DashboardPage() {
             })
         }
     }, [])
+    function hideDeleteBtn(){
+        const deleteElements = document.getElementsByClassName('dashboard-card-delete-btn')
+        for (let item of deleteElements) {
+            item.classList.add('none');
+        }
+    }
     function openMypage(){
         history.push('/mypage');
     }
@@ -61,11 +63,6 @@ export default function DashboardPage() {
     function deleteProject(index){
         let newArray = removeItem(itemList, index);
         setItemList(newArray);
-        if(newArray.length === 0){
-            setShowInfo(true);
-        }else{
-            setShowInfo(false);
-        }
     }
     function getActiveProjectsNum(list){
         var num = 0;
@@ -77,35 +74,28 @@ export default function DashboardPage() {
         return num;
     }
     return (
-        <div className='dashboard-container'>
-            <DodNavbar isLoggedIn={isLoggedIn} openModal={openMypage}/>
-            <Navigation location={1} isLoggedIn={isLoggedIn} openModal={openMypage}/>
-            <p className='dashboard-text'>
-                {sessionStorage.getItem('userName')}님은<br/>
-                <span className='dashboard-highlight-text'>
-                    {getActiveProjectsNum(itemList)}개 
-                </span>&nbsp;
-                설문을 디오디로<br/>
-                <span className='dashboard-highlight-text'>추첨 중</span>이에요!
-            </p>
-            <div className='dashboard-create-btn' onClick={onClickCreateBtn}>
-                <div className='dashboard-create-btn-box'>
-                    <p className='dashboard-create-btn-title'><img className='dashboard-icon' src={process.env.PUBLIC_URL + 'project-icon.png'}/>추첨 링크 만들기</p>
-                    <p className='dashboard-create-btn-subtitle'>즉시 지급으로 응답률을 높여보세요</p>
-                </div>
-                <img className='dashboard-create-img' src={process.env.PUBLIC_URL + 'add-icon.png'}/>
+        <>
+            <div className='dashboard-container' onClick={hideDeleteBtn}>
+                <DodNavbar isLoggedIn={isLoggedIn} openModal={openMypage}/>
+                <Navigation location={1} isLoggedIn={isLoggedIn} openModal={openMypage}/>
+                <p className='dashboard-text'>
+                    {sessionStorage.getItem('userName')}님은<br/>
+                    <span className='dashboard-highlight-text'>
+                        {getActiveProjectsNum(itemList)}개 
+                    </span>&nbsp;
+                    설문을<br/>
+                    실시간 추첨 중이에요!
+                </p>
+                <div className='contour'/>
+
+                {
+                    itemList.map((item, index) => <DashboardCard key = {index} item={item} index={index} deleteProject={deleteProject}/>)
+                }
+                <p className='floating-big-btn' onClick={onClickCreateBtn}>실시간 추첨 링크 만들기</p>
+                <Footer/>
             </div>
             
-            {
-                itemList.map((item, index) => <DashboardCard key = {index} item={item} index={index} deleteProject={deleteProject}/>)
-            }
-            {
-                showInfo?<>
-                    <div className='contour-12height'/>
-                    <MainpageDescription/>
-                </>:<></>
-            }
-            <Footer/>
-        </div>
+        </>
+        
     )
 }

@@ -30,9 +30,10 @@ export default function DashboardCard(props) {
     } 
     useEffect(() => {
         document.getElementsByClassName(`progressbar-container-${item.id}`)[0].style.background = getProgressbarBackColor()
-        
+        console.log(item);
     }, [])
-    function deleteItem(){
+    function deleteItem(e){
+        e.stopPropagation();
         fetch(`${baseUrl}/api/v1/project/${item.id}/`,{
             method:'DELETE',
             headers:{
@@ -50,19 +51,23 @@ export default function DashboardCard(props) {
             }
         })
     }
-    function onClickMore(){
-        console.log('dd');
-        setShowDelete(true);
-    }
+    function onClickMore(e){
+        setTimeout(function(){
+            console.log(`dashboard-card-delete-btn-${item.id}`);
+            console.log(document.getElementById(`dashboard-card-delete-btn-${item.id}`).classList);
+            document.getElementById(`dashboard-card-delete-btn-${item.id}`).classList.remove("none");
+    
+            },100);
+        }
     return (
         <div className='dashboard-card-container'>
-            <p className={showDelete?'dashboard-card-delete-btn':'dashboard-card-delete-btn none'}>삭제</p>
+            <p id={`dashboard-card-delete-btn-${item.id}`} className={`dashboard-card-delete-btn none`} onClick={deleteItem}>삭제</p>
             <div className='dashboard-card-title-box'>
                 <div className='dashboard-card-title-innerbox'>
                     <p className='dashboard-card-title'>
                         {item.name}
                     </p>
-                    <StatusTag stats={item.project_status}/>
+                    <StatusTag status={item.project_status}/>
                 </div>
                 <img className='dashboard-card-more-btn' onClick={onClickMore} src={process.env.PUBLIC_URL + '/more-icon.png'} alt=''/>            
             </div>

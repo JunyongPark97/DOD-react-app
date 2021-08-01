@@ -78,7 +78,7 @@ function CreatePage() {
             for(var i = 0; i < customUploadList.length; i++ ){
                 data.append("custom_upload", fileList[i]);
             }
-            data.append("start_at", getTimeString(startDate))
+            data.append("start_at", getTimeString(startDate));
             data.append("dead_at", getTimeString(endDate));
 
             fetch(`${baseUrl}/api/v1/project/`,{
