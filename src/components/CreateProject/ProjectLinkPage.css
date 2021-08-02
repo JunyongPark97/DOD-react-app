@@ -1,105 +1,137 @@
-.project-link-container{
+.project-link-title-box{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin: 0px;
+    justify-content: start;
+    margin-top: 32px;
+}
+.project-link-innercontainer{
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 24px;
+}
+.project-link-img{
+    width: 56px;
+    height: 56px;
 }
 .project-link-title{
-    width: 100%;
-    font-family: noto-regular;
-    font-size: 24px;
-    text-align: start;
-    color: #393C3B;
-    margin-top: 40px;
-    margin-bottom: 0px;
-}
-.project-link-title-strong{
-    color: #7C44FF;
+    font-size: 28px;
     font-family: noto-medium;
+    margin: 0px;
+    color: #020203;
+    text-align: start;
 }
 .project-link-subtitle{
-    width: 100%;
-    text-align: start;
-    font-family: noto-regular;
     font-size: 16px;
-    color: #393C3B;
-    margin-top: 4px;
-    margin-bottom: 0px;
+    font-family: noto-regular;
+    margin: 0px;
+    color: #9696A3;
+    text-align: start;
 }
-.project-link-content{
-    /* width: 100%; */
-    padding: 24px;
-    border: 1px solid #929292;
-    border-radius: 8px;
-    font-family: noto-regular;
+.project-link-box{
+    background-color: #F5F0FF;
+    border-radius: 20px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+    position: relative;
+}
+.project-link-big-text{
     font-size: 16px;
-    color: #929292;
+    font-family: noto-regular;
+    margin: 0px;
+    color: #020203;
     text-align: start;
-    margin-top: 24px;
-    margin-bottom: 0px;
+    width: fill;
+}
+.project-link-small-text{
+    font-size: 12px;
+    font-family: noto-regular;
+    margin: 0px;
+    color: #9696A3;
+    text-align: start;
+    width: fill;
 }
 .project-link-copy-btn{
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border: 1px solid #7C44FF;
-    color: #7C44FF;
-    background-color: #fff;
-    border-radius: 8px;
-    width: 100%;
-    font-family: noto-regular;
-    font-size: 16px;
-    margin-top: 16px;
-    margin-bottom: 0px;
-    transition: all ease 0.3s;
+    background-color: #5930B8;
+    border-radius: 16px;
+    text-align: center;
+    padding: 17px;
+    justify-content: center;
+    color: #fff;
+    margin: 0px;
+    margin-top: 32px;
+    width: fill;
+    font-family: noto-medium;
 }
 .project-link-copy-btn:hover{
-    background-color: #CFCFCF;
+    transform: scale(1.02);
+    /* background-size: 102%; */
+    
+    transition: all ease 0.5s;
 }
-.project-link-small{
-    width: 100%;
-    font-family: noto-regular;
-    font-size: 12px;
-    color: #929292;
-    text-align: start;
+.project-link-copy-img{
+    width: 15px;
+    height: 16px;
+    margin:0px;
+    margin-right: 12px;
+}
+.project-link-dod-img{
+    width: 52px;
+    height: 88px;
     margin-top: 32px;
-    margin-bottom: 0px;
+    margin-bottom: 4px;
 }
-.project-link-img-pc{
-    display: block;
-    width: 100%;
-    margin-top: 12px;
+.project-link-link-img{
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    bottom: -36px;
+    z-index: 50;
 }
-.project-link-img-mobile{
+.project-link-google-img{
+    width: 128px;
+    height: 88px;
+    margin-top: 4px;
+    margin-bottom: 32px;
+}
+.project-link-manual-box{
+    background-color: #F9F9FB;
+    border-radius: 20px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.project-link-manual-img-pc{
+    width: fill;
+    display: inline;
+    margin-top: 96px;
+}
+.project-link-manual-img-mobile{
+    width: fill;
     display: none;
+    margin-top: 96px;
 }
 .project-link-gohome{
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border: 1px solid #7C44FF;
-    color: #fff;
-    background-color: #7C44FF;
-    border-radius: 8px;
-    width: 100%;
-    font-family: noto-regular;
-    font-size: 16px;
-    margin-top: 32px;
-    margin-bottom: 24px;
-    transition: all ease 0.3s;
+    margin-bottom: 64px;
 }
-.project-link-gohome:hover{
-    background-color: #6639CF;
-    color: #CFCFCF;
-}
-@media (max-width:640px) {
-    .project-link-content{
-        font-size: 14px;
-    }
-    .project-link-img-pc{
+
+@media(max-width:640px){
+    .project-link-manual-img-pc{
+        width: fill;
         display: none;
     }
-    .project-link-img-mobile{
-        display: block;
-        width: 100%;
-        margin-top: 12px;
+    .project-link-manual-img-mobile{
+        width: fill;
+        display: inline;
     }
 }

@@ -26,7 +26,7 @@ function Navbar(props) {
         <>
             <nav className="navbar">
                 <div className="navbar-container">
-                    <img className="navbar-logo-icon" src={process.env.PUBLIC_URL + 'arrow-goback.png'} onClick={onClickBack}/>
+                    <img className="navbar-logo-icon" src={process.env.PUBLIC_URL + '/arrow-goback.png'} onClick={onClickBack}/>
                     <div className='title'>
                         {getPageTitle(pageNum)}
                     </div>

@@ -53,7 +53,7 @@ function SignModal(props) {
                         <CheckSignedUp isCheckSignedOpen={checkSignedUpOpen} handleClickSignIn={handleClickSignIn} handleClickSignUp={handleClickSignUp}/>
                         <SignIn isOpen={signInOpen} closeModal={closeModalFunction} loginFunction={justLogin?loginFunction:createProject}/>
                         <SignUp isOpen={signUpOpen} openPWAssign={openPWAssign}/>
-                        <PWAssign isOpen={pwAssignOpen} closeModal={closeModalFunction} loginFunction={loginFunction}/>
+                        <PWAssign isOpen={pwAssignOpen} closeModal={closeModalFunction} loginFunction={justLogin?loginFunction:createProject}/>
                     </div>
                 </div>
                 ) : (

@@ -55,6 +55,7 @@
     color: #FF4759;
     font-size: 16px;
     font-family: noto-regular;
+    margin-bottom: 8px;
 }
 .create-post-alert-msg.hidden{
     margin:0px;
@@ -63,6 +64,7 @@
     color: #fff;
     font-size: 16px;
     font-family: noto-regular;
+    margin-bottom: 8px;
 }
 .create-post-addDod-plz-container{
     padding: 32px;

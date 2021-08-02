@@ -95,19 +95,24 @@ export default function Post() {
     }
     function deletePost(){
         fetch(`${baseUrl}/api/v1/board/${window.sessionStorage.getItem('retrievePostId')}/`,{
-            method:'GET',
+            method:'DELETE',
             headers:{
                 'accept' : 'application/json',
                 'content-type' : 'application/json;charset=UTF-8',
                 'Authorization' : `Token ${window.sessionStorage.getItem('DODtoken')}`
             }
         }).then(function(res){
+            console.log(res);
             if(res.ok){
                 history.push('/board');
             }else if(res.status === 401){
                 window.alert('권한이 없습니다.');
             }
         })
+    }
+    function updatePost(){
+        window.sessionStorage.setItem('updatePostId', item.id);
+        history.push('/post/create/update');
     }
     return (
         <div>
@@ -146,7 +151,7 @@ export default function Post() {
                         }</p>
                     </div>
                     {
-                        (item.is_owner)?<p className='post-btn' id='post-fix'>수정</p> : <></>
+                        (item.is_owner)?<p className='post-btn' id='post-fix' onClick={updatePost}>수정</p> : <></>
                     }
                     {
                         (item.is_owner)?<p className='post-btn' id='post-delete' onClick={openModal}>삭제</p> : <></>

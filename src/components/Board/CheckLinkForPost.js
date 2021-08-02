@@ -9,10 +9,12 @@ import baseUrl from '../../network/network'
 export default function CheckLinkForPost() {
     const history = useHistory();
     const alarm = useRef(null);
+    const linkinput = useRef(null);
     const [onLoad, setOnLoad] = useState(false);
     const [isDod, setIsDod] = useState(false);
     const [isAvailable, setIsAvailable] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+    const [projectId, setProjectId] = useState(null);
     function onClickBack(){
         history.goBack();
     }
@@ -21,11 +23,16 @@ export default function CheckLinkForPost() {
             return <DisappearedLoading color='#7E47FF' size='small' style={{width:'77px', height:'56px', position:'relative', marginLeft:'16px'}}/>
         }else{
             if(isAvailable){
-                return <p className='create-post-next-btn'>다음</p>
+                return <p className='create-post-next-btn' onClick={onClickNext}>다음</p>
             }else{
                 return <p className='create-post-btn-hidden'>다음</p>
             }
         }
+    }
+    function onClickNext(){
+        window.sessionStorage.setItem('form_link', linkinput.current.value);
+        window.sessionStorage.setItem('createProjectId',projectId);
+        history.push('/post/create/content');
     }
     function onHandleChange(e){
         if(e.target.value !== ''){
@@ -41,27 +48,28 @@ export default function CheckLinkForPost() {
                 body:JSON.stringify({
                     form_link : link
                 })
-            }).then(res=> {return res.json})
+            }).then(res=> {return res.json()})
             .then(res =>{
+                console.log(res);
                 if(res.valid){
                     setIsAvailable(true);
                     setTimeout(function(){
                         setOnLoad(false);
+                        if(res.is_dod){
+                            alarm.current.innerHTML = '디오디가 있는 설문이네요! 다음을 눌러 진행해주세요.'
+                            setProjectId(res.project);
+                            setShowAlert(true);
+                            setIsDod(true);
+                        }else{
+                            alarm.current.innerHTML = '디오디가 없는 설문이네요! 디오디를 붙여보시겠어요?'
+                            
+                            setShowAlert(true);
+                            setIsDod(false);
+                        }
                     }, 1000);
-                    if(res.is_dod){
-                        alarm.current.value = '디오디가 있는 설문이네요! 다음을 눌러 진행해주세요.'
-                        
-                        setShowAlert(true);
-                        setIsDod(true);
-                    }else{
-                        alarm.current.value = '디오디가 없는 설문이네요! 디오디를 붙여보시겠어요?'
-                        
-                        setShowAlert(true);
-                        setIsDod(false);
-                    }
                 }else{
                     setIsAvailable(false);
-                    alarm.current.value = '유효하지 않은 링크에요!'
+                    alarm.current.innerHTML = '유효하지 않은 링크에요!'
                     setShowAlert(true);
                     setIsAvailable(false);
                 }
@@ -69,6 +77,7 @@ export default function CheckLinkForPost() {
         }else{
             setOnLoad(false);
             setShowAlert(false);
+            setIsDod(true);
         }
     }
     function onClickStartDod(){
@@ -79,9 +88,9 @@ export default function CheckLinkForPost() {
             <LogoBar/>
             <Navbar pageNum={6} onClickBack={onClickBack}/>
             <p className='create-post-big-text'>구글 설문지 링크를<br/>입력해주세요!</p>
-            <p ref={alarm} className={showAlert?'create-post-alert-msg':'create-post-alert-msg hidden'}></p>
+            <p ref={alarm} className={showAlert?'create-post-alert-msg':'create-post-alert-msg hidden'}>유효하지 않은 링크에요!</p>
             <div className='create-post-input-box'>
-                <input className='create-post-link-input' type='text' placeholder='게시할 구글 설문 주소' onChange={onHandleChange}></input>
+                <input ref={linkinput} className='create-post-link-input' type='text' placeholder='게시할 구글 설문 주소' onChange={onHandleChange}></input>
                 {
                     getComponent(onLoad,isAvailable)
                 }

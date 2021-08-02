@@ -1,3 +1,6 @@
+.main-container{
+    padding-bottom: 120px;
+}
 .startBtnBig-container{
     display: flex;
     flex-direction: column;
@@ -5,9 +8,10 @@
 }
 .contour-thick{
     width: 100%;
-    background-color: #F5F5F5;
-    height: 12px;
+    background-color: #EBEBF0;
+    height: 2px;
     border-radius: 8px;
+    margin-top: 32px;
 }
 .startBtnBig-btn-container{
     background-color: #F5F5F5;
@@ -20,44 +24,56 @@
     width: 340px;
 }
 .startBtnBig-title{
-    font-family: noto-regular;
-    font-size: 48px;
+    font-family: noto-medium;
+    font-size: 28px;
     margin-top: 64px;
     margin-bottom: 0px;
-    color: #393C3B;
+    color: #020203;
+}
+.startBtnBig-innerbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px;
+    background-color: #FFC048;
+    border-radius: 16px;
+    width: fit-content;
+    margin-top: 32px;
+}
+.startBtnBig-btn{
+    font-size: 16px;
+    font-family: noto-medium;
+    margin: 0px;
+    margin-right: 8px;
+    color: #fff;
+}
+.startBtnBig-innerbox:hover{
+    background-color: #B3852D;
+    transition: all ease 0.3s;
 }
 .startBtnBig-subtitle{
     font-family: noto-regular;
-    font-size: 20px;
-    color: #5B5B5B;
-    margin-top: 32px;
+    font-size: 16px;
+    color: #3C3C47;
+    margin-top: 16px;
     margin-bottom: 0px;
 }
-.startBtnBig-strong{
-    color: #7C44FF;
+.startBtnBig-arrow{
+    width: 9px;
+    height: 15px;
+    margin: 0px;
 }
 .startBtnBig-img{
-    width: 167px;
-    height: 120px;
-    margin-top: 56px;
-    margin-bottom: 24px;
-}
-.startBtnBig-btn{
     width: 320px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    font-family: noto-regular;
-    font-size: 20px;
-    border-radius: 8px;
-    border: 1px solid #7C44FF;
-    background-color: #7C44FF;
-    color: #fff;
-    transition: all ease 0.3s;
-    margin-bottom: 48px;
+    height: 150px;
+    margin-top: 48px;
+    margin-bottom: 64px;
+}
+.startBtnBig-img2{
+    margin-bottom: 32px;
 }
 .startBtnBig-gif-web{
     width: 100%;
-    margin-bottom: 48px;
     display: block;
 }
 .startBtnBig-gif-mobile{
@@ -69,12 +85,6 @@
     }
     .startBtnBig-gif-mobile{
         width: 100%;
-        margin-bottom: 48px;
         display: block;
     }
-}
-.startBtnBig-btn:hover{
-    background-color: #6639CF;
-    color: #CFCFCF;
-    
 }

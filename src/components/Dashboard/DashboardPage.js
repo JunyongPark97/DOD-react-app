@@ -3,7 +3,6 @@ import DodNavbar from '../common/DodNavbar';
 import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom'
 import './DashboardPage.css'
 import DashboardCard from './DashboardCard';
-import MainpageDescription from '../Mainpage/MainpageDescription';
 import Footer from '../common/Footer'
 import Navigation from '../common/Navigation';
 
@@ -94,7 +93,7 @@ export default function DashboardPage() {
                 <WantMoreResponseCard/>
             </>)
         }else{
-            return <></>
+            return <WantMoreResponseCard/>
         }
     }
     return (

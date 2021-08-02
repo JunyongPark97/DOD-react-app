@@ -185,14 +185,14 @@ export default function ResultPage(props) {
             </div>
             <div className='contour'/>
             <div className='result-page-content'>
-                <p className='result-page-title'>기프티콘 당첨 여부를<br/>즉시 확인하세요</p>
+                <p className='result-page-title'>기프티콘 당첨 여부를<br/>실시간으로 확인하세요</p>
                 <p className='result-page-subtitle'>
                     설문 응답 즉시 디오디가 알려드려요!
                 </p>
                 <img className='result-page-dod-img' src={process.env.PUBLIC_URL + '/../dod.png'}/>
                 <p className='result-page-text'>
                     당첨시 잘못된 번호로 전달되는 것을 방지하기 위해<br/>
-                    아래 휴대전화 문자 인증을 해주세요<br/>
+                    휴대전화 문자 인증을 요청드리고 있습니다.<br/>
                     추첨이 끝나는 즉시 파기됩니다.
                 </p>          
             </div>

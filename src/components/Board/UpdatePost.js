@@ -1,19 +1,29 @@
-import React,{useEffect, useState, useRef} from 'react'
-import { useHistory } from 'react-router-dom'
+import React,{useState, useRef, useEffect} from 'react'
+import { useHistory } from 'react-router';
 import baseUrl from '../../network/network';
-
 import LogoBar from '../common/LogoBar'
-import './CreatePost.css'
 
-function CreatePost() {
+function UpdatePost() {
     const history = useHistory();
-    const [readyToSend, setReadyToSend] = useState(false);
+    const [readyToSend, setReadyToSend] = useState(true);
     const title = useRef(null);
     const content = useRef(null);
     useEffect(() => {
+        fetch(`${baseUrl}/api/v1/board/${window.sessionStorage.getItem('updatePostId')}/`,{
+            method:'GET',
+            headers:{
+                'accept' : 'application/json',
+                'content-type' : 'application/json;charset=UTF-8'
+            }
+        }).then(res => {
+            return res.json();
+        }).then(res => {
+            title.current.value = res.title;
+            content.current.value = res.content;
+        })
         return () => {
-            window.sessionStorage.removeItem('form_link');
-            window.sessionStorage.removeItem('createProjectId');
+            window.sessionStorage.setItem('retrievePostId', window.sessionStorage.getItem('updatePostId'));
+            window.sessionStorage.removeItem('updatePostId');
         }
     }, [])
     function onClickBack(){
@@ -27,21 +37,22 @@ function CreatePost() {
         }
     }
     function onClickSend(){
-        fetch(`${baseUrl}/api/v1/board/`,{
-            method:'POST',
+        fetch(`${baseUrl}/api/v1/board/${window.sessionStorage.getItem('updatePostId')}/`,{
+            method:'PUT',
             headers:{
                 'accept' : 'application/json',
                 'content-type' : 'application/json;charset=UTF-8',
                 'Authorization' : `Token ${window.sessionStorage.getItem('DODtoken')}`
             },
             body: JSON.stringify({
-                form_link : window.sessionStorage.getItem('form_link'),
-                project : parseInt(window.sessionStorage.getItem('createProjectId')),
                 title : title.current.value,
                 content : content.current.value
             })
         }).then(res => {
             if((res.status >= 200) && (res.status < 400)){
+                history.push('/board');
+            }else{
+                window.alert('권한이 없습니다!');
                 history.push('/board');
             }
         })
@@ -67,4 +78,4 @@ function CreatePost() {
     )
 }
 
-export default CreatePost
+export default UpdatePost

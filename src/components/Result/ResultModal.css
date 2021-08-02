@@ -36,9 +36,6 @@
     margin-top: 36px;
     margin-bottom: 24px;
 }
-.result-btn.result-modal{
-    width: 270px;
-}
 .result-win-alert-text{
     font-family: noto-regular;
     font-size: 12px;
@@ -47,4 +44,27 @@
     margin-top: 24px;
     width: 100%;
     text-align: start;
+}
+.result-modal-plz-container{
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    width: fill;
+    margin-top: 32px;
+    position: relative;
+}
+.result-modal-plz-text{
+    font-size: 12px;
+    font-family: noto-regular;
+    color: #020203;
+    text-align: start;
+    margin: 0px;
+}
+.result-modal-plz-img{
+    width: 84px;
+    height: 76px;
+    margin: 0px;
+    position: absolute;
+    top:20px;
+    right: 16px;
 }

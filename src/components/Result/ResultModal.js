@@ -1,11 +1,13 @@
 import React,{useState, useEffect} from 'react'
+import { useHistory } from 'react-router';
 import './ResultModal.css'
 import {dodMoreLink} from '../../network/network'
 
 export default function ResultModal(props) {
+    const history = useHistory();
     const {isModalOpen, showResult,win,item_name} = props;
     function onClickMore(){
-        window.location.assign(dodMoreLink);
+        history.push('/board');
     }
     function onClickSmsAgain(){
         const a = document.createElement('a');
@@ -29,11 +31,6 @@ export default function ResultModal(props) {
                                         win?(<p className='result-modal-subtitle'>인증하신 번호로 문자가 발송되었습니다!</p>):(<></>)
                                     }
                                     <img className={win?('result-modal-img-win'):('result-modal-img')} src={win?(process.env.PUBLIC_URL + 'dod-cong.png'):(process.env.PUBLIC_URL + 'dod-sorry.gif')}></img>
-                                    
-                                    <div>
-                                        <p className='result-more-btn'>혹시! 디오디가 궁금하신가요?</p>
-                                        <button className='result-btn  result-modal' onClick={onClickMore}>디오디에 대해 알아보기</button>
-                                    </div>
                                     {
                                         win?(
                                             <p className='result-win-alert-text'>· 모바일 쿠폰의 유효기간 연장 및 환불이 불가하므로<br/>
@@ -41,10 +38,23 @@ export default function ResultModal(props) {
                                                 <br/>
                                                 · 만약 쿠폰 확인이 안되실 경우, <u onClick={onClickSmsAgain}>여기를 클릭해 주세요</u>
                                             </p>
-                                        ):(<></>)
+                                        ):(
+                                            <p className='result-win-alert-text'>· 평균 3-5%의 확률로 당첨자가 선정됩니다.
+                                                <br/>
+                                                · 한번 더 추첨하시고 싶으시다면, 디오디에서 다른<br/>설문에 참여하실 수 있습니다.
+                                            </p>
+                                        )
                                     }
-                                    
-
+                                    <div className='result-modal-plz-container'>
+                                        <p className='result-modal-plz-text'>
+                                            다른 설문 참여하고<br/>한번 더 추첨하실 수 있어요
+                                        </p>
+                                        <div className='want-more-response-innerbox'>
+                                            <p className='want-more-response-btn' onClick={onClickMore}>자세히 보기</p>
+                                            <img className='want-more-arrow' alt='' src={process.env.PUBLIC_URL + '/arrow-right-white.png'}/>
+                                        </div>
+                                        <img className='result-modal-plz-img' alt='' src={process.env.PUBLIC_URL + '/together.png'}/>
+                                    </div>
                                 </>
                             ):(
                                 <>

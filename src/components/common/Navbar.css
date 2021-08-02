@@ -27,6 +27,11 @@
     width: 12px;
     height: 20px;
   }
+  .contour{
+    display: block;
+    background-color: #EBEBF0;
+    height: 2px;
+}
   .title{
       flex: none;
       font-family: noto-medium;

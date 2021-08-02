@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import Navbar from '../common/Navbar'
 import './ProjectLinkPage.css'
 import baseUrl from '../../network/network';
+import LogoBar from '../common/LogoBar';
+import WantMoreResponseCard from '../common/WantMoreResponseCard';
 
 function ProjectLinkPage() {
     const projectId = sessionStorage.getItem('getLinkProjectId');
@@ -40,7 +42,7 @@ ${res.url}`)
     }, [])
     function onClickGoHome(){
         sessionStorage.removeItem('getLinkProjectId');
-        history.push('/');
+        history.push('/dashboard');
     }
     function copyText(){
         var tempElem = document.createElement('textarea');
@@ -60,19 +62,36 @@ ${res.url}`)
     }
     return (
         <div>
+            <LogoBar/>
             <Navbar pageNum={2} onClickBack={onClickBack}/>
-            <div className='project-link-container'>
-                <p className='project-link-title'><span className='project-link-title-strong'>추첨 링크</span>를 첨부해 주세요!</p>
-                <p className='project-link-subtitle'>응답자가 추첨 링크에서 당첨 여부를 그 즉시 확인할 수 있도록!</p>
-                <p className='project-link-content'>
-                    {content}
-                </p>
-                <button className='project-link-copy-btn' onClick={copyText}>복사하기</button>
-                <p className='project-link-small'>위 문구를 아래와 같이 첨부해주세요</p>
-                <img className='project-link-img-pc' src={linkItem.pc_url}/>
-                <img className='project-link-img-mobile' src={linkItem.mobile_url}/>
-                <button className='project-link-gohome' onClick={onClickGoHome}>확인</button>
+            <p className='createproject-text'>
+                추첨링크가 만들어졌어요<br/>단 30초면 내 설문에 연결!
+            </p>
+            <div className='contour'/>
+            <div className='project-link-title-box'>
+                <img src={process.env.PUBLIC_URL + './link-page-img.png'} alt='' className='project-link-img'/>
+                <div className='project-link-innercontainer'>
+                    <p className='project-link-title'>링크 연결</p>
+                    <p className='project-link-subtitle'>dod - Google Forms</p>
+                </div>
             </div>
+            <div className='project-link-box' >
+                <p className='project-link-big-text'>만든 추첨 링크를 복사하세요</p>
+                <p className='project-link-small-text'>복사된 추첨 링크는 구글 설문지에 붙여넣을 거에요.</p>
+                <p className='project-link-copy-btn' onClick={copyText}><img src={process.env.PUBLIC_URL + '/icon-copy.png'} alt='' className='project-link-copy-img'/>링크 복사하기</p>
+                <img src={process.env.PUBLIC_URL + '/link-dod.png'} alt='' className='project-link-dod-img'/>
+                <img src={process.env.PUBLIC_URL + '/link-link.png'} alt='' className='project-link-link-img'/>
+            </div>
+            <div className='project-link-manual-box'>
+                <img src={process.env.PUBLIC_URL + '/link-google.png'} alt='' className='project-link-google-img'/>
+                <p className='project-link-big-text'>꼭 아래와 같이 설문지에 붙여 넣으세요</p>
+                <p className='project-link-small-text'>아래 3steps를 따라하시면 링크 연결 끝!</p>
+                <img src={process.env.PUBLIC_URL + '/manual-pc.png'} alt='' className='project-link-manual-img-pc'/>
+                <img src={process.env.PUBLIC_URL + '/manual-mobile.png'} alt='' className='project-link-manual-img-mobile'/>
+            </div>
+            <div className='contour-16margin-both'/>
+            <WantMoreResponseCard/>
+            <p id='project-link-gohome' className='btn-bottom-big' onClick={onClickGoHome}>내 추첨으로 돌아가기</p>
         </div>
     )
 }

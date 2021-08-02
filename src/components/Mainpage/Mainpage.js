@@ -6,7 +6,6 @@ import DodNavbar from '../common/DodNavbar';
 import Footer from '../common/Footer'
 import StartButtonBig from './StartButtonBig';
 import SignModal from './Sign/SignModal'
-import MainpageDescription from './MainpageDescription';
 import Navigation from '../common/Navigation';
 
 function Mainpage() {
@@ -29,22 +28,25 @@ function Mainpage() {
         sessionStorage.removeItem('confirmKey');
     }
     function login(){
-        window.location.assign('/');
+        window.location.reload();
     }
     function createProject(){
         history.push('/create');
     }
     function openModalAndCreate(){
-        setJustLogin(false);
-        setModalOpen(true);
+        if(window.sessionStorage.getItem('DODtoken') !== null){
+            createProject();
+        }else{
+            setJustLogin(false);
+            setModalOpen(true);
+        }
     }
     return (
-        <div>
+        <div className='main-container'>
             <DodNavbar isLoggedIn = {loggedIn} openModal = {openModal}/>
             <Navigation location={0} isLoggedIn={loggedIn} openModal={openModal}/>
             <StartButtonBig openModal={openModalAndCreate}/>
             <SignModal justLogin = {justLogin} isModalOpen = {isModalOpen} closeModalFunction = {closeModal} loginFunction={login} createProject = {createProject}/>
-            <MainpageDescription/> 
             <Footer/>
         </div>
     )

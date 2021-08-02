@@ -13,6 +13,7 @@ import Board from './components/Board/Board';
 import Post from './components/Board/Post';
 import CreatePost from './components/Board/CreatePost';
 import CheckLinkForPost from './components/Board/CheckLinkForPost';
+import UpdatePost from './components/Board/UpdatePost';
 
 function App() {
   return (
@@ -29,8 +30,9 @@ function App() {
             <Route path='/invalid' exact component={InvalidPage}/>
             <Route path='/forbidden' exact component={ForbiddenPage}/>
             <Route path='/board' exact component={Board}/>
-            <Route path='/createpost' exact component={CheckLinkForPost}/>
-            <Route path='/createpost/content' exact component={CreatePost}/>
+            <Route path='/post/create' exact component={CheckLinkForPost}/>
+            <Route path='/post/create/content' exact component={CreatePost}/>
+            <Route path='/post/create/update' exact component={UpdatePost}/>
             <Route path='/post' exact component={Post}/>
           </Switch>
         </Router>

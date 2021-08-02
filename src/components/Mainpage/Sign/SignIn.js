@@ -42,8 +42,8 @@ function SignIn(props) {
                         // window.dataLayer.push({
                         //     'userid': `${res.id}`
                         // }); //고객 번호와 같은 개인정보가 아닌 고유한 식별 값을 입력합니다.
-			console.log('Tlqkfdhodkseo');
-                        window.location.reload();
+			
+                        loginFunction();
                         closeModal();
                     }else{
                         setAlertBoolean(true);

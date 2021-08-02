@@ -102,7 +102,7 @@ function Board() {
         window.location.reload();
     }
     function createProject(){
-        history.push('/createpost');
+        history.push('/post/create');
     }
     function openModal(){
         setJustLogin(true);
