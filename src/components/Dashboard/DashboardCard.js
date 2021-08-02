@@ -9,7 +9,7 @@ export default function DashboardCard(props) {
     const history = useHistory();
     const {item, index, deleteProject} = props;
     const [showDelete, setShowDelete] = useState(false);
-    const products = item.products;
+    // const products = item.products;
     function getProgressbarBackColor(){
         switch(item.project_status){
             case 999:

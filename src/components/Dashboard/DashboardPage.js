@@ -64,6 +64,7 @@ export default function DashboardPage() {
     function deleteProject(index){
         let newArray = removeItem(itemList, index);
         setItemList(newArray);
+        // window.location.reload();
     }
     function getActiveProjectsNum(list){
         var num = 0;
@@ -74,11 +75,27 @@ export default function DashboardPage() {
         })
         return num;
     }
-    function getDashboardCards(){
-        
-        var list = itemList.slice(1, undefined);
-        console.log(list);
-        return list.map((item, index) => <DashboardCard key = {index} item={item} index={index} deleteProject={deleteProject}/>);
+    function getDashboardCards(items){
+        if(items.length > 1){
+            var list = items.slice(1, undefined);
+            console.log(items);
+            console.log(list);
+            var latterList = list.map((item, index) => <DashboardCard key = {index} item={item} index={index} deleteProject={deleteProject}/>);
+            return (<>
+                <DashboardCard item={items[0]} deleteProject={deleteProject}/>
+                <WantMoreResponseCard/>
+                {
+                    latterList
+                }
+            </>)
+        }else if(items.length === 1){
+            return (<>
+                <DashboardCard item={items[0]} deleteProject={deleteProject}/>
+                <WantMoreResponseCard/>
+            </>)
+        }else{
+            return <></>
+        }
     }
     return (
         <>
@@ -95,11 +112,7 @@ export default function DashboardPage() {
                 </p>
                 <div className='contour'/>
                 {
-                    <DashboardCard item={itemList[0]} deleteProject={deleteProject}/>
-                }
-                <WantMoreResponseCard/>
-                {
-                    getDashboardCards()
+                    getDashboardCards(itemList)
                 }
                 <p className='floating-big-btn' onClick={onClickCreateBtn}>실시간 추첨 링크 만들기</p>
                 <Footer/>
