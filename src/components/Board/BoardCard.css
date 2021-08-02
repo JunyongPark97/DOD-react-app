@@ -55,6 +55,7 @@
     white-space:nowrap;
     padding:4px 8px;
     margin: 0px;
+    width: fit-content;
 }
 .board-card-status-tag.available{
     background-color: #E2D6FF;

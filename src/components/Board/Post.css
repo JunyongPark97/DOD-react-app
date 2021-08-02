@@ -1,0 +1,64 @@
+.post-status-box{
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+.post-info-box2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 16px;
+}
+.post-profile-img{
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+}
+.post-info-innerbox{
+    flex-grow: 1;
+    
+}
+.board-card-info-text.post{
+    margin-top: 0px;
+    text-align: start;
+}
+.post-btn{
+    font-size: 12px;
+    font-family: noto-medium;
+    color: #9696A3;
+    margin:0px;
+    padding-left: 12px;
+}
+.post-title{
+    font-size: 16px;
+    font-family: noto-medium;
+    color: #020203;
+    margin:0px;
+    margin-bottom: 8px;
+    text-align: start;
+}
+.post-content{
+    font-size: 12px;
+    font-family: noto-regular;
+    color: #3C3C47;
+    margin:0px;
+    margin-bottom: 32px;
+    text-align: start;
+}
+.post-delete-post-btn{
+    width: 256px;
+    border-radius: 16px;
+    background-color: #7E47FF;
+    font-size: 16px;
+    font-family: noto-medium;
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    color: #fff;
+}
+.post-delete-post-btn:hover{
+    background-color: #5832B3;
+    transition: all ease 0.3s;
+}

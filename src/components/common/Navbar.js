@@ -18,6 +18,8 @@ function Navbar(props) {
                 return '설문 게시판'
             case 5:
                 return '내가 올린 설문'
+            case 6:
+                return '설문 올리기'
         }
     }
     return (

@@ -11,6 +11,8 @@ import InvalidPage from './components/Result/InvalidPage';
 import ForbiddenPage from './components/Result/ForbiddenPage';
 import Board from './components/Board/Board';
 import Post from './components/Board/Post';
+import CreatePost from './components/Board/CreatePost';
+import CheckLinkForPost from './components/Board/CheckLinkForPost';
 
 function App() {
   return (
@@ -27,7 +29,8 @@ function App() {
             <Route path='/invalid' exact component={InvalidPage}/>
             <Route path='/forbidden' exact component={ForbiddenPage}/>
             <Route path='/board' exact component={Board}/>
-            <Route path='/createpost' exact component={Board}/>
+            <Route path='/createpost' exact component={CheckLinkForPost}/>
+            <Route path='/createpost/content' exact component={CreatePost}/>
             <Route path='/post' exact component={Post}/>
           </Switch>
         </Router>

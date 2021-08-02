@@ -64,7 +64,7 @@ export default function DashboardPage() {
     function deleteProject(index){
         let newArray = removeItem(itemList, index);
         setItemList(newArray);
-        // window.location.reload();
+        window.location.reload();
     }
     function getActiveProjectsNum(list){
         var num = 0;
