@@ -8,6 +8,7 @@ import Footer from '../common/Footer'
 import Navigation from '../common/Navigation';
 
 import baseUrl from '../../network/network';
+import WantMoreResponseCard from '../common/WantMoreResponseCard'
 
 export default function DashboardPage() {
     const history = useHistory();
@@ -73,6 +74,12 @@ export default function DashboardPage() {
         })
         return num;
     }
+    function getDashboardCards(){
+        
+        var list = itemList.slice(1, undefined);
+        console.log(list);
+        return list.map((item, index) => <DashboardCard key = {index} item={item} index={index} deleteProject={deleteProject}/>);
+    }
     return (
         <>
             <div className='dashboard-container' onClick={hideDeleteBtn}>
@@ -87,9 +94,12 @@ export default function DashboardPage() {
                     실시간 추첨 중이에요!
                 </p>
                 <div className='contour'/>
-
                 {
-                    itemList.map((item, index) => <DashboardCard key = {index} item={item} index={index} deleteProject={deleteProject}/>)
+                    <DashboardCard item={itemList[0]} deleteProject={deleteProject}/>
+                }
+                <WantMoreResponseCard/>
+                {
+                    getDashboardCards()
                 }
                 <p className='floating-big-btn' onClick={onClickCreateBtn}>실시간 추첨 링크 만들기</p>
                 <Footer/>

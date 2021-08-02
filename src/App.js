@@ -5,7 +5,6 @@ import FloatingButton from './components/common/FloatingButton'
 import CreatePage from './components/CreateProject/CreatePage';
 import ProjectLinkPage from './components/CreateProject/ProjectLinkPage'
 import DashboardPage from './components/Dashboard/DashboardPage';
-import CheckPaymentPage from './components/Dashboard/CheckPaymentPage';
 import Mypage from './components/Mypage/Mypage';
 import ResultPage from './components/Result/ResultPage';
 import InvalidPage from './components/Result/InvalidPage';
@@ -23,7 +22,6 @@ function App() {
             <Route path='/create' exact component={CreatePage}/>
             <Route path='/projectlink' exact component={ProjectLinkPage}/>
             <Route path='/dashboard' exact component={DashboardPage}/>
-            <Route path='/checkpayment' exact component={CheckPaymentPage}/>
             <Route path='/mypage' exact component={Mypage}/>
             <Route path='/link' component={ResultPage}/>
             <Route path='/invalid' exact component={InvalidPage}/>

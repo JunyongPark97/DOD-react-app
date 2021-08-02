@@ -1,10 +1,12 @@
 import React,{useEffect, useState} from 'react'
+import { useHistory } from 'react-router';
 import './DashboardCard.css'
 import StatusTag from './StatusTag';
 import baseUrl from '../../network/network';
 import Progress from 'react-progressbar'
 
 export default function DashboardCard(props) {
+    const history = useHistory();
     const {item, index, deleteProject} = props;
     const [showDelete, setShowDelete] = useState(false);
     const products = item.products;
@@ -51,6 +53,10 @@ export default function DashboardCard(props) {
             }
         })
     }
+    function onClickCheckLink(){
+        sessionStorage.setItem('getLinkProjectId', item.id);
+        history.push('/projectlink');
+    }
     function onClickMore(e){
         setTimeout(function(){
             console.log(`dashboard-card-delete-btn-${item.id}`);
@@ -90,7 +96,7 @@ export default function DashboardCard(props) {
                                 <p className='dashboard-card-text-16'>추첨 링크</p>
                                 <p className='dashboard-card-text-12'>연결을 아직 못했다면?</p>
                             </div>
-                            <p id='dashboard-card-checklink-btn' className={(item.project_status === 100)? 'dashboard-card-btn enabled':'dashboard-card-btn'}>연결하기</p>
+                            <p id='dashboard-card-checklink-btn' className={(item.project_status === 100)? 'dashboard-card-btn enabled':'dashboard-card-btn'} onClick={onClickCheckLink}>연결하기</p>
                         </div>
                         <div className='dashboard-card-btn-box'>
                             <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/gift-icon.png'} alt=''/>
