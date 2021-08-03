@@ -87,7 +87,7 @@
 .result-page-button-container{
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 0 2px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     width: fill;
     display: flex;
     flex-direction: row;
@@ -99,7 +99,7 @@
 .result-page-button-container-violet{
     background-color: #E2D6FF;
     border-radius: 12px;
-    box-shadow: 0 0 2px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     width: fill;
     display: flex;
     flex-direction: row;

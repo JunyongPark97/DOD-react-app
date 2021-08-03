@@ -52,6 +52,7 @@
     width: fill;
     margin-top: 32px;
     position: relative;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
 .result-modal-plz-text{
     font-size: 12px;
@@ -67,4 +68,30 @@
     position: absolute;
     top:20px;
     right: 16px;
+}
+.result-modal-plz-innerbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+    background-color: #7E47FF;
+    border-radius: 12px;
+    width: fit-content;
+    margin-top: 16px;
+}
+.result-modal-plz-innerbox:hover{
+    background-color: #5832B3;
+    transition: all ease 0.3s;
+}
+.result-modal-plz-btn{
+    font-size: 8px;
+    font-family: noto-medium;
+    margin: 0px;
+    margin-right: 4px;
+    color: #fff;
+}
+.result-modal-plz-arrow{
+    width: 4px;
+    height: 7px;
+    margin: 0px;
 }
