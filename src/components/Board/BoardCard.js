@@ -28,8 +28,8 @@ function BoardCard(props) {
     }
     return (
         <>
-            <div className='board-card-container'>
-                <div className='board-card-text-container' onClick={onClickItem}>
+            <div className='board-card-container' onClick={onClickItem}>
+                <div className='board-card-text-container'>
                     <p className='board-card-title'>{item.title}</p>
                     <p className='board-card-info-text'><img className='board-card-info-icon' src={process.env.PUBLIC_URL + '/period-icon.png'}/>{
                         (item.period === null)?'내용에서 확인':item.period

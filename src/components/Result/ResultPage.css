@@ -96,6 +96,11 @@
     padding:12px;
     margin-bottom: 16px;
 }
+.result-page-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .result-page-button-container-violet{
     background-color: #E2D6FF;
     border-radius: 12px;
