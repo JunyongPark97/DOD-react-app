@@ -1,5 +1,5 @@
 import React from 'react'
-import { dodMoreLink } from '../../network/network';
+import { howToApply } from '../../network/network';
 
 export default function InvalidPage() {
     
