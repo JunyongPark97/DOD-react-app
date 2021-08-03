@@ -86,6 +86,16 @@
     height: 104px;
     margin: 0px;
     position: absolute;
-    top:49px;
+    top:32px;
     right: 32px;
+}
+@media(max-width:640px){
+    start-with-img{
+        width: 112px;
+        height: 68px;
+        margin: 0px;
+        position: absolute;
+        bottom:32px;
+        right: 32px;
+    }
 }
