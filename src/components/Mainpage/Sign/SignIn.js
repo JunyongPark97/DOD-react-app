@@ -39,9 +39,9 @@ function SignIn(props) {
                     if(res.token){
                         sessionStorage.setItem('DODtoken', res.token);
                         sessionStorage.setItem('userName', res.name);
-                        // window.dataLayer.push({
-                        //     'userid': `${res.id}`
-                        // }); //고객 번호와 같은 개인정보가 아닌 고유한 식별 값을 입력합니다.
+                        window.dataLayer.push({
+                            'userid': `${res.id}`
+                        }); //고객 번호와 같은 개인정보가 아닌 고유한 식별 값을 입력합니다.
 			
                         loginFunction();
                         closeModal();

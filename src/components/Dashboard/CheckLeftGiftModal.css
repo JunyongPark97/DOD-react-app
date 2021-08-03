@@ -1,3 +1,13 @@
 .check-gift-modal-container{
-    
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    width: 320px;
+    height: 428px;
+    overflow: scroll;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:24px;
+    position: relative;
 }
