@@ -13,16 +13,17 @@
     width: 100%;
 }
 .result-modal-img{
-    width: 270px;
-    height: 360px;
+    width: 228px;
+    height: 300px;
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
 .result-modal-img-animation{
     width: 270px;
     height: 360px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
 .result-modal-img-win{
     width: 256px;
