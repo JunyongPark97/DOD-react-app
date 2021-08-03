@@ -112,26 +112,30 @@
 }
 
 .project-link-manual-img-pc{
-    width: fill;
+    width: 100%;
     display: inline;
     margin-top: 96px;
+    height: auto;
 }
 .project-link-manual-img-mobile{
-    width: fill;
+    width: 100%;
     display: none;
     margin-top: 96px;
+    height: auto;
 }
-.project-link-gohome{
+#project-link-gohome{
     margin-bottom: 64px;
 }
 
 @media(max-width:640px){
     .project-link-manual-img-pc{
-        width: fill;
+        width: 100%;
+        height:auto;
         display: none;
     }
     .project-link-manual-img-mobile{
-        width: fill;
+        width: 100%;
+        height:auto;
         display: inline;
     }
 }

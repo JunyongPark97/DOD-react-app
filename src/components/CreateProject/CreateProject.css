@@ -193,6 +193,7 @@
     font-size: 16px;
     border:1px solid #7C44FF;
     width: fill;
+    text-align: center;
     margin-bottom: 64px;
 }
 .btn-bottom-big:hover{
