@@ -4,10 +4,41 @@
     display: flex;
     width: 320px;
     height: 428px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:24px;
+    position: relative;
+}
+.check-gift-container{
+    display: flex;
+    width: 256px;
+    height: 308px;
     overflow: scroll;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding:24px;
     position: relative;
+}
+.gift-list-item-card{
+   display: flex;
+   flex-direction: row;
+   align-items: flex-end;
+   justify-content: start; 
+}
+.gift-list-private-gift-img{
+    width: 200px;
+    height: 200px;
+    margin: 0px;
+}
+.gift-list-item-num{
+    font-size: 16px;
+    font-family: noto-regular;
+    color: #020203;
+    margin:0px;
+    margin-left: 8px;
+}
+.gift-list-item-status{
+    color: #7E47FF;
 }

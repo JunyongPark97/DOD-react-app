@@ -34,8 +34,12 @@ function CheckLeftGiftModal(props) {
             <div className={'modal'} onClick={closeModal}>
                 <div className='check-gift-modal-container' onClick={keepModalOpen}>
                     <img src={process.env.PUBLIC_URL + 'close-icon.png'} className='modal-close-btn' onClick={closeModal}/>
-                    <p className='post-title'>삭제하시겠어요?</p>
-                    <p className='post-delete-post-btn' onClick={deletePost}>확인</p>
+                    <p className='post-title'>기프티콘 지급 현황</p>
+                    <div className='check-gift-container'>
+                        {
+                            getComponents(res)
+                        }
+                    </div>
                 </div>
             </div>
         ):<></> 
