@@ -90,7 +90,7 @@ export default function CheckLinkForPost() {
             <p className='create-post-big-text'>구글 설문지 링크를<br/>입력해주세요!</p>
             <p ref={alarm} className={showAlert?'create-post-alert-msg':'create-post-alert-msg hidden'}>유효하지 않은 링크에요!</p>
             <div className='create-post-input-box'>
-                <input ref={linkinput} className='create-post-link-input' type='text' placeholder='게시할 구글 설문 주소' onChange={onHandleChange}></input>
+                <input ref={linkinput} size='1' className='create-post-link-input' type='text' placeholder='게시할 구글 설문 주소' onChange={onHandleChange}></input>
                 {
                     getComponent(onLoad,isAvailable)
                 }
