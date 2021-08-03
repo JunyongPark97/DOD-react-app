@@ -1,5 +1,4 @@
 .App {
-  display: flex;
   justify-content: center;
   text-align: center;
 }
@@ -20,7 +19,7 @@
 
 @media (max-width : 680px){
   .main-box{
-    width: 100%;
+    width: fill;
     /* min-width: 580px; */
     padding-left: 10px;
     padding-right: 10px;
