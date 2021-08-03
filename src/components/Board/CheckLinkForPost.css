@@ -90,7 +90,7 @@
     right: 32px;
 }
 @media(max-width:640px){
-    start-with-img{
+    .start-with-img{
         width: 112px;
         height: 68px;
         margin: 0px;
