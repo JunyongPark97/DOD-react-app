@@ -5,7 +5,7 @@ import {dodMoreLink} from '../../network/network'
 
 export default function ResultModal(props) {
     const history = useHistory();
-    const {isModalOpen, showResult,win,item_name} = props;
+    const {isModalOpen, showResult,win,item_name,item_img_url} = props;
     function onClickMore(){
         history.push('/board');
     }
@@ -25,12 +25,12 @@ export default function ResultModal(props) {
                             showResult?(
                                 <>
                                     {
-                                        win?(<p className='result-modal-title'>축하합니다!<br/>'{item_name}'당첨!</p>):(<></>)
+                                        win?(<p className='result-modal-title'>축하합니다!<br/>당첨되셨어요!</p>):(<></>)
                                     }
                                     {
-                                        win?(<p className='result-modal-subtitle'>인증하신 번호로 문자가 발송되었습니다!</p>):(<></>)
+                                        win?(<p className='result-modal-subtitle'>인증하신 번호로 문자 발송되었습니다!</p>):(<></>)
                                     }
-                                    <img className={win?('result-modal-img-win'):('result-modal-img')} src={win?(process.env.PUBLIC_URL + 'dod-cong.png'):(process.env.PUBLIC_URL + 'dod-sorry.gif')}></img>
+                                    <img className={win?('result-modal-img-win'):('result-modal-img')} src={win?(item_img_url):(process.env.PUBLIC_URL + 'dod-sorry.gif')}></img>
                                     {
                                         win?(
                                             <p className='result-win-alert-text'>· 모바일 쿠폰의 유효기간 연장 및 환불이 불가하므로<br/>
