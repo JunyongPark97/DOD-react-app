@@ -86,7 +86,7 @@
     height: 104px;
     margin: 0px;
     position: absolute;
-    top:32px;
+    bottom:32px;
     right: 32px;
 }
 @media(max-width:640px){

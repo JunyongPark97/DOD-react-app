@@ -56,12 +56,12 @@ export default function CheckLinkForPost() {
                     setTimeout(function(){
                         setOnLoad(false);
                         if(res.is_dod){
-                            alarm.current.innerHTML = '디오디가 있는 설문이네요! 다음을 눌러 진행해주세요.'
+                            alarm.current.innerHTML = '디오디가 있는 설문이네요!'
                             setProjectId(res.project);
                             setShowAlert(true);
                             setIsDod(true);
                         }else{
-                            alarm.current.innerHTML = '디오디가 없는 설문이네요! 디오디를 붙여보시겠어요?'
+                            alarm.current.innerHTML = '디오디가 없는 설문이네요!'
                             
                             setShowAlert(true);
                             setIsDod(false);
