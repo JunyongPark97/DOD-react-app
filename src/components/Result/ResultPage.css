@@ -27,6 +27,9 @@
     font-size: 16px;
     transition: all ease 0.3s;
 }
+.result-btn.last{
+    margin-bottom: 32px;
+}
 .result-btn:hover{
     background-color:#6639CF;
     color: #CFCFCF;

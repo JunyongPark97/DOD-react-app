@@ -24,6 +24,7 @@
 }
 .page-navi-number.abled{
     color: #7E47FF;
+    font-family: noto-medium;
 }
 .page-navi-arrow{
     width: 9px;

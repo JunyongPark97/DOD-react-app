@@ -8,7 +8,7 @@ import Progress from 'react-progressbar'
 export default function DashboardCard(props) {
     const history = useHistory();
     const {item, index, deleteProject} = props;
-    const [showDelete, setShowDelete] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     // const products = item.products;
     function getProgressbarBackColor(){
         switch(item.project_status){
@@ -46,6 +46,7 @@ export default function DashboardCard(props) {
         }).then(res => {
             if(res.ok){
                 deleteProject(index);
+                setIsModalOpen(false);
             }else if(res.status === 401){
                 window.location.assign('/');
             }else{
@@ -57,17 +58,26 @@ export default function DashboardCard(props) {
         sessionStorage.setItem('getLinkProjectId', item.id);
         history.push('/projectlink');
     }
+    function openModal(){
+        setIsModalOpen(true);
+    }
+    function closeModal(){
+        setIsModalOpen(false);
+    }
+    function keepModalOpen(e){
+        e.stopPropagation();
+    }
     function onClickMore(e){
         setTimeout(function(){
             console.log(`dashboard-card-delete-btn-${item.id}`);
             console.log(document.getElementById(`dashboard-card-delete-btn-${item.id}`).classList);
             document.getElementById(`dashboard-card-delete-btn-${item.id}`).classList.remove("none");
     
-            },100);
-        }
+        },100);
+    }
     return (
         <div className='dashboard-card-container'>
-            <p id={`dashboard-card-delete-btn-${item.id}`} className={`dashboard-card-delete-btn none`} onClick={deleteItem}>삭제</p>
+            <p id={`dashboard-card-delete-btn-${item.id}`} className={`dashboard-card-delete-btn none`} onClick={openModal}>삭제</p>
             <div className='dashboard-card-title-box'>
                 <div className='dashboard-card-title-innerbox'>
                     <p className='dashboard-card-title'>
@@ -108,6 +118,17 @@ export default function DashboardCard(props) {
                         </div>
                     </>
                 )
+            }
+            {
+                isModalOpen?(
+                    <div className={'modal'} onClick={closeModal}>
+                        <div className='modal-container' onClick={keepModalOpen}>
+                        <img src={process.env.PUBLIC_URL + 'close-icon.png'} className='modal-close-btn' onClick={closeModal}/>
+                            <p className='post-title'>삭제하시겠어요?</p>
+                            <p className='post-delete-post-btn' onClick={deleteItem}>확인</p>
+                        </div>
+                    </div>
+                ):<></> 
             }
         </div>
     )

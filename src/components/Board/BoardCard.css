@@ -3,6 +3,9 @@
     flex-direction: row;
     align-items: center;
 }
+.board-card-container:hover{
+    background-color: #F9F9FB;
+}
 .board-card-text-container{
     display: flex;
     flex-direction: column;

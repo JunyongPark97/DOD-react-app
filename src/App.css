@@ -2,6 +2,9 @@
   justify-content: center;
   display: flex;
 }
+p{  
+  cursor: default;
+}
 .main-box{
   max-width: 680px;
   

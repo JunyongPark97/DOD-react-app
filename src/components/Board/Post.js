@@ -137,7 +137,7 @@ export default function Post() {
                         component
                     }
                     {
-                        (item.is_dod)?(<p className='board-card-num'><img className='board-card-info-icon' src={process.env.PUBLIC_URL + '/person-icon.png'} alt=''/>{item.total_respondent}</p>) : (<></>)
+                        (item.is_dod)?(<p className='board-card-num post'><img className='board-card-info-icon' src={process.env.PUBLIC_URL + '/person-icon.png'} alt=''/>{item.total_respondent}</p>) : (<></>)
                     }
                 </div>
                 <div className='post-info-box2'>
@@ -161,6 +161,7 @@ export default function Post() {
             <div className='contour-16margin-both'/>
             <p className='post-title'>{item.title}</p>
             <p className='post-content'>{item.content}</p>
+            
             {
                 (item.is_owner)?<></>:<p className='floating-big-btn' onClick={onClickGo}>설문하러 가기</p>
             }

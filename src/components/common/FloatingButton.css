@@ -33,7 +33,7 @@
     }
     .fb-container{
         position: fixed;
-        bottom: 12px;
+        bottom: 75px;
         right: 8px;
         display: flex;
         flex-direction: row;

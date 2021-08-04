@@ -18,6 +18,7 @@ function Board() {
     const [pagenums, setPagenums] = useState([]);
     const [currentPageNum, setCurrentPageNum] = useState(1);
     const [min, setMin] = useState(1);
+    const [totalRespondent, setTotalRespondent] = useState('');
     useEffect(() => {
         if(window.sessionStorage.getItem('DODtoken') !== null){
             setLoggedIn(true);
@@ -43,6 +44,18 @@ function Board() {
             }
             var newList = res.results;
             setPostList([...newList]);
+        })
+
+        fetch(`${baseUrl}/api/v1/total_repondents/`,{
+            method:'GET',
+            headers:{
+                'accept' : 'application/json',
+                'content-type' : 'application/json;charset=UTF-8'
+            }
+        }).then(res=>{
+            return res.json();
+        }).then(res=>{
+            setTotalRespondent(res.count);
         })
     }, [])
     function onClickNavigator(page){
@@ -125,7 +138,7 @@ function Board() {
                 <p className='createproject-text board'>
                     디오디의<br/>누적 실시간 추첨 수
                 </p>
-                <p className='board-total-text'>5.3K</p>
+                <p className='board-total-text'>{totalRespondent}</p>
             </div>
             <div className='contour'/>
             {

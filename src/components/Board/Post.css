@@ -20,6 +20,9 @@
     flex-grow: 1;
     
 }
+.board-card-num.post{
+    margin-left: 12px;
+}
 .board-card-info-text.post{
     margin-top: 0px;
     text-align: start;
@@ -44,8 +47,9 @@
     font-family: noto-regular;
     color: #3C3C47;
     margin:0px;
-    margin-bottom: 32px;
+    margin-bottom: 128px;
     text-align: start;
+    white-space: pre;
 }
 .post-delete-post-btn{
     width: 256px;

@@ -1,10 +1,10 @@
 import React,{useState, useRef, useEffect} from 'react'
 import { useHistory } from 'react-router-dom';
 import './ResultPage.css'
-import ResultModal from './ResultModal'
 import baseUrl from '../../network/network';
+import TestResultModal from './TestResultModal';
 
-export default function ResultPage(props) {
+export default function TestResultPage(props) {
     const history=useHistory();
     const queryString = require('query-string');
     const params = queryString.parse(props.location.search)
@@ -92,7 +92,8 @@ export default function ResultPage(props) {
                     'accept' : 'application/json',
                     'content-type' : 'application/json;charset=UTF-8'},
                 body:JSON.stringify({
-                    phone:phone
+                    phone:phone,
+                    project_key:projectKey
                 })
             }).then(function(res) {
                 changeButtonText(false);
@@ -220,7 +221,7 @@ export default function ResultPage(props) {
                     인증 후 당첨 확인하기
                 </button>
             </div>
-            <ResultModal isModalOpen={showResultModal} showResult = {showResult} win={win} item_name={itemName} item_img_url={itemImgUrl}/>
+            <TestResultModal isModalOpen={showResultModal} showResult = {showResult} win={win} item_name={itemName} item_img_url={itemImgUrl}/>
         </div>
     )
 }

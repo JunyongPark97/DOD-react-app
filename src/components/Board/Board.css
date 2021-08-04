@@ -26,7 +26,7 @@
     border-radius: 16px;
     text-align: center;
     border:1px solid #7C44FF;
-    position:fixed;
+    position:sticky;
     bottom: 32px;
 }
 .floating-big-btn:hover{
@@ -41,9 +41,10 @@
 }
 @media (max-width:640px) {
     .floating-big-btn{
-        width: auto;
-        right: 20px;
-        left: 20px;
+        width: fill;
+        bottom: 16px;
+        /* right: 20px; */
+        /* left: 20px; */
         
         /* transform: translateX(-5%); */
     }
