@@ -58,10 +58,10 @@ function Board() {
             setTotalPageNum(res.total_page);
             if(res.next === null){
                 setCurrentPageNum(res.total_page);
-                makeList(res.total_page, res.total_page);
+                makeList(res.total_page -1, res.total_page);
             }else{
                 setCurrentPageNum(res.next - 1);
-                makeList(res.next - 1, res.total_page);
+                makeList(res.next - 1 -1, res.total_page);
             }
             console.log(res);
             var newList = res.results;
