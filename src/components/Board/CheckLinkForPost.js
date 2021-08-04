@@ -52,22 +52,24 @@ export default function CheckLinkForPost() {
             .then(res =>{
                 console.log(res);
                 if(res.valid){
-                    setIsAvailable(true);
                     setTimeout(function(){
                         setOnLoad(false);
                         if(res.is_dod){
+                            setIsAvailable(true);
                             alarm.current.innerHTML = '디오디가 있는 설문이네요!'
                             setProjectId(res.project);
                             setShowAlert(true);
                             setIsDod(true);
                         }else{
+                            setIsAvailable(true);
+                            setProjectId(null);
                             alarm.current.innerHTML = '디오디가 없는 설문이네요!'
-                            
                             setShowAlert(true);
                             setIsDod(false);
                         }
                     }, 1000);
                 }else{
+                    setProjectId(null);
                     setIsAvailable(false);
                     alarm.current.innerHTML = '유효하지 않은 링크에요!'
                     setShowAlert(true);
@@ -75,6 +77,8 @@ export default function CheckLinkForPost() {
                 }
             })
         }else{
+            setProjectId(null);
+            setIsAvailable(false);
             setOnLoad(false);
             setShowAlert(false);
             setIsDod(true);
