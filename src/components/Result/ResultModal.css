@@ -11,6 +11,7 @@
     text-align: center;
     margin:0px;
     width: 100%;
+    margin-top: 8px;
 }
 .result-modal-img{
     width: 228px;
@@ -36,7 +37,7 @@
     font-size: 12px;
     color:#929292;
     margin-bottom: 0px;
-    margin-top: 24px;
+    margin-top: 0px;
     width: 100%;
     text-align: start;
 }

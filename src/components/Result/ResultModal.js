@@ -49,8 +49,8 @@ export default function ResultModal(props) {
                                         <p className='result-modal-plz-text'>
                                             다른 설문 참여하고<br/>한번 더 추첨하실 수 있어요
                                         </p>
-                                        <div className='result-modal-plz-innerbox'>
-                                            <p className='result-modal-plz-btn' onClick={onClickMore}>자세히 보기</p>
+                                        <div className='result-modal-plz-innerbox' onClick={onClickMore}>
+                                            <p className='result-modal-plz-btn' >자세히 보기</p>
                                             <img className='result-modal-plz-arrow' alt='' src={process.env.PUBLIC_URL + '/arrow-right-white.png'}/>
                                         </div>
                                         <img className='result-modal-plz-img' alt='' src={process.env.PUBLIC_URL + '/hand.png'}/>

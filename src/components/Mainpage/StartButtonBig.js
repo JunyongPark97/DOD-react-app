@@ -1,14 +1,30 @@
-import React from 'react'
+import React,{useEffect, useRef} from 'react'
 import './StartButtonBig.css'
 import { dodTestLink } from '../../network/network';
+import $ from 'jquery';
 
 function StartButtonBig(props) {
     const {openModal} = props
+    const fb = useRef(null);
     function onClickTest(){
         const a = document.createElement('a');
         a.setAttribute('href', dodTestLink);
         a.setAttribute('target', '_blank');
         a.click();
+    }
+    useEffect(()=>{
+        window.addEventListener('scroll', listenToScroll);
+    },[])
+    function listenToScroll(){
+        const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop
+
+        if(winScroll > 340){
+            $('#startBtnBig-start-btn').fadeIn();
+        }else if(winScroll < 340){
+            $('#startBtnBig-start-btn').fadeOut();
+        }
+        
     }
     return (
         <div className='startBtnBig-container'>
@@ -25,7 +41,7 @@ function StartButtonBig(props) {
             <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual1-mobile.png'}/>
             <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual2-mobile.png'}/>
             <div className='contour-thick'/>
-            <p className='floating-big-btn' onClick={openModal}>실시간 추첨 만들기</p>
+            <p id='startBtnBig-start-btn' className={'floating-big-btn'} onClick={openModal} style={{'display' : 'none'}}>무료로 시작하기</p>
         </div>
     )
 }

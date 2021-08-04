@@ -16,11 +16,12 @@
     color: #7C44FF;
 }
 .floating-big-btn{
+    display: block;
     width: 680px;
     padding-top: 16px;
     padding-bottom: 16px;
     background-color: #7E47FF;
-    font-family: noto-regular;
+    font-family: noto-medium;
     font-size: 16px;
     color: #fff;
     border-radius: 16px;
@@ -38,6 +39,10 @@
     background-color: #D1D1D1;
     border: #707070;
     color: #fff;
+}
+.floating-big-btn.hide{
+    display: none;
+    transition: all ease 0.3s;
 }
 @media (max-width:640px) {
     .floating-big-btn{

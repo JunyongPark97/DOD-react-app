@@ -13,6 +13,7 @@ function Mainpage() {
     const [loggedIn, setLoggedIn] = useState(false);
     const [isModalOpen, setModalOpen] = useState(false);
     const [justLogin, setJustLogin] = useState(true);
+    const [showFB, setShowFB] = useState(false);
     useEffect(()=>{
         if(window.sessionStorage.getItem('DODtoken') !== null){
             setLoggedIn(true);
@@ -45,7 +46,7 @@ function Mainpage() {
         <div className='main-container'>
             <DodNavbar isLoggedIn = {loggedIn} openModal = {openModal}/>
             <Navigation location={0} isLoggedIn={loggedIn} openModal={openModal}/>
-            <StartButtonBig openModal={openModalAndCreate}/>
+            <StartButtonBig showFB={showFB} openModal={openModalAndCreate}/>
             <SignModal justLogin = {justLogin} isModalOpen = {isModalOpen} closeModalFunction = {closeModal} loginFunction={login} createProject = {createProject}/>
             <Footer/>
         </div>
