@@ -28,6 +28,7 @@
     width: 100%;
     margin-top: 16px;
     border : none;
+    white-space: pre-wrap;
 }
 .create-content-title-input:focus{
     outline:none;

@@ -4,11 +4,18 @@ import './DashboardCard.css'
 import StatusTag from './StatusTag';
 import baseUrl from '../../network/network';
 import Progress from 'react-progressbar'
+import CheckLeftGiftModal from './CheckLeftGiftModal'
 
 export default function DashboardCard(props) {
     const history = useHistory();
     const {item, index, deleteProject} = props;
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isGiftListModalOpen, setIsGiftListModalOpen] = useState(false);
+    const [giftItem, setGiftItem] = useState({
+        'id':0,
+        'type':1,
+        'data':[]
+    })
     // const products = item.products;
     function getProgressbarBackColor(){
         switch(item.project_status){
@@ -30,6 +37,24 @@ export default function DashboardCard(props) {
                 return '#7E47FF';
         }
     } 
+    function openGift(){
+        fetch(`${baseUrl}/api/v1/dashboard/${item.id}/gifticons/`,{
+            method:'GET',
+            headers:{
+                'accept' : 'application/json',
+                'content-type' : 'application/json;charset=UTF-8',
+                'Authorization' : `Token ${window.sessionStorage.getItem('DODtoken')}`
+            }
+        }).then(res => res.json())
+        .then(function(res){
+            setGiftItem(res);
+            console.log(res);
+            setIsGiftListModalOpen(true);
+        })
+    }
+    function closeGift(){
+        setIsGiftListModalOpen(false);
+    }
     useEffect(() => {
         document.getElementsByClassName(`progressbar-container-${item.id}`)[0].style.background = getProgressbarBackColor()
         console.log(item);
@@ -114,7 +139,7 @@ export default function DashboardCard(props) {
                                 <p className='dashboard-card-text-16'>기프티콘</p>
                                 <p className='dashboard-card-text-12'>뭐가 얼마나 남은거지?</p>
                             </div>
-                            <p id='dashboard-card-checkgift-btn' className={(item.project_status === 100)? 'dashboard-card-btn enabled':'dashboard-card-btn'}>확인하기</p>
+                            <p id='dashboard-card-checkgift-btn' className={(item.project_status === 100)? 'dashboard-card-btn enabled':'dashboard-card-btn'} onClick={openGift}>확인하기</p>
                         </div>
                     </>
                 )
@@ -130,6 +155,9 @@ export default function DashboardCard(props) {
                         </div>
                     </div>
                 ):<></> 
+            }
+            {
+                isGiftListModalOpen?<CheckLeftGiftModal closeModal={closeGift} res={giftItem}/>:<></>
             }
         </div>
     )

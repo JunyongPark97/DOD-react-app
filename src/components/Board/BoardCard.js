@@ -24,6 +24,10 @@ function BoardCard(props) {
     var component = getStatusTag();
     function onClickItem(){
         window.sessionStorage.setItem('retrievePostId', item.id);
+        const currentPage = window.sessionStorage.getItem('boardCurrentPageNum');
+        setTimeout(function (){
+            window.sessionStorage.setItem('boardCurrentPageNum', currentPage);
+        }, 100);
         history.push('/post');
     }
     return (

@@ -23,28 +23,55 @@ function Board() {
         if(window.sessionStorage.getItem('DODtoken') !== null){
             setLoggedIn(true);
         }
-        fetch(`${baseUrl}/api/v1/board/`,{
-            method:'GET',
-            headers:{
-                'accept' : 'application/json',
-                'content-type' : 'application/json;charset=UTF-8'
-            }
-        }).then(res=>{
-            return res.json();
-        }).then(res=>{
-            console.log(res);
-            console.log(res.total_page);
-            setTotalPageNum(res.total_page);
-            if(res.next === null){
-                setCurrentPageNum(res.total_page);
-                makeList(res.total_page, res.total_page);
-            }else{
-                setCurrentPageNum(res.next - 1);
-                makeList(res.next - 1, res.total_page);
-            }
-            var newList = res.results;
-            setPostList([...newList]);
-        })
+        if(window.sessionStorage.getItem('boardCurrentPageNum') !== null){
+            fetch(`${baseUrl}/api/v1/board/?page=${window.sessionStorage.getItem('boardCurrentPageNum')}`,{
+                method:'GET',
+                headers:{
+                    'accept' : 'application/json',
+                    'content-type' : 'application/json;charset=UTF-8'
+                }
+            }).then(res=>{
+                return res.json();
+            }).then(res=>{
+                console.log(res);
+                console.log(res.total_page);
+                setTotalPageNum(res.total_page);
+                if(res.next === null){
+                    setCurrentPageNum(res.total_page);
+                    makeList(res.total_page, res.total_page);
+                }else{
+                    setCurrentPageNum(res.next - 1);
+                    makeList(res.next - 1, res.total_page);
+                }
+                var newList = res.results;
+                setPostList([...newList]);
+            })
+        }else{
+            fetch(`${baseUrl}/api/v1/board/`,{
+                method:'GET',
+                headers:{
+                    'accept' : 'application/json',
+                    'content-type' : 'application/json;charset=UTF-8'
+                }
+            }).then(res=>{
+                return res.json();
+            }).then(res=>{
+                console.log(res);
+                console.log(res.total_page);
+                setTotalPageNum(res.total_page);
+                if(res.next === null){
+                    setCurrentPageNum(res.total_page);
+                    window.sessionStorage.setItem('boardCurrentPageNum', res.total_page);
+                    makeList(res.total_page, res.total_page);
+                }else{
+                    setCurrentPageNum(res.next - 1);
+                    window.sessionStorage.setItem('boardCurrentPageNum', res.next -1);
+                    makeList(res.next - 1, res.total_page);
+                }
+                var newList = res.results;
+                setPostList([...newList]);
+            })
+        }
 
         fetch(`${baseUrl}/api/v1/total_repondents/`,{
             method:'GET',
@@ -57,6 +84,9 @@ function Board() {
         }).then(res=>{
             setTotalRespondent(res.count);
         })
+        return () => {
+            window.sessionStorage.removeItem('boardCurrentPageNum');
+        }
     }, [])
     function onClickNavigator(page){
         fetch(`${baseUrl}/api/v1/board/?page=${page}`,{
@@ -71,9 +101,11 @@ function Board() {
             setTotalPageNum(res.total_page);
             if(res.next === null){
                 setCurrentPageNum(res.total_page);
+                window.sessionStorage.setItem('boardCurrentPageNum', res.total_page);
                 makeList(res.total_page -1, res.total_page);
             }else{
                 setCurrentPageNum(res.next - 1);
+                window.sessionStorage.setItem('boardCurrentPageNum', res.next -1);
                 makeList(res.next - 1 -1, res.total_page);
             }
             console.log(res);

@@ -23,15 +23,15 @@ export default function ForbiddenPage() {
                 <img className='result-page-dod-img forbidden-page' src={process.env.PUBLIC_URL + '/../forbidden.png'}/>
             </div>
             <div className='contour-16margin-both'/>
-            <div id='result-page-forbidden-howtoapply' className='result-page-button-container' onClick={onClickHowToApply}>
+            <div id='result-page-forbidden-howtoapply' className='result-page-button-container clickable' onClick={onClickHowToApply}>
                 <p className='result-page-button-text'>설문에 참여하는 방법이 궁금해요</p>
                 <img alt='' className='result-page-button-icon' src={process.env.PUBLIC_URL + '/result-arrow.png'}/>
             </div>
-            <div id='result-page-forbidden-aboutdod' className='result-page-button-container' onClick={onClickDod}>
+            <div id='result-page-forbidden-aboutdod' className='result-page-button-container clickable' onClick={onClickDod}>
                 <p className='result-page-button-text'>디오디는 어떤 서비스인가요?</p>
                 <img alt='' className='result-page-button-icon' src={process.env.PUBLIC_URL + '/result-arrow.png'}/>
             </div>
-            <div id='result-page-forbidden-anyother' className='result-page-button-container-violet' onClick={onClickMore}>
+            <div id='result-page-forbidden-anyother' className='result-page-button-container-violet clickable' onClick={onClickMore}>
                 <p className='result-page-button-text'>실시간 추첨할 수 있는<br/>다른 설문들이 더 있나요?</p>
                 <img alt='' className='result-page-button-icon' src={process.env.PUBLIC_URL + '/result-arrow.png'}/>
             </div>

@@ -2,6 +2,7 @@ import React,{useEffect, useRef} from 'react'
 import './StartButtonBig.css'
 import { dodTestLink, dodAdvantageDetail } from '../../network/network';
 import $ from 'jquery';
+import ReactPlayer from 'react-player'
 
 function StartButtonBig(props) {
     const {openModal} = props
@@ -46,6 +47,14 @@ function StartButtonBig(props) {
             <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual2-pc.png'}/>
             <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual1-mobile.png'}  onClick={onClickDetails}  style={{'cursor' : 'pointer'}}/>
             <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual2-mobile.png'}/>
+            <div className='wrapper'>
+            <ReactPlayer
+                className='player'
+                url='https://www.youtube.com/watch?v=8yshMJGcQ7M'
+                width='100%'
+                height='100%'/>
+            
+            </div>
             <div className='contour-thick'/>
             <p id='startBtnBig-start-btn' className={'floating-big-btn'} onClick={openModal} style={{'display' : 'none'}}>무료로 시작하기</p>
         </div>

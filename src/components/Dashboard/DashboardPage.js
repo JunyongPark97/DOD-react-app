@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import DodNavbar from '../common/DodNavbar';
-import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import './DashboardPage.css'
 import DashboardCard from './DashboardCard';
 import Footer from '../common/Footer'
@@ -8,7 +8,7 @@ import Navigation from '../common/Navigation';
 
 import baseUrl from '../../network/network';
 import WantMoreResponseCard from '../common/WantMoreResponseCard'
-import $ from 'jquery'
+import ReactPlayer from 'react-player'
 
 export default function DashboardPage() {
     const history = useHistory();
@@ -100,7 +100,16 @@ export default function DashboardPage() {
                 <WantMoreResponseCard/>
             </>)
         }else{
-            return <></>
+            return (<>
+                <div className='wrapper'>
+                    <ReactPlayer
+                    className='player'
+                    url='https://www.youtube.com/watch?v=8yshMJGcQ7M'
+                    width='100%'
+                    height='100%'/>
+            
+                </div>
+            </>)
         }
     }
     return (

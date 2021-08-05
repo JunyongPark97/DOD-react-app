@@ -277,7 +277,7 @@ function CreateProject(props) {
                             }
                         </div>
                         <div className='contour-16margin-both'/>
-                        <p className='create-project-description-small'>· 유효기간 만료 및 이용약관 위반 이미지는 임의 삭제, 서비스 이용이 제한될 수 있습니다.</p>
+                        <p className='create-project-totalprice-text' style={{'marginTop':'0px', 'marginBottom':'16px'}}>· 유효기간 만료 및 이용약관 위반 이미지는 임의 삭제, 서비스 이용이 제한될 수 있습니다.</p>
                         <button id='create-project-finish-btn' className={readyToFinish?'btn-bottom-big':'btn-bottom-big disabled'} onClick={readyToFinish?onClickFinish:null}>완료하기</button>
                     </>
                 ):(
@@ -295,8 +295,8 @@ function CreateProject(props) {
                                 <p className='create-project-totalprice'>총 결제금액: {numberWithCommas(priceInfo.price)}원</p>
                             </div>
                         </div>
-                        <p style={{'marginBottom':'0px'}} className='create-project-description-small'>· 첫 추첨자가 생긴 이후에는 환불이 불가합니다.</p>
-                        <p style={{'marginTop':'0px'}} className='create-project-description-small'>· <u onClick={onClickPayContact}>결제 조건 확인 및 개인정보 제공</u>에 동의합니다.</p>
+                        <p style={{'marginBottom':'0px'}} className='create-project-totalprice-text'>· 첫 추첨자가 생긴 이후에는 환불이 불가합니다.</p>
+                        <p style={{'marginTop':'0px', 'marginBottom':'16px'}} className='create-project-totalprice-text'>· <u onClick={onClickPayContact}>결제 조건 확인 및 개인정보 제공</u>에 동의합니다.</p>
                         
                         <button id='create-project-pay-btn' className={readyToPay?'btn-bottom-big':'btn-bottom-big disabled'} onClick={readyToPay?onClickPay:null}>기프티콘 결제하기</button>
                     </>
