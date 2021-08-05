@@ -126,7 +126,7 @@ export default function DashboardCard(props) {
                         <img src={process.env.PUBLIC_URL + 'close-icon.png'} className='modal-close-btn' onClick={closeModal}/>
                             <p className='delete-post-title'>삭제하시겠어요?</p>
                             <p className='delete-post-subtitle'>응모자가 있는 링크는 삭제가 불가능해요.<br/>문의하기를 통해 문의해주세요!</p>
-                            <p className='post-delete-post-btn' onClick={deleteItem}>확인</p>
+                            <p className='post-delete-post-btn' onClick={deleteItem}>삭제하기</p>
                         </div>
                     </div>
                 ):<></> 

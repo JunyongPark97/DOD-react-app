@@ -29,10 +29,10 @@
     outline: none;
     border:none;
     cursor:pointer;
-    background-color: transparent;
-    color: #7C44FF;
+    background-color: #F5F0FF;
+    color: #7E47FF;
     padding: 16px;
-    border: 1px solid var(--primary);
+    border: 1px solid #F5F0FF;
     transition: all 0.3s ease-out;
     font-family: noto-regular;
     font-size: 16px;
@@ -44,6 +44,6 @@
     transition: all 0.3s ease-out;
 }
 .modal-signin-btn:hover{
-    background-color: #CFCFCF;
+    background-color: #E2D6FF;
     transition: all 0.3s ease-out;
 }
