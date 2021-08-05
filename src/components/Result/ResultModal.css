@@ -69,25 +69,22 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 8px;
-    background-color: #7E47FF;
-    border-radius: 12px;
+    padding: 0px;
+    background-color: #fff;
+    border-radius: 8px;
     width: fit-content;
-    margin-top: 16px;
-}
-.result-modal-plz-innerbox:hover{
-    background-color: #5832B3;
-    transition: all ease 0.3s;
+    margin-top: 24px;
 }
 .result-modal-plz-btn{
-    font-size: 8px;
+    font-size: 12px;
     font-family: noto-medium;
     margin: 0px;
-    margin-right: 4px;
-    color: #fff;
+    margin-right: 8px;
+    color: #4784FF;
+    padding-bottom: 2px;
 }
 .result-modal-plz-arrow{
-    width: 4px;
-    height: 7px;
+    width: 6px;
+    height: 10px;
     margin: 0px;
 }

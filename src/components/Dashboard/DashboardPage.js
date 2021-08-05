@@ -8,6 +8,7 @@ import Navigation from '../common/Navigation';
 
 import baseUrl from '../../network/network';
 import WantMoreResponseCard from '../common/WantMoreResponseCard'
+import $ from 'jquery'
 
 export default function DashboardPage() {
     const history = useHistory();
@@ -42,6 +43,12 @@ export default function DashboardPage() {
                     history.push('/');
                 }
             })
+        }
+        //hide btn on click app div
+        window.addEventListener("click",hideDeleteBtn);
+        return () => {
+            window.removeEventListener("click", hideDeleteBtn);
+        
         }
     }, [])
     function hideDeleteBtn(){
@@ -93,7 +100,7 @@ export default function DashboardPage() {
                 <WantMoreResponseCard/>
             </>)
         }else{
-            return <WantMoreResponseCard/>
+            return <></>
         }
     }
     return (

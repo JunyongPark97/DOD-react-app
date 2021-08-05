@@ -4,12 +4,18 @@
     flex-direction: row;
     align-items: center;
     justify-content: start;
+    
+    padding-right: 16px;
+    padding-left: 16px;
 }
 .post-info-box2{
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-top: 16px;
+    
+    padding-right: 16px;
+    padding-left: 16px;
 }
 .post-profile-img{
     width: 36px;
@@ -41,6 +47,10 @@
     margin:0px;
     margin-bottom: 8px;
     text-align: start;
+    width: fill;
+    
+    padding-right: 16px;
+    padding-left: 16px;
 }
 .post-content{
     font-size: 12px;
@@ -49,7 +59,10 @@
     margin:0px;
     margin-bottom: 128px;
     text-align: start;
-    white-space: pre;
+    white-space: pre-wrap;
+    width: fill;
+    padding-right: 16px;
+    padding-left: 16px;
 }
 .post-delete-post-btn{
     width: 256px;

@@ -99,6 +99,12 @@
 .progressbar-container{
     border-radius: 20px;
 }
+.progressbar-container{
+    border-radius: 20px;
+}
+.progressbar-progress{
+    border-radius: 20px;
+}
 .dashboard-card-delete-btn{
     display: block;
     padding: 12px 24px;
@@ -115,4 +121,22 @@
 }
 .dashboard-card-delete-btn.none{
     display: none;
+}
+.delete-post-title{
+    font-size: 16px;
+    font-family: noto-medium;
+    color: #020203;
+    margin:0px;
+    margin-bottom: 8px;
+    text-align: start;
+    width: fill;
+}
+.delete-post-subtitle{
+    font-size: 12px;
+    font-family: noto-regular;
+    color: #020203;
+    margin:0px;
+    margin-bottom: 8px;
+    text-align: start;
+    width: fill;
 }

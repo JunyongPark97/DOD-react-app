@@ -163,7 +163,7 @@ export default function Post() {
             <p className='post-content'>{item.content}</p>
             
             {
-                (item.is_owner)?<></>:<p className='floating-big-btn' onClick={onClickGo}>설문하러 가기</p>
+                (item.is_owner)?<></>:<p className='floating-big-btn-light' onClick={onClickGo}>설문하러 가기</p>
             }
         </div>
     )

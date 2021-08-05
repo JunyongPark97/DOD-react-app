@@ -13,7 +13,7 @@
 .board-total-text{
     font-size: 26px;
     font-family: noto-medium;
-    color: #7C44FF;
+    color: #020203;
 }
 .floating-big-btn{
     display: block;
@@ -29,6 +29,25 @@
     border:1px solid #7C44FF;
     position:sticky;
     bottom: 32px;
+}
+.floating-big-btn-light{
+    display: block;
+    width: 680px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background-color: #F5F0FF;
+    font-family: noto-medium;
+    font-size: 16px;
+    color: #7E47FF;
+    border-radius: 16px;
+    text-align: center;
+    border:1px solid #F5F0FF;
+    position:sticky;
+    bottom: 32px;
+}
+.floating-big-btn-light:hover{
+    background-color: #E2D6FF;
+    transition: all ease 0.3s;
 }
 .floating-big-btn:hover{
     background-color: #6639CF;

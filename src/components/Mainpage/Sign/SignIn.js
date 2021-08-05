@@ -73,20 +73,20 @@ function SignIn(props) {
                         <p className='signin-small-text'>전화번호</p>
                         <p className={showAlert? 'signin-alert' : 'signin-alert hide'}>번호 또는 비밀번호를 확인해주세요.</p>
                     </div>
-                    <input name='id' className = 'signin-id-input' onChange={onChangeIdInput} type='tel' placeholder='휴대전화 번호를 입력해주세요'>
+                    <input name='id' className = 'signup-id-input' onChange={onChangeIdInput} type='tel' placeholder='휴대전화 번호를 입력해주세요'>
 
                     </input>
                     <div className='signin-textbox'>
                         <p className='signin-small-text'>비밀번호</p>
                         <p className='signin-findpw' onClick={onClickFindPW}>비밀번호 찾기</p>
                     </div>
-                    <input name='pw' className = 'signin-pw-input' onChange={onChangePWInput} type='password' placeholder='비밀번호를 입력해주세요'>
+                    <input name='pw' className = 'signup-pw-input' onChange={onChangePWInput} type='password' placeholder='비밀번호를 입력해주세요'>
 
                     </input>
                     <div className='contour-16margin'/>
-                    <Button buttonSize='btn--xlarge' id='signin' className='signin-submit-btn' onClick={loginClickHandler}>
+                    <button id='signin' style={{'width' : '256px'}} className='result-btn' onClick={loginClickHandler}>
                         로그인하기
-                    </Button>
+                    </button>
                 </>
             ) : <></>
         }

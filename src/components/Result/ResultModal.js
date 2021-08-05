@@ -42,16 +42,18 @@ export default function ResultModal(props) {
                                             <p className='result-win-alert-text'>· 평균 3-5%의 확률로 당첨자가 선정됩니다.
                                                 <br/>
                                                 · 한번 더 추첨하시고 싶으시다면, 디오디에서 다른<br/>설문에 참여하실 수 있습니다.
+                                                <br/>
+                                                · 설문 종료 후 미지급 상품은 미당첨자를 대상으로 재추첨하여 전달해드립니다.
                                             </p>
                                         )
                                     }
-                                    <div className='result-modal-plz-container'>
+                                    <div className='result-modal-plz-container' onClick={onClickMore}>
                                         <p className='result-modal-plz-text'>
                                             다른 설문 참여하고<br/>한번 더 추첨하실 수 있어요
                                         </p>
-                                        <div className='result-modal-plz-innerbox' onClick={onClickMore}>
+                                        <div className='result-modal-plz-innerbox'>
                                             <p className='result-modal-plz-btn' >자세히 보기</p>
-                                            <img className='result-modal-plz-arrow' alt='' src={process.env.PUBLIC_URL + '/arrow-right-white.png'}/>
+                                            <img className='result-modal-plz-arrow' alt='' src={process.env.PUBLIC_URL + '/arrow-right-blue.png'}/>
                                         </div>
                                         <img className='result-modal-plz-img' alt='' src={process.env.PUBLIC_URL + '/hand.png'}/>
                                     </div>

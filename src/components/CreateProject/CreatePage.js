@@ -52,7 +52,7 @@ function CreatePage() {
         return startDate;
     }
     function onClickBack(){
-        window.location.assign('/');
+        history.goBack();
     }
     function dataURLtoFile(dataurl, fileName){
  
@@ -99,7 +99,6 @@ function CreatePage() {
                     console.log(res);
                 }
             }).then(res =>{
-                console.log(res.id);
                 sessionStorage.setItem('getLinkProjectId', res.id);
                 window.location.assign('/projectlink');
                 setLoading(false);

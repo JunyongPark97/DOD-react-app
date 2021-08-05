@@ -22,6 +22,7 @@ export default function ResultPage(props) {
     const confirmKeyAlertMessage = useRef(null);
     const smsAlertMessage = useRef(null);
     const getConfirmKeyButton = useRef(null);
+    const pwInput = useRef(null);
 
     const [smsSent, setsmsSent] = useState(false);
 
@@ -101,6 +102,7 @@ export default function ResultPage(props) {
                     setsmsFail(false);//안내메시지
                     setsmsSent(true);
                     setSentPhone(phone);
+                    pwInput.current.focus();
                 }else if(res.status == 410){
                     smsFailAlert('다시 시도해주세요.');
                     setsmsSent(false);
@@ -185,7 +187,7 @@ export default function ResultPage(props) {
             <div className='result-page-top-container'>
                 <img className='result-page-logo' src={process.env.PUBLIC_URL + '/../nav-logo.png'}/>
             </div>
-            <div className='contour'/>
+            <div className='contour result-page'/>
             <div className='result-page-content'>
                 <p className='result-page-title'>기프티콘 당첨 여부를<br/>실시간으로 확인하세요</p>
                 <p className='result-page-subtitle'>
@@ -198,7 +200,7 @@ export default function ResultPage(props) {
                     추첨이 끝나는 즉시 파기됩니다.
                 </p>          
             </div>
-            <div>
+            <div className='result-page-input-container'>
                 <div className='signup-textbox'>
                     <p className='signup-small-text'>전화번호</p>
                     <p className={smsSuccess? 'signup-sms-success' : 'signup-sms-success hide'}>인증번호가 전송되었어요.</p>
@@ -214,7 +216,7 @@ export default function ResultPage(props) {
                     <p className='signup-small-text'>인증번호</p>
                     <p ref={confirmKeyAlertMessage} className={confirmFailed? 'signup-confirm-fail' : 'signup-confirm-fail hide'}>인증번호가 다릅니다.</p>
                 </div>
-                <input name='pw' className = 'signup-pw-input' type='text' placeholder='인증번호를 입력해주세요' onChange={onChangeConfirmKey}>
+                <input ref={pwInput}name='pw' className = 'signup-pw-input' type="number" pattern="\d*" placeholder='인증번호를 입력해주세요' onChange={onChangeConfirmKey}>
                 </input>
                 <button id = 'result-confirm' className='result-btn last' onClick={onClickConfirm}>
                     인증 후 당첨 확인하기

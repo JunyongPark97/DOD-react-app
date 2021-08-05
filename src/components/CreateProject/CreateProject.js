@@ -2,6 +2,7 @@ import React,{useState, useRef} from 'react'
 import './CreateProject.css'
 import CalenderModal from './CalendarModal'
 import ProductCard from './ProductCard';
+import {dodPayContact} from '../../network/network'
 
 function CreateProject(props) {
     const {onClickPay, onClickFinish, customUploadList, setCustomUploadList, fileList, setFileList, productList, setProductList, setTotalProductNum, startDate, endDate, setStartDate, setEndDate} = props;
@@ -31,6 +32,13 @@ function CreateProject(props) {
     }
     function openEndModal(){
         setEndDayModalOpen(true);
+    }
+    function onClickPayContact(){
+        const a = document.createElement('a');
+        a.setAttribute('href', dodPayContact);
+        a.setAttribute('target', '_blank');
+        a.click();
+        
     }
 
     function onClickSelectFile(){
@@ -182,7 +190,7 @@ function CreateProject(props) {
                 </div>
                 <div id='select-date-btn' className='create-project-descriptionBox'>
                     <p className='create-project-description'>
-                        <span className='create-project-description-small'>기본 2주로 설정되어 있어요</span><br/>
+                        <span className='create-project-description-small'>기본 1주로 설정되어 있어요</span><br/>
                         시작일 00:00부터 종료일 24:00까지 <br/>추첨이 활성화돼요
                     </p>
                     <div className='create-project-box2'>
@@ -269,6 +277,7 @@ function CreateProject(props) {
                             }
                         </div>
                         <div className='contour-16margin-both'/>
+                        <p className='create-project-description-small'>· 유효기간 만료 및 이용약관 위반 이미지는 임의 삭제, 서비스 이용이 제한될 수 있습니다.</p>
                         <button id='create-project-finish-btn' className={readyToFinish?'btn-bottom-big':'btn-bottom-big disabled'} onClick={readyToFinish?onClickFinish:null}>완료하기</button>
                     </>
                 ):(
@@ -286,6 +295,9 @@ function CreateProject(props) {
                                 <p className='create-project-totalprice'>총 결제금액: {numberWithCommas(priceInfo.price)}원</p>
                             </div>
                         </div>
+                        <p style={{'marginBottom':'0px'}} className='create-project-description-small'>· 첫 추첨자가 생긴 이후에는 환불이 불가합니다.</p>
+                        <p style={{'marginTop':'0px'}} className='create-project-description-small'>· <u onClick={onClickPayContact}>결제 조건 확인 및 개인정보 제공</u>에 동의합니다.</p>
+                        
                         <button id='create-project-pay-btn' className={readyToPay?'btn-bottom-big':'btn-bottom-big disabled'} onClick={readyToPay?onClickPay:null}>기프티콘 결제하기</button>
                     </>
                 )

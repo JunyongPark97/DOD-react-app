@@ -65,10 +65,10 @@
     align-items: center;
 }
 .product-card-subtract{
-    margin: 0px 16px;
+    padding: 22px 16px;
 }
 .product-card-add{
-    margin: 0px 16px;
+    padding: 16px 16px;
 }
 .product-card-brandlogo{
     height: 28px;

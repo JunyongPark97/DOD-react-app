@@ -1,6 +1,6 @@
 import React,{useEffect, useRef} from 'react'
 import './StartButtonBig.css'
-import { dodTestLink } from '../../network/network';
+import { dodTestLink, dodAdvantageDetail } from '../../network/network';
 import $ from 'jquery';
 
 function StartButtonBig(props) {
@@ -26,6 +26,12 @@ function StartButtonBig(props) {
         }
         
     }
+    function onClickDetails(){
+        const a = document.createElement('a');
+        a.setAttribute('href', dodAdvantageDetail);
+        a.setAttribute('target', '_blank');
+        a.click();
+    }
     return (
         <div className='startBtnBig-container'>
             <p className={'startBtnBig-title'}>설문 응답자에게<br/>실시간으로 추첨해주세요</p>
@@ -36,9 +42,9 @@ function StartButtonBig(props) {
             </div>
             <img className='startBtnBig-img' alt='' src={process.env.PUBLIC_URL + '/mainpage-img.png'}/>
             <img className='startBtnBig-img2' alt='' src={process.env.PUBLIC_URL + '/arrow-down.png'}/>
-            <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual1-pc.png'}/>
+            <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual1-pc.png'} onClick={onClickDetails} style={{'cursor' : 'pointer'}}/>
             <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual2-pc.png'}/>
-            <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual1-mobile.png'}/>
+            <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual1-mobile.png'}  onClick={onClickDetails}  style={{'cursor' : 'pointer'}}/>
             <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual2-mobile.png'}/>
             <div className='contour-thick'/>
             <p id='startBtnBig-start-btn' className={'floating-big-btn'} onClick={openModal} style={{'display' : 'none'}}>무료로 시작하기</p>

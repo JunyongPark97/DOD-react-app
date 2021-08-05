@@ -16,9 +16,12 @@ function ProjectLinkPage() {
         image_url:''
     })
     useEffect(()=>{
+        
         if(sessionStorage.getItem('DODtoken') === null){
             history.push('/');
         }else{
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
             fetch(`${baseUrl}/api/v1/project/${projectId}/link_notice/`,{
                 method:'GET',
                 headers:{
@@ -34,7 +37,7 @@ function ProjectLinkPage() {
                 }
             }).then(res => {
                 setLinkItem(res);
-                setContent(`기프티콘 추첨 결과는 디오디에서!
+                setContent(`축하해요! 이제 실시간 추첨에 응모할 수 있어요 :)
 아래 링크에서 당첨 여부를 즉시 확인해보세요!
 ${res.url}`)
             })
