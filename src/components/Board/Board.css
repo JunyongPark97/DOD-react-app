@@ -72,4 +72,12 @@
         
         /* transform: translateX(-5%); */
     }
+    .floating-big-btn-light{
+        width: fill;
+        bottom: 16px;
+        /* right: 20px; */
+        /* left: 20px; */
+        
+        /* transform: translateX(-5%); */
+    }
 }
