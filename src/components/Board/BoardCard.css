@@ -44,7 +44,7 @@
 }
 .board-card-info-icon{
     width: 10px;
-    height: 10px;
+    height: 12px;
     margin-right: 8px;
 }
 .board-card-num{
@@ -52,6 +52,7 @@
     font-family: noto-regular;
     color: #4784FF;
     margin-top: 20px;
+    margin-bottom: 0px;
 }
 .board-card-status-tag{
     border-radius: 12px;
@@ -76,6 +77,6 @@
 }
 .board-card-status-tag.notdod{
     background-color: #ffffff;
-    color:#919192;
+    color:#9696A3;
     border: 1px solid #CDCDD6;
 }

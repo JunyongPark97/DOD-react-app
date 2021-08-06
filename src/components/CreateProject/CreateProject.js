@@ -177,7 +177,7 @@ function CreateProject(props) {
     return (
         <div className='createproject-container'>
             <p className='createproject-text'>
-                간단하게<br/>추첨 링크를 만들 수 있어요
+                여기만 끝내면<br/>추첨 링크가 만들어져요!
             </p>
             <div className='contour'/>
             <div id='select-date-btn' className={'create-project-selectBox'} >
@@ -222,7 +222,7 @@ function CreateProject(props) {
                         onClick={useOwnGift?(null):(function(){
                             setUseOwnGift(true);
                         })}
-                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내 거 쓰기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    >내 기프티콘 쓰기</p>
                     <p id='create-project-buygift-btn' 
                         className={useOwnGift?'create-project-selectOwn-text':'create-project-selectOwn-text-selected'}
                         onClick={useOwnGift?(function(){

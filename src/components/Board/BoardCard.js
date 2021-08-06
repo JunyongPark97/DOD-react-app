@@ -4,7 +4,7 @@ import './BoardCard.css'
 
 function BoardCard(props) {
     var history = useHistory();
-    const {item} = props;
+    const {item, id} = props;
     function getStatusTag(){
         switch(item.project_status){
             case 1:{
@@ -32,13 +32,13 @@ function BoardCard(props) {
     }
     return (
         <>
-            <div className='board-card-container' onClick={onClickItem}>
+            <div className='board-card-container' id={id} onClick={onClickItem}>
                 <div className='board-card-text-container'>
                     <p className='board-card-title'>{item.title}</p>
                     <p className='board-card-info-text'><img className='board-card-info-icon' src={process.env.PUBLIC_URL + '/period-icon.png'}/>{
                         (item.period === null)?'내용에서 확인':item.period
                     }</p>
-                    <p className='board-card-info-text'><img className='board-card-info-icon' src={process.env.PUBLIC_URL + '/gift-icon.png'}/>{
+                    <p className='board-card-info-text' style={{'marginTop':'0px'}}><img className='board-card-info-icon' src={process.env.PUBLIC_URL + '/gift-icon.png'}/>{
                         (item.reward_text === null)?'내용에서 확인':item.reward_text
                     }</p>
                 </div>

@@ -9,14 +9,15 @@
 }
 .fb-text{
     background: #fff;
-    box-shadow: 0 0 10px grey;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     padding-left: 16px;
     padding-right: 32px;
     padding-top: 16px;
     padding-bottom: 16px;
-    font-family: noto-regular;
+    color: #020203;
+    font-family: noto-medium;
     size: 16px;
-    border-radius: 8px;
+    border-radius: 16px;
 }
 .fb-icon{
     transform: translateX(-24px);

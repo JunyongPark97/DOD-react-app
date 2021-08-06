@@ -46,6 +46,10 @@ export default function DashboardPage() {
         }
         //hide btn on click app div
         window.addEventListener("click",hideDeleteBtn);
+        //scroll to top
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        
         return () => {
             window.removeEventListener("click", hideDeleteBtn);
         
@@ -104,6 +108,7 @@ export default function DashboardPage() {
                 <div className='wrapper'>
                     <ReactPlayer
                     className='player'
+                    controls={true}
                     url='https://www.youtube.com/watch?v=8yshMJGcQ7M'
                     width='100%'
                     height='100%'/>
@@ -112,19 +117,36 @@ export default function DashboardPage() {
             </>)
         }
     }
+    function getTextComponent(itemList){
+        const activeProjectNum = getActiveProjectsNum(itemList);
+        if(activeProjectNum === 0){
+            return (
+                <p className='dashboard-text'>
+                    {sessionStorage.getItem('userName')}님은<br/>
+                    추첨 중인<br/>
+                    설문이 없어요!
+                </p>
+            )
+        }else{
+            return (
+                <p className='dashboard-text'>
+                    {sessionStorage.getItem('userName')}님은<br/>
+                    <span className='dashboard-highlight-text'>
+                        {getActiveProjectsNum(itemList)}개 
+                    </span> 설문을<br/>
+                    실시간 추첨 중이에요!
+                </p>
+            )
+        }
+    }
     return (
         <>
             <div className='dashboard-container' onClick={hideDeleteBtn}>
                 <DodNavbar isLoggedIn={isLoggedIn} openModal={openMypage}/>
                 <Navigation location={1} isLoggedIn={isLoggedIn} openModal={openMypage}/>
-                <p className='dashboard-text'>
-                    {sessionStorage.getItem('userName')}님은<br/>
-                    <span className='dashboard-highlight-text'>
-                        {getActiveProjectsNum(itemList)}개 
-                    </span>&nbsp;
-                    설문을<br/>
-                    실시간 추첨 중이에요!
-                </p>
+                {
+                    getTextComponent(itemList)
+                }
                 <div className='contour'/>
                 {
                     getDashboardCards(itemList)

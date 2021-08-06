@@ -28,6 +28,8 @@
 }
 .board-card-num.post{
     margin-left: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .board-card-info-text.post{
     margin-top: 0px;

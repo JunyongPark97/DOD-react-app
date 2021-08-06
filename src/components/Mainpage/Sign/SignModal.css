@@ -14,16 +14,17 @@
     background-color: white;
     border-radius: 16px;
     display: flex;
+    width: 256px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding:24px;
+    padding:32px;
     position: relative;
 }
 .modal-close-btn{
     position: absolute;
     width: 20px;
     height: 20px;
-    top: 24px;
-    right: 24px;
+    top: 32px;
+    right: 32px;
 }

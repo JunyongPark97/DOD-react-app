@@ -7,6 +7,7 @@ import SignModal from '../Mainpage/Sign/SignModal';
 import BoardCard from './BoardCard';
 import baseUrl from '../../network/network';
 import PageNavigator from '../common/PageNavigator';
+import $ from 'jquery'
 
 function Board() {
     var history = useHistory();
@@ -17,13 +18,13 @@ function Board() {
     const [totalPageNum, setTotalPageNum] = useState(1);
     const [pagenums, setPagenums] = useState([]);
     const [currentPageNum, setCurrentPageNum] = useState(1);
-    const [min, setMin] = useState(1);
     const [totalRespondent, setTotalRespondent] = useState('');
     useEffect(() => {
         if(window.sessionStorage.getItem('DODtoken') !== null){
             setLoggedIn(true);
         }
         if(window.sessionStorage.getItem('boardCurrentPageNum') !== null){
+            
             fetch(`${baseUrl}/api/v1/board/?page=${window.sessionStorage.getItem('boardCurrentPageNum')}`,{
                 method:'GET',
                 headers:{
@@ -72,6 +73,12 @@ function Board() {
                 setPostList([...newList]);
             })
         }
+        // if(window.sessionStorage.getItem('showThisItem') !== null){
+        //     setTimeout(function(){
+        //         document.getElementById(`post-id-${window.sessionStorage.getItem('showThisItem')}`).scrollIntoView();
+        //         window.sessionStorage.removeItem('showThisItem');
+        //     }, 300);
+        // }
 
         fetch(`${baseUrl}/api/v1/total_repondents/`,{
             method:'GET',
@@ -102,11 +109,11 @@ function Board() {
             if(res.next === null){
                 setCurrentPageNum(res.total_page);
                 window.sessionStorage.setItem('boardCurrentPageNum', res.total_page);
-                makeList(res.total_page -1, res.total_page);
+                makeList(res.total_page, res.total_page);
             }else{
                 setCurrentPageNum(res.next - 1);
                 window.sessionStorage.setItem('boardCurrentPageNum', res.next -1);
-                makeList(res.next - 1 -1, res.total_page);
+                makeList(res.next - 1, res.total_page);
             }
             console.log(res);
             var newList = res.results;
@@ -116,7 +123,7 @@ function Board() {
         })
     }
     function makeList(num, total){
-        var min = parseInt(num/5) * 5 + 1;
+        var min = parseInt((num - 1)/5) * 5 + 1;
         var max = min + 4;
         console.log(min, max);
         var list = [];
@@ -133,15 +140,13 @@ function Board() {
         setPagenums(list);
     }
     function onClickLeft(){
-        if(min > 1){
-            makeList(min - 5, totalPageNum);
-            setMin(min - 5);
+        if(pagenums[0] > 1){
+            makeList(pagenums[0] - 5, totalPageNum);
         }
     }
     function onClickRight(){
-        if((min + 5) < totalPageNum){
-            makeList(min + 5, totalPageNum);
-            setMin(min + 5);
+        if((pagenums[pagenums.length -1] + 5) <= totalPageNum){
+            makeList(pagenums[0] + 5, totalPageNum);
         }
     }
     
@@ -177,7 +182,7 @@ function Board() {
             <div className='contour'/>
             {
                 postList.map((item, index) =>{
-                    return <BoardCard key={index} item={item}/>
+                    return <BoardCard key={index} id={`post-id-${item.id}`} item={item}/>
                 })
             }
             <PageNavigator currentPageNum={currentPageNum} onClickRight={onClickRight} onClickLeft={onClickLeft} pagenums={pagenums} totalPageNum={totalPageNum} onClickNavigator={onClickNavigator}/>

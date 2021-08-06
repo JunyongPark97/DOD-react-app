@@ -69,13 +69,15 @@ export default function DashboardCard(props) {
                 'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
             }
         }).then(res => {
-            if(res.ok){
+            if(res.status >= 200 && res.status < 400){
                 deleteProject(index);
                 setIsModalOpen(false);
             }else if(res.status === 401){
                 window.location.assign('/');
-            }else{
-                console.log(res);
+            }else if(res.status === 403){
+                setIsModalOpen(false);
+                window.alert(`추첨이 진행되어 삭제하실수 없어요!
+시험해보신 경우라면 문의하기를 이용해주세요!`);
             }
         })
     }

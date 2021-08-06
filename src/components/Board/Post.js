@@ -14,11 +14,11 @@ export default function Post() {
         is_dod: false,
         form_link:'https://d-o-d.io',
         is_owner:false,
-        content:'ㅎㅇㅎㅎㅇㅎㅇㅎ',
+        content:'',
         period: null,
         project_status: 0,
         reward_text: null,
-        title: "안냐세요~",
+        title: "",
         total_respondent: null
     })
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -71,6 +71,7 @@ export default function Post() {
         }
         
         return () => {
+            // window.sessionStorage.setItem('showThisItem', window.sessionStorage.getItem('retrievePostId'));
             window.sessionStorage.removeItem('retrievePostId');
         }
     }, [])

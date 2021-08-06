@@ -52,6 +52,7 @@ function StartButtonBig(props) {
                 className='player'
                 url='https://www.youtube.com/watch?v=8yshMJGcQ7M'
                 width='100%'
+                controls={true}
                 height='100%'/>
             
             </div>

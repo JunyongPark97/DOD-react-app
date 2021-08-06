@@ -18,6 +18,7 @@
     color: #9696A3;
 }
 .navigation-title.selected{
+    font-family: noto-medium;
     color: #020203;
 }
 #navigation-title-home{
