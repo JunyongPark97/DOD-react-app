@@ -41,7 +41,7 @@ function StartButtonBig(props) {
                 <p className='startBtnBig-btn' onClick={onClickTest}>실시간 추첨 체험해보기</p>
                 <img className='startBtnBig-arrow' alt='' src={process.env.PUBLIC_URL + '/arrow-right-white.png'}/>
             </div>
-            <img className='startBtnBig-img' alt='' src={process.env.PUBLIC_URL + '/mainpage-img.png'}/>
+            <img className='startBtnBig-img' alt='' src={process.env.PUBLIC_URL + '/mainpage-img.gif'}/>
             <img className='startBtnBig-img2' alt='' src={process.env.PUBLIC_URL + '/arrow-down.png'}/>
             <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual1-pc.png'} onClick={onClickDetails} style={{'cursor' : 'pointer'}}/>
             <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual2-pc.png'}/>

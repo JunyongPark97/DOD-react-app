@@ -67,12 +67,14 @@
 }
 .startBtnBig-img{
     width: 320px;
-    height: 150px;
+    height: 180px;
     margin-top: 48px;
     margin-bottom: 64px;
 }
 .startBtnBig-img2{
     margin-bottom: 32px;
+    width: 20px;
+    height: 12px;
 }
 .startBtnBig-gif-web{
     width: 100%;
