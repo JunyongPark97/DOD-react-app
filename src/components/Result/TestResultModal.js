@@ -1,13 +1,13 @@
 import React,{useState, useEffect} from 'react'
 import { useHistory } from 'react-router';
-import {dodMoreBoard} from '../../network/network'
+import {dodMoreBoardTest} from '../../network/network'
 import './ResultModal.css'
 
 function TestResultModal(props) {
     const history = useHistory();
     const {isModalOpen, showResult,win,item_name,item_img_url} = props;
     function onClickMore(){
-        window.location.assign(dodMoreBoard);
+        window.location.assign(dodMoreBoardTest);
     }
     function onClickSmsAgain(){
         const a = document.createElement('a');
