@@ -36,7 +36,7 @@ function TestResultModal(props) {
                                             <p className='result-win-alert-text'>· 모바일 쿠폰의 유효기간 연장 및 환불이 불가하므로<br/>
                                                 반드시 유효기간 내 사용하시기 바랍니다
                                                 <br/>
-                                                · 만약 쿠폰 확인이 안되실 경우, <u onClick={onClickSmsAgain}>여기를 클릭해 주세요</u>
+                                                · 만약 쿠폰 확인이 안되실 경우, <u style={{fontFamily : 'noto-medium'}} onClick={onClickSmsAgain}>여기를 클릭해 주세요</u>
                                             </p>
                                         ):(
                                             <p className='result-win-alert-text'>· 평균 3-5%의 확률로 당첨자가 선정됩니다.

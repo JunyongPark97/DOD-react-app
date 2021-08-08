@@ -71,8 +71,8 @@ export default function TestResultPage(props) {
         if(disable){
             btn.disabled = true;
             btn.firstChild.data = '전송중';
-            btn.style.backgroundColor = '#CFCFCF';
-            btn.style.borderColor = '#CFCFCF'
+            btn.style.backgroundColor = '#CDCDD6';
+            btn.style.borderColor = '#CDCDD6'
             btn.classList.add('noHover');
         }else{
             btn.disabled = false;

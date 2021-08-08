@@ -50,7 +50,7 @@ function StartButtonBig(props) {
             <div className='wrapper'>
             <ReactPlayer
                 className='player'
-                url='https://www.youtube.com/watch?v=8yshMJGcQ7M'
+                url='https://youtu.be/ejJvsP2eAJM'
                 width='100%'
                 controls={true}
                 height='100%'/>

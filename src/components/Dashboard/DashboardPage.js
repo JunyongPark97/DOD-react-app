@@ -37,7 +37,6 @@ export default function DashboardPage() {
             }).then(res => {
                 if(res !==undefined){
                     setItemList(res);
-                    console.log(res);
                 }else{
                     sessionStorage.removeItem('DODtoken');
                     history.push('/');
@@ -88,8 +87,6 @@ export default function DashboardPage() {
     function getDashboardCards(items){
         if(items.length > 1){
             var list = items.slice(1, undefined);
-            console.log(items);
-            console.log(list);
             var latterList = list.map((item, index) => <DashboardCard key = {index} item={item} index={index} deleteProject={deleteProject}/>);
             return (<>
                 <DashboardCard item={items[0]} deleteProject={deleteProject}/>
@@ -109,7 +106,7 @@ export default function DashboardPage() {
                     <ReactPlayer
                     className='player'
                     controls={true}
-                    url='https://www.youtube.com/watch?v=8yshMJGcQ7M'
+                    url='https://youtu.be/ejJvsP2eAJM'
                     width='100%'
                     height='100%'/>
             

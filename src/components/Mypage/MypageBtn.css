@@ -1,6 +1,5 @@
 .mypage-btn-container{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 16px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -14,6 +13,7 @@
 .mypage-btn-text{
     flex-grow: 1;
     text-align: start;
+    color: #020203;
     font-family: noto-regular;
     font-size: 16px;
     margin-top: 0px;

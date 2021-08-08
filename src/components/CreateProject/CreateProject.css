@@ -147,7 +147,7 @@
     text-align: center;
     color: #020203;
     font-size: 16px;
-    font-family: noto-regular;
+    font-family: noto-medium;
     background-color: #ffffff;
     border-radius: 16px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
@@ -202,7 +202,7 @@
     transition: all ease 0.3s;
 }
 .btn-bottom-big.disabled{
-    background-color: #D1D1D1;
+    background-color: #CDCDD6;
     border: #707070;
     color: #fff;
 }
@@ -220,10 +220,10 @@
     display: none;
 }
 .create-project-totalprice-text{
-    font-family: noto-regular;
+    font-family: noto-medium;
     font-size: 16px;
     text-align: start;
-    color: #5B5B5B;
+    color: #9696A3;
     flex-grow: 1;
     margin: 0px;
 }

@@ -9,11 +9,12 @@
 }
 .createproject-text.board{
     flex-grow: 1;
+    color: #020203;
 }
 .board-total-text{
-    font-size: 26px;
+    font-size: 28px;
     font-family: noto-medium;
-    color: #020203;
+    color: #7E47FF;
 }
 .floating-big-btn{
     display: block;
@@ -55,7 +56,7 @@
     transition: all ease 0.3s;
 }
 .floating-big-btn.disabled{
-    background-color: #D1D1D1;
+    background-color: #CDCDD6;
     border: #707070;
     color: #fff;
 }

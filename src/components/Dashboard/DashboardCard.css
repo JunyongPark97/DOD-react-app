@@ -37,6 +37,7 @@
 .dashboard-card-title{
     font-size: 20px;
     font-family: noto-medium;
+    color: #020203;
     margin-right: 12px;
     margin-bottom: 0px;
     margin-top: 0px;
@@ -61,14 +62,14 @@
 .dashboard-card-text-16{
     font-size: 16px;
     font-family: noto-regular;
-    color: #000000;
+    color: #020203;
     text-align: start;
     margin : 0px;
 }
 .dashboard-card-text-28{
     font-size: 28px;
     font-family: noto-regular;
-    color: #000000;
+    color: #020203;
     text-align: start;
     margin : 0px;
 }
@@ -77,7 +78,7 @@
 }
 .dashboard-card-btn{
     font-size: 12px;
-    font-family: noto-regular;
+    font-family: noto-medium;
     padding: 12px;
     color: #fff;
     border-radius: 8px;

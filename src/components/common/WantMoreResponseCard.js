@@ -9,7 +9,7 @@ export default function WantMoreResponseCard() {
         //history.push('/createpost');
     }
     return (
-        <div className='want-more-response-card-container'>
+        <div className='want-more-response-card-container' onClick={onClickMore}>
             <p className='want-more-response-title'>응답률을 높이고 싶으신가요?</p>
             <p className='want-more-response-subtitle'>디오디 설문 게시판에 올리고<br/>더 많은 응답을 받아보세요.</p>
             <div className='want-more-response-innerbox'>
