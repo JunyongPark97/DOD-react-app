@@ -25,10 +25,10 @@ function TestResultModal(props) {
                             showResult?(
                                 <>
                                     {
-                                        win?(<p className='result-modal-title'>축하합니다!<br/>당첨되셨어요!</p>):(<></>)
+                                        win?(<p className='result-modal-title'>체험을 완료하셨어요!</p>):(<></>)
                                     }
                                     {
-                                        win?(<p className='result-modal-subtitle'>텍스트 전용으로 문자는 발송되지 않습니다!</p>):(<></>)
+                                        win?(<p className='result-modal-subtitle'>실제 추첨에서는<br/>기프티콘이 문자로 발송됩니다!</p>):(<></>)
                                     }
                                     <img className={win?('result-modal-img-win'):('result-modal-img')} src={win?(item_img_url):(process.env.PUBLIC_URL + 'dod-sorry.gif')}></img>
                                     {
