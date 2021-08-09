@@ -48,7 +48,6 @@ export default function DashboardCard(props) {
         }).then(res => res.json())
         .then(function(res){
             setGiftItem(res);
-            console.log(res);
             setIsGiftListModalOpen(true);
         })
     }
@@ -57,7 +56,6 @@ export default function DashboardCard(props) {
     }
     useEffect(() => {
         document.getElementsByClassName(`progressbar-container-${item.id}`)[0].style.background = getProgressbarBackColor()
-        console.log(item);
     }, [])
     function deleteItem(e){
         e.stopPropagation();
@@ -96,8 +94,6 @@ export default function DashboardCard(props) {
     }
     function onClickMore(e){
         setTimeout(function(){
-            console.log(`dashboard-card-delete-btn-${item.id}`);
-            console.log(document.getElementById(`dashboard-card-delete-btn-${item.id}`).classList);
             document.getElementById(`dashboard-card-delete-btn-${item.id}`).classList.remove("none");
     
         },100);

@@ -5,7 +5,6 @@ export default function ProductCard(props) {
     const {item, index, onChange} = props;
     function onClickAdd(){
         onChange(index, item.num + 1);
-        console.log(item);
     }
     function onClickSubtract() {
         if(item.num !== 0){

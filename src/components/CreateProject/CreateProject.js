@@ -42,7 +42,6 @@ function CreateProject(props) {
     }
 
     function onClickSelectFile(){
-        console.log(inputFile);
         inputFile.current.click();
     }
     function onChangeFileList(){

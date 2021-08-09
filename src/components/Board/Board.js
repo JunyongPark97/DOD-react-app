@@ -9,8 +9,10 @@ import baseUrl from '../../network/network';
 import PageNavigator from '../common/PageNavigator';
 import $ from 'jquery'
 
-function Board() {
+function Board(props) {
     var history = useHistory();
+    const queryString = require('query-string');
+    const params = queryString.parse(props.location.search)
     const [loggedIn, setLoggedIn] = useState(false);
     const [isModalOpen, setModalOpen] = useState(false);
     const [justLogin, setJustLogin] = useState(true);
@@ -23,9 +25,8 @@ function Board() {
         if(window.sessionStorage.getItem('DODtoken') !== null){
             setLoggedIn(true);
         }
-        if(window.sessionStorage.getItem('boardCurrentPageNum') !== null){
-            
-            fetch(`${baseUrl}/api/v1/board/?page=${window.sessionStorage.getItem('boardCurrentPageNum')}`,{
+        if(params.p === undefined){
+            fetch(`${baseUrl}/api/v1/board/?page=1`,{
                 method:'GET',
                 headers:{
                     'accept' : 'application/json',
@@ -34,8 +35,6 @@ function Board() {
             }).then(res=>{
                 return res.json();
             }).then(res=>{
-                console.log(res);
-                console.log(res.total_page);
                 setTotalPageNum(res.total_page);
                 if(res.next === null){
                     setCurrentPageNum(res.total_page);
@@ -48,7 +47,7 @@ function Board() {
                 setPostList([...newList]);
             })
         }else{
-            fetch(`${baseUrl}/api/v1/board/`,{
+            fetch(`${baseUrl}/api/v1/board/?page=${params.p}`,{
                 method:'GET',
                 headers:{
                     'accept' : 'application/json',
@@ -57,16 +56,12 @@ function Board() {
             }).then(res=>{
                 return res.json();
             }).then(res=>{
-                console.log(res);
-                console.log(res.total_page);
                 setTotalPageNum(res.total_page);
                 if(res.next === null){
                     setCurrentPageNum(res.total_page);
-                    window.sessionStorage.setItem('boardCurrentPageNum', res.total_page);
                     makeList(res.total_page, res.total_page);
                 }else{
                     setCurrentPageNum(res.next - 1);
-                    window.sessionStorage.setItem('boardCurrentPageNum', res.next -1);
                     makeList(res.next - 1, res.total_page);
                 }
                 var newList = res.results;
@@ -91,41 +86,38 @@ function Board() {
         }).then(res=>{
             setTotalRespondent(res.count);
         })
-        return () => {
-            window.sessionStorage.removeItem('boardCurrentPageNum');
-        }
-    }, [])
+    }, [props])
     function onClickNavigator(page){
-        fetch(`${baseUrl}/api/v1/board/?page=${page}`,{
-            method:'GET',
-            headers:{
-                'accept' : 'application/json',
-                'content-type' : 'application/json;charset=UTF-8'
-            }
-        }).then(res=>{
-            return res.json();
-        }).then(res=>{
-            setTotalPageNum(res.total_page);
-            if(res.next === null){
-                setCurrentPageNum(res.total_page);
-                window.sessionStorage.setItem('boardCurrentPageNum', res.total_page);
-                makeList(res.total_page, res.total_page);
-            }else{
-                setCurrentPageNum(res.next - 1);
-                window.sessionStorage.setItem('boardCurrentPageNum', res.next -1);
-                makeList(res.next - 1, res.total_page);
-            }
-            console.log(res);
-            var newList = res.results;
-            setPostList([...newList]);
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        })
+        // fetch(`${baseUrl}/api/v1/board/?page=${page}`,{
+        //     method:'GET',
+        //     headers:{
+        //         'accept' : 'application/json',
+        //         'content-type' : 'application/json;charset=UTF-8'
+        //     }
+        // }).then(res=>{
+        //     return res.json();
+        // }).then(res=>{
+        //     setTotalPageNum(res.total_page);
+        //     if(res.next === null){
+        //         setCurrentPageNum(res.total_page);
+        //         makeList(res.total_page, res.total_page);
+        //     }else{
+        //         setCurrentPageNum(res.next - 1);
+        //         makeList(res.next - 1, res.total_page);
+        //     }
+        //     console.log(res);
+        //     var newList = res.results;
+        //     setPostList([...newList]);
+        //     document.body.scrollTop = 0; // For Safari
+        //     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        // })
+        history.push(`/board?p=${page}`);
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
     function makeList(num, total){
         var min = parseInt((num - 1)/5) * 5 + 1;
         var max = min + 4;
-        console.log(min, max);
         var list = [];
         if(total >= max){
             for(var j = 0; j <5; j++){
@@ -136,7 +128,6 @@ function Board() {
                 list.push(j+1);
             }
         }
-        console.log(list);
         setPagenums(list);
     }
     function onClickLeft(){

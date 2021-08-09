@@ -50,7 +50,6 @@ export default function CheckLinkForPost() {
                 })
             }).then(res=> {return res.json()})
             .then(res =>{
-                console.log(res);
                 if(res.valid){
                     setTimeout(function(){
                         setOnLoad(false);

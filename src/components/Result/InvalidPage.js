@@ -1,10 +1,10 @@
 import React from 'react'
-import { howToApply } from '../../network/network';
+import { howToApply, dodMoreBoardInvalid } from '../../network/network';
 
 export default function InvalidPage() {
     
     function onClickMore(){
-        window.location.assign('/board');
+        window.location.assign(dodMoreBoardInvalid);
     }
     function onClickDod(){
         window.location.assign('/');

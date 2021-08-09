@@ -1,9 +1,9 @@
 import React from 'react'
-import { howToApply } from '../../network/network';
+import { howToApply,dodMoreBoardForbidden } from '../../network/network';
 
 export default function ForbiddenPage() {
     function onClickMore(){
-        window.location.assign('/board');
+        window.location.assign(dodMoreBoardForbidden);
     }
     function onClickDod(){
         window.location.assign('/');

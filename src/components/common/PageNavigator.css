@@ -14,6 +14,8 @@
 .page-navi-number{
     font-family: noto-regular;
     font-size: 12px;
+    width: 14px;
+    text-align: center;
     color : #9696A3;
     padding-top: 7px;
     padding-bottom: 8px;

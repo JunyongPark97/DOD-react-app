@@ -28,10 +28,7 @@ function Navigation(props) {
     var component = (location === 0)?(<Progress color='#7E47FF' height='2px' completed={scrollPercentage}/>):(<div className='contour'/>)
     function onClickTab(e){
         const goal = e.target.getAttribute('index');
-        console.log(goal);
-        console.log(location);
         if(goal !== location){
-            console.log('in');
             switch(goal){
                 case '0':{
                     history.push('/');

@@ -8,9 +8,7 @@ function CheckLeftGiftModal(props) {
     }
     function getComponents(res){
         var itemList = res.data;
-        console.log(itemList);
         if(res.type === 1){
-            console.log('type 1');
             var component = (
                 itemList.map((item, index) => {
                     return (
@@ -23,7 +21,6 @@ function CheckLeftGiftModal(props) {
             )
             return component;
         }else{
-            console.log('type 2');
             var component = (
                 itemList.map((item, index) => {
                     return (

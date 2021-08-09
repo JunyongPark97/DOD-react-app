@@ -9,7 +9,7 @@ export default function Post(props) {
     const history = useHistory();
     // const navbar = useRef(null);
     const queryString = require('query-string');
-    const params = queryString.parse(props.location.search)
+    const params = queryString.parse(props.location.search);
     const [navText, setNavText] = useState(4);
     const [item, setItem] = useState({
         id: 0,
@@ -22,7 +22,7 @@ export default function Post(props) {
         reward_text: null,
         title: "",
         total_respondent: null
-    })
+    });
     const [isModalOpen, setIsModalOpen] = useState(false);
     function getStatusTag(){
         switch(item.project_status){
@@ -48,12 +48,10 @@ export default function Post(props) {
                 headers:{
                     'accept' : 'application/json',
                     'content-type' : 'application/json;charset=UTF-8'
-                
                 }
             }).then(res => {
                 return res.json();
             }).then(res => {
-                console.log(res);
                 setItem(res);
             })
         }else{
@@ -67,7 +65,6 @@ export default function Post(props) {
             }).then(res => {
                 return res.json();
             }).then(res => {
-                console.log(res);
                 setItem(res);
             })
         }
@@ -101,7 +98,6 @@ export default function Post(props) {
                 'Authorization' : `Token ${window.sessionStorage.getItem('DODtoken')}`
             }
         }).then(function(res){
-            console.log(res);
             if(res.ok){
                 history.push('/board');
             }else if(res.status === 401){
