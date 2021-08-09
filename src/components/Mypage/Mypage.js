@@ -44,9 +44,9 @@ export default function Mypage() {
             }).then((res)=>{
                 if(res.status === 401){
                     window.sessionStorage.removeItem('DODtoken');
-                    window.sessionStorage.removeItem('username');
+                    window.sessionStorage.removeItem('userName');
                     history.push('/');
-                    break
+                    // throw new Error('error');
                 }else{
                     return res.json();
                 }
