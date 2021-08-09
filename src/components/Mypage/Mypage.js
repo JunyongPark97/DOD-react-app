@@ -42,7 +42,14 @@ export default function Mypage() {
                     'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
                 }
             }).then((res)=>{
-                return res.json();
+                if(res.status === 401){
+                    window.sessionStorage.removeItem('DODtoken');
+                    window.sessionStorage.removeItem('username');
+                    history.push('/');
+                    break
+                }else{
+                    return res.json();
+                }
             }).then((res)=>{
                 setItems(res);
             })

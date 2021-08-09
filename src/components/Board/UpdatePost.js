@@ -72,7 +72,7 @@ function UpdatePost() {
             <div className='contour'/>
             <input ref={title} className='create-content-title-input' placeholder='제목' onChange={onChangeText}/>
             <div className='contour-16margin-both'/>
-            <textarea ref={content} id='create-content-input' className='create-content-title-input' onChange={onChangeText} cols="40" rows="30" placeholder='내용을 입력하세요.'></textarea>
+            <textarea ref={content} id='create-content-input' className='create-content-title-input' onChange={onChangeText} cols="40" rows="30" placeholder='내용에 설문 기간과 추첨할 기프티콘을 포함하면 더 많은 응답을 받아보실 수 있어요!'></textarea>
 
         </div>
     )

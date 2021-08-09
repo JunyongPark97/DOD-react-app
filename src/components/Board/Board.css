@@ -10,6 +10,7 @@
 .createproject-text.board{
     flex-grow: 1;
     color: #020203;
+    font-family: noto-medium;
 }
 .board-total-text{
     font-size: 28px;
