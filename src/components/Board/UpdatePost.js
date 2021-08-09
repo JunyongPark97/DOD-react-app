@@ -22,7 +22,6 @@ function UpdatePost() {
             content.current.value = res.content;
         })
         return () => {
-            window.sessionStorage.setItem('retrievePostId', window.sessionStorage.getItem('updatePostId'));
             window.sessionStorage.removeItem('updatePostId');
         }
     }, [])

@@ -5,9 +5,11 @@ import LogoBar from '../common/LogoBar'
 import Navbar from '../common/Navbar'
 import './Post.css'
 
-export default function Post() {
+export default function Post(props) {
     const history = useHistory();
     // const navbar = useRef(null);
+    const queryString = require('query-string');
+    const params = queryString.parse(props.location.search)
     const [navText, setNavText] = useState(4);
     const [item, setItem] = useState({
         id: 0,
@@ -41,7 +43,7 @@ export default function Post() {
     var component = getStatusTag();
     useEffect(() => {
         if(window.sessionStorage.getItem('DODtoken') === null){
-            fetch(`${baseUrl}/api/v1/board/${window.sessionStorage.getItem('retrievePostId')}/`,{
+            fetch(`${baseUrl}/api/v1/board/${params.postid}/`,{
                 method:'GET',
                 headers:{
                     'accept' : 'application/json',
@@ -55,7 +57,7 @@ export default function Post() {
                 setItem(res);
             })
         }else{
-            fetch(`${baseUrl}/api/v1/board/${window.sessionStorage.getItem('retrievePostId')}/`,{
+            fetch(`${baseUrl}/api/v1/board/${params.postid}/`,{
                 method:'GET',
                 headers:{
                     'accept' : 'application/json',
@@ -70,13 +72,9 @@ export default function Post() {
             })
         }
         
-        return () => {
-            // window.sessionStorage.setItem('showThisItem', window.sessionStorage.getItem('retrievePostId'));
-            window.sessionStorage.removeItem('retrievePostId');
-        }
+        
     }, [])
     function onClickBack(){
-        sessionStorage.removeItem('retrievePostId');
         history.goBack();
     }
     function onClickGo(){
@@ -95,7 +93,7 @@ export default function Post() {
         setIsModalOpen(true);
     }
     function deletePost(){
-        fetch(`${baseUrl}/api/v1/board/${window.sessionStorage.getItem('retrievePostId')}/`,{
+        fetch(`${baseUrl}/api/v1/board/${params.postid}/`,{
             method:'DELETE',
             headers:{
                 'accept' : 'application/json',
