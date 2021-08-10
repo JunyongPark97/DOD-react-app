@@ -109,6 +109,26 @@ export default function Post(props) {
         window.sessionStorage.setItem('updatePostId', item.id);
         history.push('/post/create/update');
     }
+    function getGobtnComponent(item){
+        switch(item.project_status){
+            case 1:{
+                return (<p className='floating-big-btn-light' 
+                id={(item.project_status === 0)?'not-dod-survey-gobtn':'dod-servey-go-btn'} 
+                onClick={onClickGo}>설문하러 가기</p>)
+            }
+            case -1:{
+                return (<p className='board-card-status-tag notyet'>추첨 시작 전</p>)
+            }
+            case -2:{
+                return (<p className='board-card-status-tag end'>추첨 종료</p>)
+            }
+            case 0:{
+                return (<p className='floating-big-btn-light' 
+                id={(item.project_status === 0)?'not-dod-survey-gobtn':'dod-servey-go-btn'} 
+                onClick={onClickGo}>설문하러 가기</p>)
+            }
+        }
+    }
     return (
         <div>
             {
@@ -158,7 +178,7 @@ export default function Post(props) {
             <p className='post-content'>{item.content}</p>
             
             {
-                (item.is_owner)?<></>:<p className='floating-big-btn-light' onClick={onClickGo}>설문하러 가기</p>
+                (item.is_owner)?<></>:<p className={(item.project_status === 0)?'floating-big-btn-light not-dod-survey-go-btn':'floating-big-btn-light dod-survey-go-btn'} onClick={onClickGo}>설문하러 가기</p>
             }
         </div>
     )
