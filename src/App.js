@@ -1,7 +1,6 @@
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Mainpage from './components/Mainpage/Mainpage';
-import FloatingButton from './components/common/FloatingButton'
 import CreatePage from './components/CreateProject/CreatePage';
 import ProjectLinkPage from './components/CreateProject/ProjectLinkPage'
 import DashboardPage from './components/Dashboard/DashboardPage';
@@ -38,7 +37,6 @@ function App() {
             <Route path='/testlink' exact component={TestResultPage}/>
           </Switch>
         </Router>
-        <FloatingButton/>
       </div>
     </div>
   );
