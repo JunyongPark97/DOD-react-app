@@ -14,6 +14,7 @@ import CreatePost from './components/Board/CreatePost';
 import CheckLinkForPost from './components/Board/CheckLinkForPost';
 import UpdatePost from './components/Board/UpdatePost';
 import TestResultPage from './components/Result/TestResultPage';
+import ThanksPage from './components/common/ThanksPage';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path='/post/create/update' exact component={UpdatePost}/>
             <Route path='/post' exact component={Post}/>
             <Route path='/testlink' exact component={TestResultPage}/>
+            <Route path='/thankyou' exact component={ThanksPage}/>
           </Switch>
         </Router>
       </div>
