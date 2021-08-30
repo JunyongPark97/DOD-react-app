@@ -119,9 +119,9 @@ export default function DashboardPage() {
         if(activeProjectNum === 0){
             return (
                 <p className='dashboard-text'>
-                    {sessionStorage.getItem('userName')}님은<br/>
-                    추첨 중인<br/>
-                    설문이 없어요!
+                    {sessionStorage.getItem('userName')}님<br/>
+                    실시간 추첨 링크를<br/>
+                    만들어보세요!
                 </p>
             )
         }else{
