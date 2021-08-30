@@ -38,6 +38,12 @@
 .result-btn.last{
     margin-bottom: 32px;
 }
+.result-page-marketing-agree-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 8px;
+}
 .result-btn:hover{
     background-color:#6639CF;
     color: #CFCFCF;

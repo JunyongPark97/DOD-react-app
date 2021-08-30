@@ -18,6 +18,8 @@ export default function TestResultPage(props) {
     const [showResult, setShowResult] = useState(false);
     const [itemName, setItemName] = useState('');
     const [itemImgUrl, setItemImgUrl] = useState('');
+    const [marketingAgree, setMarketingAgree] = useState(true);
+    const [showMarketingAgree, setShowMarketingAgree] = useState(false);
 
     const confirmKeyAlertMessage = useRef(null);
     const smsAlertMessage = useRef(null);
@@ -104,6 +106,11 @@ export default function TestResultPage(props) {
                     setsmsSent(true);
                     setSentPhone(phone);
                     pwInput.current.focus();
+                    res.json().then((data) => {
+                        if(!data.agreed){
+                            setShowMarketingAgree(true);
+                        }
+                    })
                 }else if(res.status == 410){
                     smsFailAlert('다시 시도해주세요.');
                     setsmsSent(false);
@@ -150,7 +157,8 @@ export default function TestResultPage(props) {
                         phone:sentPhone,
                         confirm_key : confirmKey,
                         project_key:projectKey,
-                        validator:validatorKey
+                        validator:validatorKey,
+                        agree:marketingAgree
                     })
                 }).then(function(res){
                     return res.json();
@@ -182,7 +190,9 @@ export default function TestResultPage(props) {
         confirmKeyAlertMessage.current.innerText = text;
         setConfirmFailed(true);
     }
-
+    function onClickMarketingAgree(){
+        setMarketingAgree(!marketingAgree);
+    }
     return (
         <div className='result-page-container'>
             <div className='result-page-top-container'>
@@ -219,6 +229,16 @@ export default function TestResultPage(props) {
                 </div>
                 <input ref={pwInput} name='pw' className = 'signup-pw-input' type="number" pattern="\d*" placeholder='인증번호를 입력해주세요' onChange={onChangeConfirmKey}>
                 </input>
+                {
+                    showMarketingAgree?<>
+                        <div className='result-page-marketing-agree-container'>
+                            <img alt='' src={marketingAgree?process.env.PUBLIC_URL + '/box-checked.png':process.env.PUBLIC_URL + '/box-empty.png'} style={{cursor:'pointer'}} onClick={onClickMarketingAgree}/>
+                            <p style={{fontFamily:'noto-regular', fontSize:'12px', color:'#020203', marginLeft:'8px', marginTop:'0px', marginBottom: '0px'}}>
+                                실시간 추첨 <span style={{color:'#4784FF', cursor:'pointer'}}>알림 받기</span>와 <span style={{color:'#4784FF', cursor:'pointer'}}>마케팅 수신</span>에 동의합니다.<span style={{color:'#7E47FF'}}>(선택)</span>
+                            </p>
+                        </div>
+                    </>:<></>
+                }
                 <button id = 'result-confirm' className='result-btn last' onClick={onClickConfirm}>
                     인증 후 당첨 확인하기
                 </button>
