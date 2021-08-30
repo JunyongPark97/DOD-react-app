@@ -21,8 +21,12 @@ export default function DashboardCard(props) {
         switch(item.project_status){
             case 999:
                 return '#9696A3';
+            case 400:
+                return '#CFFFE7';
             case 300:
                 return '#FFEFCF';
+            case 200:
+                return '#FFD6DA';
             case 100:
                 return '#E2D6FF';
         }
@@ -31,12 +35,106 @@ export default function DashboardCard(props) {
         switch(item.project_status){
             case 999:
                 return '#9696A3';
+            case 400:
+                return '#3AE68F';
             case 300:
                 return '#FFEFCF';
+            case 200:
+                return '#FF4759';
             case 100:
                 return '#7E47FF';
         }
     } 
+    function getCardButtons(item){
+        switch(item.project_status){
+            case 999:
+                return (<></>);
+            case 400:
+                return (
+                    <>
+                        <div className='dashboard-card-btn-box'>
+                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/icon-link.png'} alt=''/>
+                            <div className='dashboard-card-more-text-box'>
+                                <p className='dashboard-card-text-16'>추첨 링크</p>
+                                <p className='dashboard-card-text-12'>연결을 아직 못했다면?</p>
+                            </div>
+                            <p id='dashboard-card-checklink-btn' className={'dashboard-card-btn test'} onClick={onClickCheckLink}>연결하기</p>
+                        </div>
+                        <div className='dashboard-card-btn-box'>
+                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/gift-icon.png'} alt=''/>
+                            <div  className='dashboard-card-more-text-box'>
+                                <p className='dashboard-card-text-16'>기프티콘</p>
+                                <p className='dashboard-card-text-12'>뭐가 얼마나 남은거지?</p>
+                            </div>
+                            <p id='dashboard-card-checkgift-btn' className={'dashboard-card-btn test'} onClick={openGift}>추가하기</p>
+                        </div>
+                    </>                    
+                );
+            case 200:
+                return (
+                    <>
+                        <div className='dashboard-card-btn-box'>
+                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/icon-link.png'} alt=''/>
+                            <div className='dashboard-card-more-text-box'>
+                                <p className='dashboard-card-text-16'>추첨 링크</p>
+                                <p className='dashboard-card-text-12'>연결을 아직 못했다면?</p>
+                            </div>
+                            <p id='dashboard-card-checklink-btn' className={'dashboard-card-btn disabled'} onClick={onClickCheckLink}>연결하기</p>
+                        </div>
+                        <div className='dashboard-card-btn-box'>
+                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/gift-icon.png'} alt=''/>
+                            <div  className='dashboard-card-more-text-box'>
+                                <p className='dashboard-card-text-16'>기프티콘</p>
+                                <p className='dashboard-card-text-12' style={{color:'#FF4759'}}>추가해야 추첨이 활성화돼요!</p>
+                            </div>
+                            <p id='dashboard-card-checkgift-btn' className={'dashboard-card-btn disabled'} onClick={addGift}>추가하기</p>
+                        </div>
+                    </>                    
+                );
+            case 300:
+                return (
+                    <>
+                        <div className='dashboard-card-btn-box'>
+                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/icon-link.png'} alt=''/>
+                            <div className='dashboard-card-more-text-box'>
+                                <p className='dashboard-card-text-16'>추첨 링크</p>
+                                <p className='dashboard-card-text-12'>연결을 아직 못했다면?</p>
+                            </div>
+                            <p id='dashboard-card-checklink-btn' className={'dashboard-card-btn'} onClick={onClickCheckLink}>연결하기</p>
+                        </div>
+                        <div className='dashboard-card-btn-box'>
+                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/gift-icon.png'} alt=''/>
+                            <div  className='dashboard-card-more-text-box'>
+                                <p className='dashboard-card-text-16'>기프티콘</p>
+                                <p className='dashboard-card-text-12'>뭐가 얼마나 남은거지?</p>
+                            </div>
+                            <p id='dashboard-card-checkgift-btn' className={'dashboard-card-btn'} onClick={openGift}>확인하기</p>
+                        </div>
+                    </>                    
+                );
+            case 100:
+                return (
+                    <>
+                        <div className='dashboard-card-btn-box'>
+                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/icon-link.png'} alt=''/>
+                            <div className='dashboard-card-more-text-box'>
+                                <p className='dashboard-card-text-16'>추첨 링크</p>
+                                <p className='dashboard-card-text-12'>연결을 아직 못했다면?</p>
+                            </div>
+                            <p id='dashboard-card-checklink-btn' className={'dashboard-card-btn enabled'} onClick={onClickCheckLink}>연결하기</p>
+                        </div>
+                        <div className='dashboard-card-btn-box'>
+                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/gift-icon.png'} alt=''/>
+                            <div  className='dashboard-card-more-text-box'>
+                                <p className='dashboard-card-text-16'>기프티콘</p>
+                                <p className='dashboard-card-text-12'>뭐가 얼마나 남은거지?</p>
+                            </div>
+                            <p id='dashboard-card-checkgift-btn' className={'dashboard-card-btn enabled'} onClick={openGift}>확인하기</p>
+                        </div>
+                    </>                    
+                );
+        }
+    }
     function openGift(){
         fetch(`${baseUrl}/api/v1/dashboard/${item.id}/gifticons/`,{
             method:'GET',
@@ -50,6 +148,10 @@ export default function DashboardCard(props) {
             setGiftItem(res);
             setIsGiftListModalOpen(true);
         })
+    }
+    function addGift(){
+        window.sessionStorage.setItem('AddGiftProjectId', item.id);
+        history.push('/addgift');
     }
     function closeGift(){
         setIsGiftListModalOpen(false);
@@ -121,26 +223,7 @@ export default function DashboardCard(props) {
                 <p className='dashboard-card-text-28'>{item.total_respondent}명</p>
             </div>
             {
-                (item.project_status === 999)? (<></>):(
-                    <>
-                        <div className='dashboard-card-btn-box'>
-                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/icon-link.png'} alt=''/>
-                            <div className='dashboard-card-more-text-box'>
-                                <p className='dashboard-card-text-16'>추첨 링크</p>
-                                <p className='dashboard-card-text-12'>연결을 아직 못했다면?</p>
-                            </div>
-                            <p id='dashboard-card-checklink-btn' className={(item.project_status === 100)? 'dashboard-card-btn enabled':'dashboard-card-btn'} onClick={onClickCheckLink}>연결하기</p>
-                        </div>
-                        <div className='dashboard-card-btn-box'>
-                            <img className='dashboard-card-icon' src={process.env.PUBLIC_URL + '/gift-icon.png'} alt=''/>
-                            <div  className='dashboard-card-more-text-box'>
-                                <p className='dashboard-card-text-16'>기프티콘</p>
-                                <p className='dashboard-card-text-12'>뭐가 얼마나 남은거지?</p>
-                            </div>
-                            <p id='dashboard-card-checkgift-btn' className={(item.project_status === 100)? 'dashboard-card-btn enabled':'dashboard-card-btn'} onClick={openGift}>확인하기</p>
-                        </div>
-                    </>
-                )
+                getCardButtons(item)
             }
             {
                 isModalOpen?(

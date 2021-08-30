@@ -5,6 +5,15 @@
     justify-content: start;
     margin-top: 32px;
 }
+.project-link{
+    font-family: noto-regular;
+    color: #9696A3;
+    border: 1px #CDCDD6 solid;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #fff;
+    margin-top:  32px;;
+}
 .project-link-innercontainer{
     flex-direction: column;
     flex-grow: 1;
@@ -63,7 +72,7 @@
     justify-content: center;
     color: #fff;
     margin: 0px;
-    margin-top: 32px;
+    margin-top: 0px;
     width: fill;
     font-family: noto-medium;
 }

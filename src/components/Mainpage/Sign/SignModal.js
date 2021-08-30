@@ -6,7 +6,7 @@ import SignUp from './SignUp';
 import PWAssign from './PWAssign';
 
 function SignModal(props) {
-    const {justLogin, isModalOpen, closeModalFunction, loginFunction, createProject} = props;
+    const {justLogin, isModalOpen, closeModalFunction, loginFunction, createProject, signUpAndGoDashboard} = props;
     const [signInOpen, setSignInOpen] = useState(false);
     const [signUpOpen, setSignUpOpen] = useState(false);
     const [checkSignedUpOpen, setCheckSignedUpOpen] = useState(true);
@@ -53,7 +53,7 @@ function SignModal(props) {
                         <CheckSignedUp isCheckSignedOpen={checkSignedUpOpen} handleClickSignIn={handleClickSignIn} handleClickSignUp={handleClickSignUp}/>
                         <SignIn isOpen={signInOpen} closeModal={closeModalFunction} loginFunction={justLogin?loginFunction:createProject}/>
                         <SignUp isOpen={signUpOpen} openPWAssign={openPWAssign}/>
-                        <PWAssign isOpen={pwAssignOpen} closeModal={closeModalFunction} loginFunction={justLogin?loginFunction:createProject}/>
+                        <PWAssign isOpen={pwAssignOpen} closeModal={closeModalFunction} loginFunction={signUpAndGoDashboard}/>
                     </div>
                 </div>
                 ) : (

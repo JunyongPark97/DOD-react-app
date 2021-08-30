@@ -5,14 +5,11 @@ import Navbar from '../common/Navbar'
 import BootPay from 'bootpay-js'
 import baseUrl from '../../network/network';
 import LogoBar from '../common/LogoBar';
-import './CreatePage.css'
-import { data } from 'jquery';
+import AddGiftProject from './AddGiftProject';
 
-function CreatePage() {
+function AddGiftPage() {
     const history = useHistory();
     const [price, setPrice] = useState(0);
-    const [startDate, setStartDate] = useState(initStartDate());
-    const [endDate, setEndDate] = useState(initEndDate());
     const [productList, setProductList] = useState([]);
     const [customUploadList, setCustomUploadList] = useState([]);
     const [totalProductNum, setTotalProductNum] = useState(0);
@@ -40,39 +37,9 @@ function CreatePage() {
         })
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        
     }, [])
-
-    function initEndDate(){
-        var endDate = new Date();
-        endDate.setDate(endDate.getDate() + 7);
-        endDate.setHours(0, 0, 0, 0);
-        return endDate;
-    }
-    function initStartDate(){
-        var startDate = new Date();
-        startDate.setHours(0, 0, 0, 0);
-        return startDate;
-    }
     function onClickBack(){
         history.goBack();
-    }
-    function dataURLtoFile(dataurl, fileName){
- 
-        var arr = dataurl.split(','),
-            mime = arr[0].match(/:(.*?);/)[1],
-            bstr = atob(arr[1]), 
-            n = bstr.length, 
-            u8arr = new Uint8Array(n);
-            
-        while(n--){
-            u8arr[n] = bstr.charCodeAt(n);
-        }
-        
-        return new File([u8arr], fileName, {type:mime});
-    }
-    function getTimeString(date){
-        return `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`
     }
     function onClickFinish(){
         if(customUploadList.length >0){
@@ -81,10 +48,8 @@ function CreatePage() {
             for(var i = 0; i < customUploadList.length; i++ ){
                 data.append("custom_upload", fileList[i]);
             }
-            data.append("start_at", getTimeString(startDate));
-            data.append("dead_at", getTimeString(endDate));
 
-            fetch(`${baseUrl}/api/v1/project/`,{
+            fetch(`${baseUrl}/api/v1/project/${sessionStorage.getItem('AddGiftProjectId')}/add_gifticons/`,{
                 method:'POST',
                 headers:{
                     'accept' : 'application/json',
@@ -109,33 +74,6 @@ function CreatePage() {
 
         }
     }
-    function createProjectWithoutGift(){
-        fetch(`${baseUrl}/api/v1/project/`,{
-            method:'POST',
-            headers:{
-                'accept' : 'application/json',
-                'content-type' : 'application/json;charset=UTF-8',
-                'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
-            },
-            body:JSON.stringify({
-                start_at:getTimeString(startDate),
-                dead_at:getTimeString(endDate)
-            })
-            
-        }).then(function(res){
-            if(res.ok){
-                return res.json()
-            }else if(res.status === 401){
-                window.location.assign('/');
-            }else{
-                console.log(res);
-            }
-        }).then(res =>{
-            sessionStorage.setItem('getLinkProjectId', res.id);
-            window.location.assign('/projectlink');
-            setLoading(false);
-        })
-    }
     function onClickPay(){
         setLoading(true);
         var itemList = []
@@ -147,59 +85,29 @@ function CreatePage() {
                 })
             }
         })
-        if(projectId === undefined){
-            fetch(`${baseUrl}/api/v1/project/`,{
-                method:'POST',
-                headers:{
-                    'accept' : 'application/json',
-                    'content-type' : 'application/json;charset=UTF-8',
-                    'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
-                },
-                body:JSON.stringify({
-                    start_at:getTimeString(startDate),
-                    dead_at:getTimeString(endDate),
-                    items:itemList
-                })
-            }).then(function(res){
-                if(res.ok){
-                    return res.json()
-                }else if(res.status === 401){
-                    window.location.assign('/');
-                }else{
-                    console.log(res);
-                }
-            }).then(res => {
-                setProjectId(res.id);
-                getTotalPrice();
-                sendBootPay(res.id, res.total_price);
-            }).catch(error=>console.log(error))
-        }else{
-            fetch(`${baseUrl}/api/v1/project/${projectId}/`,{
-                method:'PUT',
-                headers:{
+        fetch(`${baseUrl}/api/v1/project/${sessionStorage.getItem('AddGiftProjectId')}/add_gifticons/`,{
+            method:'POST',
+            headers:{
                 'accept' : 'application/json',
                 'content-type' : 'application/json;charset=UTF-8',
                 'Authorization' : 'Token ' + sessionStorage.getItem('DODtoken')
-                },
-                body:JSON.stringify({
-                    start_at:getTimeString(startDate),
-                    dead_at:getTimeString(endDate),
-                    items:itemList
-                })
-            }).then(function(res){
-                if(res.ok){
-                    return res.json()
-                }else if(res.status === 401){
-                    window.location.assign('/');
-                }else{
-                    console.log(res);
-                }
-            }).then(res => {
-                setProjectId(res.id);
-                getTotalPrice();
-                sendBootPay(res.id, res.total_price);
-            }).catch(error=>console.log(error))
-        }
+            },
+            body:JSON.stringify({
+                items:itemList
+            })
+        }).then(function(res){
+            if(res.ok){
+                return res.json()
+            }else if(res.status === 401){
+                window.location.assign('/');
+            }else{
+                console.log(res);
+            }
+        }).then(res => {
+            setProjectId(res.id);
+            getTotalPrice();
+            sendBootPay(res.id, res.total_price);
+        }).catch(error=>console.log(error))
     }
     function sendBootPay(projectId, totalprice){
         fetch(`${baseUrl}/api/v1/payment/`, {
@@ -292,9 +200,9 @@ function CreatePage() {
             <div className={loading ? 'modal' : 'modal hide'}></div>
             <LogoBar/>
             <Navbar pageNum={0} onClickBack={onClickBack}/>
-            <CreateProject fileList={fileList} setFileList={setFileList} createProjectWithoutGift={createProjectWithoutGift} customUploadList={customUploadList} setCustomUploadList={setCustomUploadList} productList = {productList} setProductList={setProductList} setTotalProductNum={setTotalProductNum} startDate={startDate} endDate={endDate} setStartDate = {setStartDate} setEndDate={setEndDate} onClickPay={onClickPay} onClickFinish={onClickFinish}/>
+            <AddGiftProject fileList={fileList} setFileList={setFileList} customUploadList={customUploadList} setCustomUploadList={setCustomUploadList} productList = {productList} setProductList={setProductList} setTotalProductNum={setTotalProductNum} onClickPay={onClickPay} onClickFinish={onClickFinish}/>
         </div>
     )
 }
 
-export default CreatePage
+export default AddGiftPage

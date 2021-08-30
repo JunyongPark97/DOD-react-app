@@ -97,6 +97,20 @@
     transition: all ease 0.3s;
     background-color: #5832B3;
 }
+.dashboard-card-btn.disabled{
+    background-color: #FF4759;
+}
+.dashboard-card-btn.disabled:hover{
+    transition: all ease 0.3s;
+    background-color: #B3323F;
+}
+.dashboard-card-btn.test{
+    background-color: #3AE68F;
+}
+.dashboard-card-btn.test:hover{
+    transition: all ease 0.3s;
+    background-color: #27995F;
+}
 .progressbar-container{
     border-radius: 20px;
 }

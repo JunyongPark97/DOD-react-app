@@ -10,8 +10,8 @@
     color: #5832B3;
 }
 .dashboard-card-status.checking{
-    background-color: #FFC9C9;
-    color: #FF0000;
+    background-color: #FFD6DA;
+    color: #B3323F;
 }
 .dashboard-card-status.hold{
     background-color: #FFEDCC;
@@ -20,4 +20,8 @@
 .dashboard-card-status.complete{
     background-color: #CDCDD6;
     color: #020203;
+}
+.dashboard-card-status.test{
+    background-color: #CFFFE7;
+    color: #27995F;
 }

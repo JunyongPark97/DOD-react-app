@@ -37,12 +37,23 @@ function ProjectLinkPage() {
                 }
             }).then(res => {
                 setLinkItem(res);
-                setContent(`축하해요! 이제 실시간 추첨에 응모할 수 있어요 :)
-아래 링크에서 당첨 여부를 즉시 확인해보세요!
-${res.url}`)
+                setContent(`${getText(res.url)}`);
             })
         }
     }, [])
+    function getText(item){
+        if(item.project_status === 400){
+            return `테스트만 가능한 링크입니다!
+기프티콘 추가 후 실제로 이용해주세요 :)
+${item.url}
+`
+        }else{
+            return `실제 링크입니다!
+기프티콘 추가 후 실제로 이용해주세요 :)
+${item.url}
+`
+        }
+    }
     function onClickGoHome(){
         sessionStorage.removeItem('getLinkProjectId');
         history.push('/dashboard');
@@ -81,6 +92,11 @@ ${res.url}`)
             <div className='project-link-box' >
                 <p className='project-link-big-text'>만든 추첨 링크를 복사하세요</p>
                 <p className='project-link-small-text'>복사된 추첨 링크는 구글 설문지에 붙여넣을 거에요.</p>
+                <p className='project-link'>
+                    {
+                        getText(linkItem)
+                    }
+                </p>
                 <p className='project-link-copy-btn' onClick={copyText}><img src={process.env.PUBLIC_URL + '/icon-copy.png'} alt='' className='project-link-copy-img'/>링크 복사하기</p>
                 <img src={process.env.PUBLIC_URL + '/link-dod.png'} alt='' className='project-link-dod-img'/>
                 <img src={process.env.PUBLIC_URL + '/link-link.png'} alt='' className='project-link-link-img'/>

@@ -34,6 +34,9 @@ function Mainpage() {
     function createProject(){
         history.push('/create');
     }
+    function signUpAndGoDashboard(){
+        history.push('/dashboard');
+    }
     function openModalAndCreate(){
         if(window.sessionStorage.getItem('DODtoken') !== null){
             createProject();
@@ -47,7 +50,7 @@ function Mainpage() {
             <DodNavbar isLoggedIn = {loggedIn} openModal = {openModal}/>
             <Navigation location={0} isLoggedIn={loggedIn} openModal={openModal}/>
             <StartButtonBig showFB={showFB} openModal={openModalAndCreate}/>
-            <SignModal justLogin = {justLogin} isModalOpen = {isModalOpen} closeModalFunction = {closeModal} loginFunction={login} createProject = {createProject}/>
+            <SignModal justLogin = {justLogin} isModalOpen = {isModalOpen} closeModalFunction = {closeModal} loginFunction={login} createProject = {createProject} signUpAndGoDashboard={signUpAndGoDashboard}/>
             <Footer/>
         </div>
     )
