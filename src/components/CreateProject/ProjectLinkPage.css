@@ -13,7 +13,8 @@
     border-radius: 20px;
     width: fill;
     background-color: #fff;
-    margin-top:  32px;;
+    margin-top:  32px;
+    overflow-wrap: break-word;
 }
 .project-link-innercontainer{
     flex-direction: column;

@@ -216,10 +216,10 @@ function CreateProject(props) {
                     <img className='create-project-title-img' src={process.env.PUBLIC_URL + '/create-page-image2.png'}/>
                     <div className='create-project-title-text'>
                         <p className='create-project-card-text'>기프티콘</p>
-                        <p className='create-project-card-subtext'>{containGift?'어떤 걸 쓰시겠어요?':'나중에 넣어도 괜찮아요!'}</p>
+                        <p className='create-project-card-subtext'>{containGift?'어떤 걸 쓰시겠어요?':'나중에 해도 돼요!'}</p>
                     </div>
                     <img alt='' src={containGift?process.env.PUBLIC_URL + '/box-checked.png':process.env.PUBLIC_URL + '/box-empty.png'} />
-                    <p style={{fontFamily:'noto-regular', color:'#020203', marginLeft:'8px', marginRight:'0px'}}>지금 넣을게요!</p>
+                    <p style={{fontFamily:'noto-regular', color:'#020203', marginLeft:'8px', marginRight:'0px'}}>지금 추가</p>
                 </div>
                 {
                     containGift?(<>

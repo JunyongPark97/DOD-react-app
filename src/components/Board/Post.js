@@ -72,7 +72,11 @@ export default function Post(props) {
         
     }, [])
     function onClickBack(){
-        history.goBack();
+        if(history.action !== 'POP'){
+            history.goBack();
+        }else{
+            history.push('/board');
+        }
     }
     function onClickGo(){
         const a = document.createElement('a');

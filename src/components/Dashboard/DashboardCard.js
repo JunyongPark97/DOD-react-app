@@ -66,7 +66,7 @@ export default function DashboardCard(props) {
                                 <p className='dashboard-card-text-16'>기프티콘</p>
                                 <p className='dashboard-card-text-12'>뭐가 얼마나 남은거지?</p>
                             </div>
-                            <p id='dashboard-card-checkgift-btn' className={'dashboard-card-btn test'} onClick={openGift}>추가하기</p>
+                            <p id='dashboard-card-checkgift-btn' className={'dashboard-card-btn test'} onClick={openGift}>확인하기</p>
                         </div>
                     </>                    
                 );

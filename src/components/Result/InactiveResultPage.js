@@ -2,7 +2,7 @@ import React,{useState, useRef, useEffect} from 'react'
 import { useHistory } from 'react-router-dom';
 import './ResultPage.css'
 import baseUrl from '../../network/network';
-import TestResultModal from './TestResultModal';
+import InactiveResultModal from './InactiveResultModal';
 
 export default function TestResultPage(props) {
     const history=useHistory();
@@ -242,7 +242,7 @@ export default function TestResultPage(props) {
                     인증 후 당첨 확인하기
                 </button>
             </div>
-            <TestResultModal isModalOpen={showResultModal} showResult = {showResult} win={win} item_name={itemName} item_img_url={itemImgUrl}/>
+            <InactiveResultModal isModalOpen={showResultModal} showResult = {showResult} win={win} item_name={itemName} item_img_url={itemImgUrl}/>
         </div>
     )
 }
