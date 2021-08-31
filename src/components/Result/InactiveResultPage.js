@@ -1,10 +1,10 @@
 import React,{useState, useRef, useEffect} from 'react'
 import { useHistory } from 'react-router-dom';
 import './ResultPage.css'
-import ResultModal from './ResultModal'
 import baseUrl from '../../network/network';
+import TestResultModal from './TestResultModal';
 
-export default function ResultPage(props) {
+export default function TestResultPage(props) {
     const history=useHistory();
     const queryString = require('query-string');
     const params = queryString.parse(props.location.search)
@@ -117,8 +117,7 @@ export default function ResultPage(props) {
                 }else{
                     return res.json();
                 }
-            }
-            )
+            })
             .then(
                 (res) => {
                     if(res.non_field_errors[0] != ''){
@@ -193,7 +192,6 @@ export default function ResultPage(props) {
     function onClickMarketingAgree(){
         setMarketingAgree(!marketingAgree);
     }
-
     return (
         <div className='result-page-container'>
             <div className='result-page-top-container'>
@@ -201,11 +199,11 @@ export default function ResultPage(props) {
             </div>
             <div className='contour result-page'/>
             <div className='result-page-content'>
-                <p className='result-page-title'>기프티콘 당첨 여부를<br/>실시간으로 확인하세요</p>
+                <p className='result-page-title'>기프티콘이 아직 없는<br/>테스트 링크입니다</p>
                 <p className='result-page-subtitle'>
-                    설문 응답 즉시 디오디가 알려드려요!
+                    기프티콘을 추가하여 링크를 활성화해주세요!
                 </p>
-                <img className='result-page-dod-img' src={process.env.PUBLIC_URL + '/../dod.png'}/>
+                <p className='result-page-dod-img' style={{fontFamily:'noto-medium', fontSize:'81px', color:'#FF4759'}}>test</p>
                 <p className='result-page-text'>
                     당첨시 잘못된 번호로 전달되는 것을 방지하기 위해<br/>
                     휴대전화 문자 인증을 요청드리고 있습니다.<br/>
@@ -228,7 +226,7 @@ export default function ResultPage(props) {
                     <p className='signup-small-text'>인증번호</p>
                     <p ref={confirmKeyAlertMessage} className={confirmFailed? 'signup-confirm-fail' : 'signup-confirm-fail hide'}>인증번호가 다릅니다.</p>
                 </div>
-                <input ref={pwInput}name='pw' className = 'signup-pw-input' type="number" pattern="\d*" placeholder='인증번호를 입력해주세요' onChange={onChangeConfirmKey}>
+                <input ref={pwInput} name='pw' className = 'signup-pw-input' type="number" pattern="\d*" placeholder='인증번호를 입력해주세요' onChange={onChangeConfirmKey}>
                 </input>
                 {
                     showMarketingAgree?<>
@@ -244,7 +242,7 @@ export default function ResultPage(props) {
                     인증 후 당첨 확인하기
                 </button>
             </div>
-            <ResultModal isModalOpen={showResultModal} showResult = {showResult} win={win} item_name={itemName} item_img_url={itemImgUrl}/>
+            <TestResultModal isModalOpen={showResultModal} showResult = {showResult} win={win} item_name={itemName} item_img_url={itemImgUrl}/>
         </div>
     )
 }

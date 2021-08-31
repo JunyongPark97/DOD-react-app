@@ -16,6 +16,7 @@ import UpdatePost from './components/Board/UpdatePost';
 import TestResultPage from './components/Result/TestResultPage';
 import ThanksPage from './components/common/ThanksPage';
 import AddGiftPage from './components/CreateProject/AddGiftPage';
+import InactiveResultPage from './components/Result/InactiveResultPage'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path='/post/create/update' exact component={UpdatePost}/>
             <Route path='/post' exact component={Post}/>
             <Route path='/testlink' exact component={TestResultPage}/>
+            <Route path='/ownerlink' exact component={InactiveResultPage}/>
             <Route path='/thankyou' exact component={ThanksPage}/>
             <Route path='/addGift' exact component={AddGiftPage}/>
           </Switch>
