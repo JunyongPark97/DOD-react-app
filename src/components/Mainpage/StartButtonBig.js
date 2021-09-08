@@ -35,27 +35,15 @@ function StartButtonBig(props) {
     }
     return (
         <div className='startBtnBig-container'>
-            <p className={'startBtnBig-title'}>설문 응답자에게<br/>실시간으로 추첨해주세요</p>
-            <p className={'startBtnBig-subtitle'}>원하는 설문에 디오디 링크를 연결하여<br/>여러분만의 실시간 추첨 설문을 시작해보세요</p>
-            <div className='startBtnBig-innerbox'>
-                <p className='startBtnBig-btn' onClick={onClickTest}>실시간 추첨 체험해보기</p>
-                <img className='startBtnBig-arrow' alt='' src={process.env.PUBLIC_URL + '/arrow-right-white.png'}/>
+            <div className='startBtnBig-title-box'>
+                <p className={'startBtnBig-title'}>구글폼에<br/>링크 한 줄로<br/>실시간 추첨</p>
+                <p className='startBtnBig-btn'>무료로 링크 만들기</p>
+                <img className='startBtnBig-img' alt='' src={process.env.PUBLIC_URL + '/mainpage-img.png'}/>
             </div>
-            <img className='startBtnBig-img' alt='' src={process.env.PUBLIC_URL + '/mainpage-img.gif'}/>
-            <img className='startBtnBig-img2' alt='' src={process.env.PUBLIC_URL + '/arrow-down.png'}/>
-            <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual1-pc.png'} onClick={onClickDetails} style={{'cursor' : 'pointer'}}/>
-            <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual2-pc.png'}/>
-            <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual1-mobile.png'}  onClick={onClickDetails}  style={{'cursor' : 'pointer'}}/>
-            <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual2-mobile.png'}/>
-            <div className='wrapper'>
-            <ReactPlayer
-                className='player'
-                url='https://youtu.be/ejJvsP2eAJM'
-                width='100%'
-                controls={true}
-                height='100%'/>
-            
-            </div>
+            <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual1-pc.png'}/>
+            <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual2-pc.png'}  onClick={onClickDetails} style={{'cursor' : 'pointer'}}/>
+            <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual1-mobile.png'}/>
+            <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual2-mobile.png'}  onClick={onClickDetails}  style={{'cursor' : 'pointer'}}/>
             <div className='contour-thick'/>
             <p id='startBtnBig-start-btn' className={'floating-big-btn'} onClick={openModal} style={{'display' : 'none'}}>무료로 시작하기</p>
         </div>
