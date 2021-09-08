@@ -37,7 +37,7 @@ function StartButtonBig(props) {
         <div className='startBtnBig-container'>
             <div className='startBtnBig-title-box'>
                 <p className={'startBtnBig-title'}>구글폼에<br/>링크 한 줄로<br/>실시간 추첨</p>
-                <p className='startBtnBig-btn'>무료로 링크 만들기</p>
+                <p className='startBtnBig-btn' onClick={openModal}>무료로 링크 만들기</p>
                 <img className='startBtnBig-img' alt='' src={process.env.PUBLIC_URL + '/mainpage-img.png'}/>
             </div>
             <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual1-pc.png'}/>
