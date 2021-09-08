@@ -138,7 +138,6 @@
     margin-bottom: 64px;
     font-family: noto-medium;
 }
-
 @media(max-width:640px){
     .project-link-manual-img-pc{
         width: 100%;

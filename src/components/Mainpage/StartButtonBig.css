@@ -5,6 +5,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    background-color: #3C3C47;
+    padding-bottom: 32px;
 }
 .contour-thick{
     width: 100%;
@@ -81,19 +84,16 @@
 .startBtnBig-gif-mobile{
     display: none;
 }
-.wrapper {
-    margin-top: 32px;
-    width: 100%;
-    position: relative;
-    padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+.startBtnBig-bottom-text{
+    font-size: 28px;
+    color: #fff;
+    font-family: noto-bold;
+    text-align: center;
+    margin-top: 64px;
 }
-  
-.player {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+#startBtnBig-start-btn{
+    margin:32px 24px;
+    width: fill;
 }
 @media (max-width : 640px) {
     .startBtnBig-gif-web{

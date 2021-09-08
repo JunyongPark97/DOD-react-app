@@ -27,12 +27,6 @@ function StartButtonBig(props) {
         }
         
     }
-    function onClickDetails(){
-        const a = document.createElement('a');
-        a.setAttribute('href', dodAdvantageDetail);
-        a.setAttribute('target', '_blank');
-        a.click();
-    }
     return (
         <div className='startBtnBig-container'>
             <div className='startBtnBig-title-box'>
@@ -44,7 +38,9 @@ function StartButtonBig(props) {
             <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual2-pc.png'}  onClick={onClickTest} style={{'cursor' : 'pointer'}}/>
             <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual1-mobile.png'}/>
             <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual2-mobile.png'}  onClick={onClickTest}  style={{'cursor' : 'pointer'}}/>
-            <div className='contour-thick'/>
+            <p className='startBtnBig-bottom-text'>
+                지금 무료로<br/>간단하게 시작하세요
+            </p>
             <p id='startBtnBig-start-btn' className={'floating-big-btn'} onClick={openModal} style={{'display' : 'none'}}>무료로 시작하기</p>
         </div>
     )
