@@ -41,9 +41,9 @@ function StartButtonBig(props) {
                 <img className='startBtnBig-img' alt='' src={process.env.PUBLIC_URL + '/mainpage-img.png'}/>
             </div>
             <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual1-pc.png'}/>
-            <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual2-pc.png'}  onClick={onClickDetails} style={{'cursor' : 'pointer'}}/>
+            <img className='startBtnBig-gif-web' src={process.env.PUBLIC_URL + '/main-manual2-pc.png'}  onClick={onClickTest} style={{'cursor' : 'pointer'}}/>
             <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual1-mobile.png'}/>
-            <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual2-mobile.png'}  onClick={onClickDetails}  style={{'cursor' : 'pointer'}}/>
+            <img className='startBtnBig-gif-mobile' src={process.env.PUBLIC_URL + '/main-manual2-mobile.png'}  onClick={onClickTest}  style={{'cursor' : 'pointer'}}/>
             <div className='contour-thick'/>
             <p id='startBtnBig-start-btn' className={'floating-big-btn'} onClick={openModal} style={{'display' : 'none'}}>무료로 시작하기</p>
         </div>
