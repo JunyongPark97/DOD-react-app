@@ -47,7 +47,7 @@ export default function ResultModal(props) {
                                                 <p className='result-win-alert-text'>·모바일 쿠폰의 유효기간 연장 및 환불이 불가하므로<br/>
                                                     반드시 유효기간 내 사용하시기 바랍니다
                                                     <br/>
-                                                    ·쿠폰 확인이 안되실 경우, <u style={{fontFamily : 'noto-medium'}} className='clickable' onClick={onClickSmsAgain}>여기를 클릭해 주세요</u>
+                                                    ·쿠폰 확인이 안되실 경우, <u style={{fontFamily : 'noto-medium', cursor:'pointer'}} className='clickable' onClick={onClickSmsAgain}>여기를 클릭해 주세요</u>
                                                 </p>
                                             )
                                             
@@ -60,7 +60,7 @@ export default function ResultModal(props) {
                                             </p>
                                         )
                                     }
-                                    <div className='result-modal-plz-container clickable' onClick={onClickMore}>
+                                    <div className='result-modal-plz-container clickable' onClick={onClickMore}  style={{cursor:'pointer'}}>
                                         <p className='result-modal-plz-text'>
                                             다른 설문 참여하고<br/>한번 더 추첨하실 수 있어요
                                         </p>
