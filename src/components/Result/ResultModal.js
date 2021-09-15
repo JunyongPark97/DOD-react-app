@@ -5,7 +5,7 @@ import {dodMoreBoard} from '../../network/network'
 
 export default function ResultModal(props) {
     const history = useHistory();
-    const {isModalOpen, showResult,win,item_name,item_img_url} = props;
+    const {isModalOpen, showResult,win,item_name,item_img_url, is_dod_lottery} = props;
     function onClickMore(){
         window.location.assign(dodMoreBoard);
     }
@@ -25,19 +25,32 @@ export default function ResultModal(props) {
                             showResult?(
                                 <>
                                     {
-                                        win?(<p className='result-modal-title'>축하합니다!<br/>당첨되셨어요!</p>):(<></>)
+                                        win?(
+                                            is_dod_lottery?<p className='result-modal-title'>축하합니다!<br/>디오디 추첨에 당첨되셨어요!</p>:<p className='result-modal-title'>축하합니다!<br/>당첨되셨어요!</p>
+                                        ):(<></>)
                                     }
                                     {
-                                        win?(<p className='result-modal-subtitle'>인증하신 번호로 문자 발송되었습니다!</p>):(<></>)
+                                        win?(
+                                            is_dod_lottery?<p className='result-modal-subtitle'>디오디 추첨은 매일 저녁 일괄발송 됩니다.</p>:<p className='result-modal-subtitle'>인증하신 번호로 문자 발송되었습니다!</p>
+                                        ):(<></>)
                                     }
                                     <img className={win?('result-modal-img-win'):('result-modal-img')} src={win?(item_img_url):(process.env.PUBLIC_URL + 'dod-sorry.gif')}></img>
                                     {
                                         win?(
-                                            <p className='result-win-alert-text'>·모바일 쿠폰의 유효기간 연장 및 환불이 불가하므로<br/>
-                                                반드시 유효기간 내 사용하시기 바랍니다
-                                                <br/>
-                                                ·쿠폰 확인이 안되실 경우, <u style={{fontFamily : 'noto-medium'}} className='clickable' onClick={onClickSmsAgain}>여기를 클릭해 주세요</u>
-                                            </p>
+                                            is_dod_lottery?(
+                                                <p className='result-win-alert-text'>·모바일 쿠폰의 유효기간 연장 및 환불이 불가하므로<br/>
+                                                    반드시 유효기간 내 사용하시기 바랍니다
+                                                    <br/>
+                                                    ·디오디 추첨은 매일 저녁 일괄발송 됩니다.
+                                                </p>
+                                            ):(
+                                                <p className='result-win-alert-text'>·모바일 쿠폰의 유효기간 연장 및 환불이 불가하므로<br/>
+                                                    반드시 유효기간 내 사용하시기 바랍니다
+                                                    <br/>
+                                                    ·쿠폰 확인이 안되실 경우, <u style={{fontFamily : 'noto-medium'}} className='clickable' onClick={onClickSmsAgain}>여기를 클릭해 주세요</u>
+                                                </p>
+                                            )
+                                            
                                         ):(
                                             <p className='result-win-alert-text'>·평균 3-5%의 확률로 당첨자가 선정됩니다.
                                                 <br/>

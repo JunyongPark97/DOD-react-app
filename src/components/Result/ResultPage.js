@@ -19,6 +19,7 @@ export default function ResultPage(props) {
     const [showResult, setShowResult] = useState(false);
     const [itemName, setItemName] = useState('');
     const [itemImgUrl, setItemImgUrl] = useState('');
+    const [dodLottery, setDodLottery] = useState(false);
     const [marketingAgree, setMarketingAgree] = useState(true);
     const [showMarketingAgree, setShowMarketingAgree] = useState(false);
 
@@ -174,6 +175,7 @@ export default function ResultPage(props) {
                         setWin(res.is_win);
                         setItemName(res.item_name);
                         setItemImgUrl(res.won_thumbnail);
+                        setDodLottery(res.dod_lottery);
                         setShowResultModal(true);
                         setTimeout(()=>{
                             setShowResult(true);
@@ -241,7 +243,7 @@ export default function ResultPage(props) {
                     인증 후 당첨 확인하기
                 </button>
             </div>
-            <ResultModal isModalOpen={showResultModal} showResult = {showResult} win={win} item_name={itemName} item_img_url={itemImgUrl}/>
+            <ResultModal isModalOpen={showResultModal} showResult = {showResult} win={win} item_name={itemName} item_img_url={itemImgUrl} is_dod_lottery={dodLottery}/>
         </div>
     )
 }
