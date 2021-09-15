@@ -47,15 +47,15 @@ function TestResultModal(props) {
                                             </p>
                                         )
                                     }
-                                    <div className='result-modal-plz-container' onClick={onClickMore}  style={{cursor:'pointer'}}>
-                                        <p className='result-modal-plz-text'>
+                                    <div className='result-modal-plz-container' onClick={onClickMore} style={{cursor:'pointer'}}>
+                                        <p className='result-modal-plz-text'  style={{cursor:'pointer'}}>
                                             다른 설문 참여하고<br/>한번 더 추첨하실 수 있어요
                                         </p>
-                                        <div className='result-modal-plz-innerbox'>
-                                            <p className='result-modal-plz-btn' >자세히 보기</p>
-                                            <img className='result-modal-plz-arrow' alt='' src={process.env.PUBLIC_URL + '/arrow-right-blue.png'}/>
+                                        <div className='result-modal-plz-innerbox'  style={{cursor:'pointer'}}>
+                                            <p className='result-modal-plz-btn'  style={{cursor:'pointer'}}>자세히 보기</p>
+                                            <img className='result-modal-plz-arrow' style={{cursor:'pointer'}} alt='' src={process.env.PUBLIC_URL + '/arrow-right-blue.png'}/>
                                         </div>
-                                        <img className='result-modal-plz-img' alt='' src={process.env.PUBLIC_URL + '/hand.png'}/>
+                                        <img className='result-modal-plz-img' alt='' src={process.env.PUBLIC_URL + '/hand.png'} style={{cursor:'pointer'}}/>
                                     </div>
                                 </>
                             ):(

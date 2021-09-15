@@ -61,14 +61,14 @@ export default function ResultModal(props) {
                                         )
                                     }
                                     <div className='result-modal-plz-container clickable' onClick={onClickMore}  style={{cursor:'pointer'}}>
-                                        <p className='result-modal-plz-text'>
+                                        <p className='result-modal-plz-text' style={{cursor:'pointer'}}>
                                             다른 설문 참여하고<br/>한번 더 추첨하실 수 있어요
                                         </p>
-                                        <div className='result-modal-plz-innerbox'>
-                                            <p className='result-modal-plz-btn' >자세히 보기</p>
-                                            <img className='result-modal-plz-arrow' alt='' src={process.env.PUBLIC_URL + '/arrow-right-blue.png'}/>
+                                        <div style={{cursor:'pointer'}} className='result-modal-plz-innerbox'>
+                                            <p style={{cursor:'pointer'}} className='result-modal-plz-btn' >자세히 보기</p>
+                                            <img style={{cursor:'pointer'}} className='result-modal-plz-arrow' alt='' src={process.env.PUBLIC_URL + '/arrow-right-blue.png'}/>
                                         </div>
-                                        <img className='result-modal-plz-img' alt='' src={process.env.PUBLIC_URL + '/hand.png'}/>
+                                        <img style={{cursor:'pointer'}} className='result-modal-plz-img' alt='' src={process.env.PUBLIC_URL + '/hand.png'}/>
                                     </div>
                                 </>
                             ):(
