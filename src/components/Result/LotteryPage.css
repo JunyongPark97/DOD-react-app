@@ -1,0 +1,63 @@
+.lottery-title{
+    font-family: noto-bold;
+    font-size: 14px;
+    color: #26154D;
+    width: fill;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 16px;
+}
+.lottery-page-top-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+.lottery-tab{
+    width: fill;
+    border-radius: 30px;
+    background-color: #26154D;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+.lottery-tab-on{
+    border-radius: 30px;
+    background-color: #fff;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    text-align: center;
+    flex-grow: 1;
+    color: #020203;
+    font-family: noto-medium;
+    font-size: 12px;
+    margin:3px;
+    cursor: pointer;
+}
+.lottery-tab-off{
+    border-radius: 30px;
+    background-color: #26154D;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    text-align: center;
+    flex-grow: 1;
+    color: #fff;
+    font-family: noto-medium;
+    font-size: 12px;
+    margin:3px;
+    cursor: pointer;
+}
+.lottery-container{
+    width: 360px;
+    padding: 18px 16px;
+    background-color: #F3F4F6;
+}
+@media(max-width:680px){
+    
+    .lottery-container{
+        width: fill;
+    }
+}

@@ -1,0 +1,47 @@
+.project-info-card{
+    background-color: #fff;
+    border-radius: 12px;
+    
+    flex-grow: 1;
+    padding: 12px 16px;
+}
+.project-info-card-title{
+    color: #6C7681;
+    font-family: noto-medium;
+    font-size: 12px;
+    text-align: start;
+    width: fill;
+    margin: 0px;
+    margin-bottom: 16px;
+}
+.project-info-container{
+    width: fill;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.project-info-card-content{
+    color: #020203;
+    font-family: noto-medium;
+    font-size: 16px;
+    text-align: start;
+    width: fill;
+    margin: 0px;
+}
+.project-info-winner-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: fill;
+    margin-top: 16px;
+}
+.project-info-item-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: fill;
+    margin-top: 16px;
+}

@@ -20,6 +20,8 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
+    background-color: #fff;
+    border-radius: 12px;
 }
 .contour.result-page{
     width: fill;
@@ -65,10 +67,10 @@
     margin-bottom: 0px;
 }
 .result-page-dod-img{
-    height: 120px;
-    width: 167px;
-    margin-top: 24px;
-    margin-bottom: 0px;
+    height: 103px;
+    width: 103px;
+    margin-top: 30px;
+    margin-bottom: 32px;
 }
 .result-page-dod-img.forbidden-page{
     height: 100px;
@@ -88,7 +90,7 @@
     color: #9696A3;
     margin-top: 24px;
     margin-bottom: 24px;
-    text-align: start;
+    text-align: center;
     width: fill;
 }
 .result-page-text-alarm{

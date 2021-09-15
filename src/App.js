@@ -17,6 +17,7 @@ import TestResultPage from './components/Result/TestResultPage';
 import ThanksPage from './components/common/ThanksPage';
 import AddGiftPage from './components/CreateProject/AddGiftPage';
 import InactiveResultPage from './components/Result/InactiveResultPage'
+import Result from './components/Result/Result';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
             <Route path='/projectlink' exact component={ProjectLinkPage}/>
             <Route path='/dashboard' exact component={DashboardPage}/>
             <Route path='/mypage' exact component={Mypage}/>
-            <Route path='/link' component={ResultPage}/>
+            <Route path='/link' component={Result}/>
             <Route path='/invalid' exact component={InvalidPage}/>
             <Route path='/forbidden' exact component={ForbiddenPage}/>
             <Route path='/board' exact component={Board}/>
@@ -37,8 +38,8 @@ function App() {
             <Route path='/post/create/content' exact component={CreatePost}/>
             <Route path='/post/create/update' exact component={UpdatePost}/>
             <Route path='/post' exact component={Post}/>
-            <Route path='/testlink' exact component={TestResultPage}/>
-            <Route path='/ownerlink' exact component={InactiveResultPage}/>
+            <Route path='/testlink' exact component={Result}/>
+            <Route path='/ownerlink' exact component={Result}/>
             <Route path='/thankyou' exact component={ThanksPage}/>
             <Route path='/addGift' exact component={AddGiftPage}/>
           </Switch>

@@ -5,11 +5,13 @@ import baseUrl from '../../network/network';
 import TestResultModal from './TestResultModal';
 
 export default function TestResultPage(props) {
+    const {location} = props;
     const history=useHistory();
     const queryString = require('query-string');
-    const params = queryString.parse(props.location.search)
+    const params = queryString.parse(location)
     const [projectKey, setProjectId] = useState(params.p);
     const [validatorKey, setValidatorKey] = useState(params.v);
+    console.log(projectKey, validatorKey)
     const [smsSuccess, setsmsSuccess] = useState(false);
     const [smsFail, setsmsFail] = useState(false);
     const [confirmFailed, setConfirmFailed] = useState(false);
@@ -195,16 +197,12 @@ export default function TestResultPage(props) {
     }
     return (
         <div className='result-page-container'>
-            <div className='result-page-top-container'>
-                <img className='result-page-logo' src={process.env.PUBLIC_URL + '/../nav-logo.png'}/>
-            </div>
-            <div className='contour result-page'/>
             <div className='result-page-content'>
                 <p className='result-page-title'>기프티콘 당첨 여부를<br/>실시간으로 확인하세요</p>
                 <p className='result-page-subtitle'>
                     설문 응답 즉시 디오디가 알려드려요!
                 </p>
-                <img className='result-page-dod-img' src={process.env.PUBLIC_URL + '/../dod.png'}/>
+                <img className='result-page-dod-img' src={process.env.PUBLIC_URL + '/gift-on.png'}/>
                 <p className='result-page-text'>
                     당첨시 잘못된 번호로 전달되는 것을 방지하기 위해<br/>
                     휴대전화 문자 인증을 요청드리고 있습니다.<br/>

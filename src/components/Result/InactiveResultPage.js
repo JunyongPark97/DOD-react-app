@@ -4,10 +4,11 @@ import './ResultPage.css'
 import baseUrl from '../../network/network';
 import InactiveResultModal from './InactiveResultModal';
 
-export default function TestResultPage(props) {
+export default function InactiveResultPage(props) {
+    const {location} = props;
     const history=useHistory();
     const queryString = require('query-string');
-    const params = queryString.parse(props.location.search)
+    const params = queryString.parse(location)
     const [projectKey, setProjectId] = useState(params.p);
     const [validatorKey, setValidatorKey] = useState(params.v);
     const [smsSuccess, setsmsSuccess] = useState(false);
@@ -194,16 +195,12 @@ export default function TestResultPage(props) {
     }
     return (
         <div className='result-page-container'>
-            <div className='result-page-top-container'>
-                <img className='result-page-logo' src={process.env.PUBLIC_URL + '/../nav-logo.png'}/>
-            </div>
-            <div className='contour result-page'/>
             <div className='result-page-content'>
-                <p className='result-page-title'>기프티콘이 아직 없는<br/>테스트 링크입니다</p>
+                <p className='result-page-title'>기프티콘이 없는<br/>테스트 링크입니다</p>
                 <p className='result-page-subtitle'>
                     기프티콘을 추가하여 링크를 활성화해주세요!
                 </p>
-                <p className='result-page-dod-img' style={{fontFamily:'noto-medium', fontSize:'81px', color:'#FF4759'}}>test</p>
+                <img className='result-page-dod-img' src={process.env.PUBLIC_URL + '/../gift-off.png'}/>
                 <p className='result-page-text'>
                     당첨시 잘못된 번호로 전달되는 것을 방지하기 위해<br/>
                     휴대전화 문자 인증을 요청드리고 있습니다.<br/>
