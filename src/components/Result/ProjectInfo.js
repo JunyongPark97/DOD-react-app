@@ -42,6 +42,16 @@ export default function ProjectInfo(props) {
                             </p>
                         </div>
                     </div>
+                    {
+                        (projectInfoObj.dod_lottery !== true)?<></>:(
+                            <div className='project-info-nomore-gift project-info-card'>
+                                <p style={{color:'#020203', fontFamily:'noto-medium', fontSize:'18px', margin:'0px', width:'fill', textAlign:'start'}}>당첨확률 15%의 디오디 자체추첨!</p>
+                                <p style={{color:'#6C7681', fontFamily:'noto-medium', fontSize:'12px', margin:'0px', marginTop:'12px', marginBottom:'18px', width:'fill', textAlign:'start'}}>약속한 기프티콘이 모두 당첨되었어도 걱정하지 마세요.
+디오디가 선물들을 드리고 있어요. 어떤 상품이 있는지 알아볼까요?</p>
+                                <p onClick={onClickMore} style={{padding:'8px', width:'fill', backgroundColor:'#7C44F9', borderRadius:'8px',color:'#fff', fontFamily:'noto-medium', fontSize:'14px', textAlign:'center', cursor:'pointer'}}>자세히 볼래요</p>
+                            </div>
+                        )
+                    }
                     <div className='project-info-left-gift project-info-card' style={{marginTop:'16px', marginBottom:'16px'}}>
                         <p style={{color:'#020203', fontFamily:'noto-medium', fontSize:'18px', margin:'0px', width:'fill', textAlign:'start', marginBottom:'4px'}}>남은 상품 개수</p>
                         {
@@ -50,16 +60,6 @@ export default function ProjectInfo(props) {
                             })
                         }
                     </div>
-                    {
-                        (projectInfoObj.dod_lottery !== true)?<></>:(
-                            <div className='project-info-nomore-gift project-info-card'>
-                                <p style={{color:'#020203', fontFamily:'noto-medium', fontSize:'18px', margin:'0px', width:'fill', textAlign:'start'}}>상품이 다 떨어졌는데 어떡하죠?</p>
-                                <p style={{color:'#6C7681', fontFamily:'noto-medium', fontSize:'12px', margin:'0px', marginTop:'12px', marginBottom:'18px', width:'fill', textAlign:'start'}}>괜찮아요. 디오디에서 추첨이 끝날때까지 자체적으로
-상품을 채워놓고 있어요.</p>
-                                <p onClick={onClickMore} style={{padding:'8px', width:'fill', backgroundColor:'#7C44F9', borderRadius:'8px',color:'#fff', fontFamily:'noto-medium', fontSize:'14px', textAlign:'center', cursor:'pointer'}}>자세히 볼래요</p>
-                            </div>
-                        )
-                    }
                     
                     <div className='project-info-winners project-info-card' style={{marginTop:'16px'}}>
                         <p style={{color:'#020203', fontFamily:'noto-medium', fontSize:'18px', margin:'0px', width:'fill', textAlign:'start', marginBottom:'4px'}}>당첨을 축하합니다!</p>
