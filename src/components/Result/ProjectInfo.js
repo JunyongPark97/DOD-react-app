@@ -51,7 +51,7 @@ export default function ProjectInfo(props) {
                         }
                     </div>
                     {
-                        (projectInfoObj.left_count !== '없음')?<></>:(
+                        (projectInfoObj.left_count !== '0개')?<></>:(
                             <div className='project-info-nomore-gift project-info-card'>
                                 <p style={{color:'#020203', fontFamily:'noto-medium', fontSize:'18px', margin:'0px', width:'fill', textAlign:'start'}}>상품이 다 떨어졌는데 어떡하죠?</p>
                                 <p style={{color:'#6C7681', fontFamily:'noto-medium', fontSize:'12px', margin:'0px', marginTop:'12px', marginBottom:'18px', width:'fill', textAlign:'start'}}>괜찮아요. 디오디에서 추첨이 끝날때까지 자체적으로
