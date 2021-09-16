@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import { useHistory } from 'react-router';
 import './ResultModal.css'
-import {dodMoreBoard} from '../../network/network'
+import {dodMoreBoard, giftNotDelivered} from '../../network/network'
 
 export default function ResultModal(props) {
     const history = useHistory();
@@ -11,7 +11,7 @@ export default function ResultModal(props) {
     }
     function onClickSmsAgain(){
         const a = document.createElement('a');
-        a.setAttribute('href', 'https://www.notion.so/755a29a0d63b40fe91e1cd9c915b3039');
+        a.setAttribute('href', giftNotDelivered);
         a.setAttribute('target', '_blank');
         a.click();
     }
