@@ -44,11 +44,11 @@ export default function ProjectInfo(props) {
                     </div>
                     {
                         (projectInfoObj.dod_lottery !== true)?<></>:(
-                            <div className='project-info-nomore-gift project-info-card'  style={{marginTop:'16px', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+                            <div className='project-info-nomore-gift project-info-card'  style={{marginTop:'16px'}}>
                                 <p style={{color:'#020203', fontFamily:'noto-medium', fontSize:'18px', margin:'0px', width:'fill', textAlign:'start'}}>당첨확률 15%의 디오디 자체추첨!</p>
                                 <p style={{color:'#6C7681', fontFamily:'noto-medium', fontSize:'12px', margin:'0px', marginTop:'12px', marginBottom:'18px', width:'fill', textAlign:'start'}}>약속한 기프티콘이 모두 당첨되었어도 걱정하지 마세요.
 디오디가 선물들을 드리고 있어요. 어떤 상품이 있는지 알아볼까요?</p>
-                                <img src={projectInfoObj.dod_lottery_image} alt='' style={{width:'205px', height:'48px', marginTop:'0px', marginBottom:'0px'}}/>
+                                <img src={projectInfoObj.dod_lottery_image} alt='' style={{width:'205px', height:'48px', marginTop:'0px', marginBottom:'0px', display:'block', margin:'auto'}}/>
                                 <p onClick={onClickMore} style={{padding:'8px', width:'fill', backgroundColor:'#7C44F9', borderRadius:'8px',color:'#fff', fontFamily:'noto-medium', fontSize:'14px', textAlign:'center', cursor:'pointer', marginTop:'18px', marginBottom:'0px'}}>자세히 볼래요</p>
                             </div>
                         )
