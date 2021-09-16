@@ -25,9 +25,14 @@ function LotteryPage(props) {
                     추첨 상품 공지
                 </p>
             </div>
-            <div>
+            <div style={onLottery?({display:'block'}):({display:'none'})}>
                 {
-                    onLottery?innerComponent:<ProjectInfo projectInfoObj={projectInfoObj}/>
+                    innerComponent
+                }
+            </div>
+            <div style={onLottery?({display:'none'}):({display:'block'})}>
+                {
+                    <ProjectInfo projectInfoObj={projectInfoObj}/>
                 }
             </div>
         </div>
